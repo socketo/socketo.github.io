@@ -1,0 +1,11 @@
+baseURL = 'https://socketo.github.io'
+title = 'socketo.github.io'
+languageCode = 'ja'
+theme = 'PaperMod'
+author = 'socketo'
+[[menu.main]]
+    name = "about"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "about"
+    url = "/about"
