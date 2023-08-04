@@ -3,9 +3,17 @@ title = 'socketo.github.io'
 languageCode = 'ja'
 theme = 'PaperMod'
 author = 'socketo'
+
+[[menu.main]]
+    name = "posts"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "posts"
+    url = "/posts"
+
 [[menu.main]]
     name = "about"
     pre = "<i class='fa fa-heart'></i>"
-    weight = -110
+    weight = -100
     identifier = "about"
     url = "/about"
