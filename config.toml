@@ -4,6 +4,18 @@ languageCode = 'ja'
 theme = 'PaperMod'
 author = 'socketo'
 
+[params.profileMode]
+enabled = true
+title = "Hi, I'm scoketo"
+subtitle = 'Digital Forensics | Security Engineer'
+
+[params]
+socialIcons = [
+    { name = "twitter", url = "https://twitter.com/sys_socket" },
+    { name = "github", url = "https://github.com/socketo" },
+]
+
+
 [[menu.main]]
     name = "posts"
     pre = "<i class='fa fa-heart'></i>"
