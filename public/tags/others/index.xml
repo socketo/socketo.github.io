@@ -6,7 +6,17 @@
     <description>Recent content in Others on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 25 Apr 2023 22:00:26 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/others/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 15:58:43 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>はてなブログからブログを移行しました</title>
+      <link>https://socketo.github.io/posts/2023/08/10/</link>
+      <pubDate>Wed, 09 Aug 2023 15:58:43 +0900</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2023/08/10/</guid>
+      <description>3ヶ月前くらいに、GitHub Pagesにブログを移行しようとして止まっていた手をようやく動かして、過去のブログにあった記事をすべてこっちに移行した。
+旧ブログ : https://socketo.hatenablog.jp/</description>
+    </item>
+    
     <item>
       <title>Hello Hugo</title>
       <link>https://socketo.github.io/posts/2023/04/25/</link>
