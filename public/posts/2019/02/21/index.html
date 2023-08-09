@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>BLE CTF WriteUp | socketo.github.io</title>
+<meta name="keywords" content="Security, CTF, Bluetooth">
+<meta name="description" content="※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
+hackgnar - Learning Bluetooth Hackery with BLE CTF
+http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html
+ble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf
+READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。
+私の今回の環境は以下
+ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
+ESP32ビルド環境 macOS Mojave version 10.14.3
+端末(ThinkPad X220) Kali Linux
+環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
+国内だと秋月やマルツなどで売ってる。
+ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
+Wi-Fi&#43;BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
+ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
+Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
+Espressif IoT Development Framework : https://github.">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2019/02/21/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="BLE CTF WriteUp" />
+<meta property="og:description" content="※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
+hackgnar - Learning Bluetooth Hackery with BLE CTF
+http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html
+ble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf
+READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。
+私の今回の環境は以下
+ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
+ESP32ビルド環境 macOS Mojave version 10.14.3
+端末(ThinkPad X220) Kali Linux
+環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
+国内だと秋月やマルツなどで売ってる。
+ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
+Wi-Fi&#43;BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
+ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
+Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
+Espressif IoT Development Framework : https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2019/02/21/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-02-21T20:33:47+00:00" />
+<meta property="article:modified_time" content="2019-02-21T20:33:47+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BLE CTF WriteUp"/>
+<meta name="twitter:description" content="※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
+hackgnar - Learning Bluetooth Hackery with BLE CTF
+http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html
+ble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf
+READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。
+私の今回の環境は以下
+ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
+ESP32ビルド環境 macOS Mojave version 10.14.3
+端末(ThinkPad X220) Kali Linux
+環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
+国内だと秋月やマルツなどで売ってる。
+ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
+Wi-Fi&#43;BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
+ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
+Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
+Espressif IoT Development Framework : https://github."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "BLE CTF WriteUp",
+      "item": "https://socketo.github.io/posts/2019/02/21/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "BLE CTF WriteUp",
+  "name": "BLE CTF WriteUp",
+  "description": "※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include \u0026lt;sys_socket.h\u0026gt;\nはじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。\nhackgnar - Learning Bluetooth Hackery with BLE CTF\nhttp://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html\nble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf\nREADMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。\n私の今回の環境は以下\nESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ\nESP32ビルド環境 macOS Mojave version 10.14.3\n端末(ThinkPad X220) Kali Linux\n環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。\n国内だと秋月やマルツなどで売ってる。\nＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/\nWi-Fi+BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/\nESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)\nArudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。\nEspressif IoT Development Framework : https://github.",
+  "keywords": [
+    "Security", "CTF", "Bluetooth"
+  ],
+  "articleBody": "※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。\nhackgnar - Learning Bluetooth Hackery with BLE CTF\nhttp://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html\nble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf\nREADMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。\n私の今回の環境は以下\nESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ\nESP32ビルド環境 macOS Mojave version 10.14.3\n端末(ThinkPad X220) Kali Linux\n環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。\n国内だと秋月やマルツなどで売ってる。\nＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/\nWi-Fi+BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/\nESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)\nArudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。\nEspressif IoT Development Framework : https://github.com/espressif/esp-idf\nESP-IDFの設定はGitHubのREADMEにも書いてあるこちらを参考。\nGetting Started Guide for the latest (master branch) ESP-IDF version\ntoolchainを設定していく。\n$ git clone --recursive https://github.com/espressif/esp-idf.git 「–recursive」でサブモジュールもcloneする。\n環境変数$IDF_PATHを利用してESP-IDFへアクセスするので環境変数を設定する。\nexport IDF_PATH=$HOME/workspace/esp-idf/ 必要なPythonパッケージをpipでインストールする。\n$ pip install -r esp-idf/requirements.txt とりあえずサンプルプログラムのHello Worldをやる\n$ cp -r esp-idf/example/get-started/hello_world ~/esp $ cd ~/esp/hello_wolrd $ make menuconfig 「Serial flasher config」を選択。\n「(/dev/ttyUSB0) Default serial port」の部分を、macOSの環境なので「/dev/cu.SLAB_USBtoUART」に変更して 他は特に変更せずにSaveしてexit exit\nDEFCONFIG # # configuration written to /Users/socketo/workspace/projects/esp/hello_world/sdkconfig # MENUCONFIG *** End of the configuration. *** Execute 'make' to start the build or try 'make help'. GENCONFIG Project is not inside a git repository, will not use 'git describe' to determine PROJECT_VER. App \"hello-world\" version: 1 大丈夫そうなのでmake\n$ make 特にエラーなどなければflashする\n$ make flash monitorで確認する\n$ make monitor とりあえずSampleの動かし方はなんとなく分かった。\nBLE CTFをビルドする Hello Worldと同様に今回のBLE CTFもビルドする。\n$ git clone https://github.com/hackgnar/ble_ctf $ cd ble_ctf $ make menuconfig 「Serial flasher config」を選択、「(/dev/ttyUSB0) Default serial port」の部分を、macOSの環境なので「/dev/cu.SLAB_USBtoUART」に変更して他は特に変更せずにSaveしてexit exit\n特に問題がなければmake\n$ make 特にエラーなどの問題がなければflash\n$ make flash 稼働しているかをnRF Connect(アプリ)で確認する。\nnRF Connect on the App Store : https://itunes.apple.com/us/app/nrf-connect/id1054362403\nとりあえず稼働しているようなので、前置きが長くなったがこれでようやくCTFの問題に取り組む。\nBLE CTF BLE CTFのスコアはgatttoolかBleahで確認することが出来る。\ngatttool $ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\\n' Score: 0/20 Bleah $ bleah -b \"24:0a:c4:23:d3:16\" -e FLAGのSubmitもgatttoolかBleahで可能。\nFLAGの形式は20文字で切ったMD5ハッシュ(MTU制限の為20文字にした様子)になっており、ハンドル44(0x002c)でgattサーバへ送信する形式になってる。\nFLAGは全部で20個。\nFLAG1 This flag is a gift and can only be obtained from reading the hint! https://github.com/hackgnar/ble_ctf/blob/master/docs/hints/flag1.md\nBLE handleにwriteする為の練習問題。\ngatttoolで現在のスコアを確認\n$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\\n' Score: 0/20 gatttoolでFLAGをsubmitする。(gatttoolの場合はxxd -psでhexにする必要がある)\n$ gatttool -b 24:0a:c4:23:d3:16 --char-write-req -a 0x002c -n $(echo -n \"12345678901234567890\"|xxd -ps) 書き込みが成功した様子\nCharacteristic value was written successfully スコアを確認すると、1/20となっており得点が入った。\ngatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\\n' こんな感じでFLAGをsubmitしていく。\n以降、gatttoolではなくbleahでsubmitしていく\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x002c -d \"[FLAG]\" Flag 0x002e Learn how to read handles はじめにbleahでスコアを確認した時($ bleah -b \"24:0a:c4:23:d3:16\" -e)にhandle「0x002e」にDataの部分にFLAGが書いてあった。\n一応gatttoolで確かめる。\n$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002e|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\\n' FLAG:d205303e099ceff44835\nFlag 0x0030 Read handle puzzle fun handle 0x0030を見ると以下のASCIIが読める。\nMD5 of Device Name\nこのデバイスの名前のMD5ハッシュ値がFLAGのようで、nRF ConnectでもBleahでも見たように、このデバイスの名前は「BLECTF」なのでMD5ハッシュ値にした後に先頭20文字を切り出す。\n$ echo -n \"BLECTF\" | md5sum | cut -c-20 FLAG:5cd56d74049ae40f442e\nFlag 0x0016 Learn about discoverable device attributes deviceのattributesについて。handle「0x0016」をのData部分を確認。\n$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x0016 | awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\\n' 先頭20文字を切り出す。\nFLAG:2b00042f7481c7b056c4\nFlag 0x0032 Learn about reading and writing to handles handle「0x0032」のData部分を読むと、「Write anything here」となっており何かしら書き込む必要があるらしい。\n適当にhandle「0x0032」へbleahで書き込みをする。\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x0032 -d \"hogehoge\" すると、Data部分が書き換わりFLAGが出てくる。\nFLAG:3873c0270763568cf7aa\nFlag 0x0034 Learn about reading and writing ascii to handles handle「0x0034」のData部分を読むと以下の文字列が出てくる。\n「Write the ascii value “yo” here」\n”yo”と書き込めとのことなので、bleahで「yo」と書き込む。\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x0034 -d \"yo\" すると、一つ前の問題と同じでData部分が書き換わりFLAGが出てくる。\nFLAG:c55c6314b3db0a6128af\nFlag 0x0036 Learn about reading and writing hex to handles handle「0x0036」を読むと以下の文字列が出てくる。\n「Write the hex value 0x07 here」\nhexで「0x07」を書き込む。bleahは–data部分をそのままhexに書くとhexで書き込むことになる。\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x0036 -d 0x07 FLAG:1179080b29f8da16ad66\nFlag 0x0038 Learn about reading and writing to handles differently handle「0x0038」を読むと以下の文字列が出てくる。\n「Write 0xC9 to handle 58」\nhandle58(0x3a)へ0xC9を書き込む。\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x003a -d 0xc9 FLAG:f8b136d937fad6a2be9f\n大分同じような問題で飽きてきた。\nFlag 0x003c Learn about write fuzzing handle「0x003c」を読むと以下の文字列が出てくる。\n「Brute force my value 00 to ff」\n00〜ffまでBrute Forceしろとのこと。\n許してと言いながら雑にgatttoolでhandle「0x003c」へ00〜ffの書き込みを繰り返す。\n#!/bin/bash for i in `seq 0 255`; do printf \"%02x\" $i gatttool -b 24:0a:c4:23:d3:16 --char-write-req -a 0x003c -n `printf \"%02x\" $i` done FLAG:933c1fcfa8ed52d2ec05\nFlag 0x003e Learn about read and write speeds handle「0x003e」を読むと以下の文字列が出てくる。\n「Read me 1000 times」\nまたも許してと言いながらgatttoolでhandle「0x003e」を1000回読む\n#!/bin/bash for i in `seq 0 999`; do echo -n $i gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x003e done FLAG:6ffcd214ffebdc0d069e\nFlag 0x0040 Learn about single response notifications handle「0x0040」を読むと以下の文字列が出てくる。\n「Listen to me for a single notification」\nNotificationを受け取る為に分かりやすくgatttoolのインタラクティブモードにする。\n＄gatttool -i hci0 -b 24:0a:c4:23:d3:16 -I [24:0a:c4:23:d3:16][LE]\u003e connect Attempting to connect to 24:0a:c4:23:d3:16 Connection successful 「ENABLE_NOTIFICATION_value=0x0100」にすると良いらしいので、handleに「0x0100」を書き込む。 [24:0a:c4:23:d3:16][LE]\u003e char-write-req 0x0040 0x0100 Characteristic value was written successfully Notification handle = 0x0040 value: 35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62 FLAGのフォーマットにする。\n$ echo \"35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62\" | tr -d ' ' | xxd -r -p; FLAG:5ec3772bcd00cf06d8eb\nFlag 0x0042 Learn about single response indicate handle「0x0044」を読むと以下の文字列が出てくる。\n「Listen to handle 0x0044 for a single indication」\nNotificationとの違いはIndicateはクライアントからの応答も要求することらしい。\nhttp://yegang.hatenablog.com/entry/2014/08/09/195246\n「0x0200」を書き込む。\n[24:0a:c4:23:d3:16][LE]\u003e char-write-req 0x0044 0x0200 Characteristic value was written successfully Indication handle = 0x0044 value: 63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33 FLAGのフォーマットにする。\n$ echo \"63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33\" | tr -d ' ' | xxd -r -p; FLAG:c7b86dd121848c77c113\nFlag 0x0046 Learn about multi response notifications handle「0x0046」を読むと以下の文字列が出てくる。\n「Listen to me for multi notifications」\n複数のNotificationを受け取る。\n相変わらずgatttoolのインタラクティブモードでやる。\nhandle「0x0046」に「0x0100」を書き込むとNotificationがどんどん降ってくる。\n最初Notificationだけが違って、それ以降は同じものの様子。\n最初のNotificationをASCIIにする。\n$ echo \"55 20 6e 6f 20 77 61 6e 74 20 74 68 69 73 20 6d 73 67 00 00\" | tr -d ' ' | xxd -r -p 「U no want this msg」となり、それ以降がFLAGの様子なのでFLAGのフォーマットにする。\n$ echo \"63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64\" | tr -d ' ' | xxd -r -p FLAG:c9457de5fd8cafe349fd\nFlag 0x0048 Learn about multi response indicate handle「0x0048」を読むと以下の文字列が出てくる。\n「Listen to handle 0x004a for multi indications」\nFlag「0x0046」と同じgatttoolのインタラクティブモードでやる。 Flag「0x0042」と同じように「0x0200」を書き込む。\n一番最初は同じくダミーなので、それ以降のvalueをFLAGのフォーマットにする。\n$ echo \"62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61\" | tr -d ' ' | xxd -r -p FLAG:b6f3a47f207d38e16ffa\nFlag 0x004c Learn about BT client device attributes handle「0x004c」を読むと以下の文字列が出てくる。\n「Connect with BT MAC address 11:22:33:44:55:66」\nBluetoothのMAC Addressを「11:22:33:44:55:66」にして接続をする。\n参考 : Bluetoothアダプタのデバイスアドレスを変更する。 - freefielder.jp\nhttps://freefielder.jp/blog/2015/10/changing-bluetooth-address.html\nbccmd psset -s 0 bdaddr 0x44 0x00 0x66 0x55 0x33 0x00 0x22 0x11 hciconfigでBDのアドレスが変更されたことを確認。\nhci0: Type: Primary Bus: USB BD Address: 11:22:33:44:55:66 ACL MTU: 310:10 SCO MTU: 64:8 DOWN RX bytes:574 acl:0 sco:0 events:30 errors:0 TX bytes:368 acl:0 sco:0 commands:30 errors:0 BLECTFへ接続するとFLAGが降ってくる。\nFLAG:aca16920583e42bdcf5f\nFlag 0x004e Learn about message sizes MTU handle「0x004e」を読むと以下の文字列が出てくる。\n「Set your connection MTU to 444」\nMTUを「444」に変更する。\ngatttoolのインタラクティブモードにして、helpを見ると「mtu」を変更出来る項目がある。\n[24:0a:c4:23:d3:16][LE]\u003e help help Show this help exit Exit interactive mode quit Exit interactive mode connect [address [address type]] Connect to a remote device disconnect Disconnect from a remote device primary [UUID] Primary Service Discovery included [start hnd [end hnd]] Find Included Services characteristics [start hnd [end hnd [UUID]]] Characteristics Discovery char-desc [start hnd] [end hnd] Characteristics Descriptor Discovery char-read-hnd Characteristics Value/Descriptor Read by handle char-read-uuid [start hnd] [end hnd] Characteristics Value/Descriptor Read by UUID char-write-req Characteristic Value Write (Write Request) char-write-cmd Characteristic Value Write (No response) sec-level [low | medium | high] Set security level. Default: low mtu Exchange MTU for GATT/ATT mtuを444に変更してhandle「0x004e」を読む。\n[24:0a:c4:23:d3:16][LE]\u003e mtu 444 MTU was exchanged successfully: 444 [24:0a:c4:23:d3:16][LE]\u003e char-read-hnd 0x004e Characteristic value/descriptor: 62 31 65 34 30 39 65 35 61 34 65 61 66 39 66 65 35 31 35 38 FLAGのフォーマットにする。\n$ echo \"62 31 65 34 30 39 65 35 61 34 65 61 66 39 66 65 35 31 35 38\" | tr -d ' ' | xxd -r -p FLAG:b1e409e5a4eaf9fe5158\nFlag 0x0050 Learn about write responses handle「0x0050」を読むと以下の文字列が出てくる。\n「Write+resp ‘hello’」\n普通にhandle「0x0050」に書き込みをして読み直したら、FLAGが出てきた。\n想定としては書き込んだらレスポンスで返ってくる？\n$ bleah -b \"24:0a:c4:23:d3:16\" -n 0x0050 -d \"hello\" FLAG:d41d8cd98f00b204e980\nFlag 0x0052 Hidden notify property handle「0x0052」を読むと以下の文字列が出てくる。\n「No notifications here! really?」\n確かにBleahで見てもNotificationが無い。\ngatttoolのインタラクティブモードでNotificationをONにする「0x0100」を書き込む。\n[24:0a:c4:23:d3:16][LE]\u003e char-write-req 0x0052 0x0100 Characteristic value was written successfully Notification handle = 0x0052 value: 66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62 FLAGのフォーマットにする。\n$ echo \"66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62\" | tr -d ' ' | xxd -r -p FLAG:fc920c68b6006169477b\nFlag 0x0054 Use multiple handle properties handle「0x0054」を読むと以下の文字列が出てくる。\n「So many properties!」\nBleahでPropatiesを見ると「NOTIFY BROADCAST READ WRITE EXTENDED PROPERTIES」と様々ある。\nよく分からないのでHintを見る\nCheck out all of the handle properties on 0x0054! Poke around with all of them and find pieces to your flag.\nPropatiesをチェックして、FLAGの断片を見つけてとのこと。\n適当に書き込む。\n[24:0a:c4:23:d3:16][LE]\u003e char-write-req 0x0054 0xFFFF Characteristic value was written successfully Notification handle = 0x0054 value: 30 37 65 34 61 30 63 63 34 38 $ echo \"30 37 65 34 61 30 63 63 34 38\" | tr -d ' ' | xxd -r -p 10文字07e4a0cc48が出てきた。\n書き込んだ後にhandle「0x0054」をreadすると10文字fbb966958fが出てくる。\n07e4a0cc48fbb966958fかfbb966958f07e4a0cc48を書き込んで得点できれば多分合っているだろうという感じで書き込む。\n当たりは後半の方だった。\nFLAG:fbb966958f07e4a0cc48\nFlag 0x0056 OSINT the author! handle「0x0054」を読むと以下の文字列が出てくる。\n「MD5 of author’s twitter handle」\nこの作者のTwitterのハンドルのMD5ハッシュ値を答えろとのこと。\n冒頭でも書いた通り、この作者は@hackgnar氏なので、この文字列をMD5ハッシュ値を20文字にする。\n$ echo -n '@hackgnar' | md5sum | cut -c-20 FLAG:d953bfb9846acc2e15ee\nおわり ESP32-DevkitCを買ったまま腐らしていたので、使い道として適当に使えたのは良かった。\ngatttoolとBleahの使い方とかを学ぶには良い感じだった、多分BLE通信をするデバイスとかをESP32などで開発するとより理解が追いつく気がしたのでこれを機にちょっとやっていきたい。\nArduinoIDEなどでもサクッと書けるようなので遊んでいきたい気持ち。\n",
+  "wordCount" : "1393",
+  "inLanguage": "en",
+  "datePublished": "2019-02-21T20:33:47Z",
+  "dateModified": "2019-02-21T20:33:47Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2019/02/21/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      BLE CTF WriteUp
+    </h1>
+    <div class="post-meta"><span title='2019-02-21 20:33:47 +0000 UTC'>February 21, 2019</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>※ 移行前の元ブログ記事 : <a href="https://socketo.hatenablog.jp/entry/2019/02/21/203347">BLE CTF WriteUp - #include &lt;sys_socket.h&gt;</a></p>
+<h1 id="はじめに">はじめに<a hidden class="anchor" aria-hidden="true" href="#はじめに">#</a></h1>
+<p>昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された<a href="https://twitter.com/hackgnar">@hackgnar</a>氏のBLE CTFをやってみるという話。</p>
+<p>hackgnar - Learning Bluetooth Hackery with BLE CTF</p>
+<p><a href="http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html">http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html</a></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/lx5MAOyu9N0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>ble_ctf_ A Bluetooth low energy capture the flag :  <a href="https://github.com/hackgnar/ble_ctf">https://github.com/hackgnar/ble_ctf</a></p>
+<p>READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。</p>
+<p>私の今回の環境は以下</p>
+<p>ESP32-DevkitC V4
+エレコムのよく分からんBluetooth USBアダプタ</p>
+<p>ESP32ビルド環境
+macOS Mojave version 10.14.3</p>
+<p>端末(ThinkPad X220)
+Kali Linux</p>
+<p><img loading="lazy" src="20190221011136.jpg" alt="f:id:socketo:20190221011136j:plain"  title="f:id:socketo:20190221011136j:plain"  />
+</p>
+<hr>
+<h1 id="環境構築">環境構築<a hidden class="anchor" aria-hidden="true" href="#環境構築">#</a></h1>
+<p>ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。</p>
+<p>国内だと秋月やマルツなどで売ってる。</p>
+<p>ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード <a href="http://akizukidenshi.com/catalog/g/gM-11819/">http://akizukidenshi.com/catalog/g/gM-11819/</a></p>
+<p>Wi-Fi+BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 <a href="https://www.marutsu.co.jp/pc/i/952928/">https://www.marutsu.co.jp/pc/i/952928/</a></p>
+<h2 id="esp32の環境構築-esp-idf">ESP32の環境構築 [ESP-IDF]<a hidden class="anchor" aria-hidden="true" href="#esp32の環境構築-esp-idf">#</a></h2>
+<p>ESP32のビルド環境を整える(macOS Mojave version 10.14.3)</p>
+<p>Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。</p>
+<p>Espressif IoT Development Framework : <a href="https://github.com/espressif/esp-idf">https://github.com/espressif/esp-idf</a></p>
+<p>ESP-IDFの設定はGitHubのREADMEにも書いてあるこちらを参考。</p>
+<p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/get-started/">Getting Started Guide for the latest (master branch) ESP-IDF version</a></p>
+<p>toolchainを設定していく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ git clone --recursive https://github.com/espressif/esp-idf.git
+</span></span></code></pre></div><p>「&ndash;recursive」でサブモジュールもcloneする。</p>
+<p>環境変数<code>$IDF_PATH</code>を利用してESP-IDFへアクセスするので環境変数を設定する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>export IDF_PATH=$HOME/workspace/esp-idf/
+</span></span></code></pre></div><p>必要なPythonパッケージをpipでインストールする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ pip install -r esp-idf/requirements.txt
+</span></span></code></pre></div><p>とりあえずサンプルプログラムのHello Worldをやる</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ cp -r esp-idf/example/get-started/hello_world ~/esp
+</span></span><span style="display:flex;"><span>$ cd ~/esp/hello_wolrd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ make menuconfig
+</span></span></code></pre></div><p><img loading="lazy" src="20190221000527.png" alt="f:id:socketo:20190221000527p:plain"  title="f:id:socketo:20190221000527p:plain"  />
+</p>
+<p>「Serial flasher config」を選択。</p>
+<p><img loading="lazy" src="20190221000552.png" alt="f:id:socketo:20190221000552p:plain"  title="f:id:socketo:20190221000552p:plain"  />
+</p>
+<p>「(/dev/ttyUSB0) Default serial port」の部分を、macOSの環境なので「/dev/cu.SLAB_USBtoUART」に変更して 他は特に変更せずにSaveしてexit exit</p>
+<p><img loading="lazy" src="20190221000613.png" alt="f:id:socketo:20190221000613p:plain"  title="f:id:socketo:20190221000613p:plain"  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>DEFCONFIG
+</span></span><span style="display:flex;"><span>#
+</span></span><span style="display:flex;"><span># configuration written to /Users/socketo/workspace/projects/esp/hello_world/sdkconfig
+</span></span><span style="display:flex;"><span>#
+</span></span><span style="display:flex;"><span>MENUCONFIG
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>*** End of the configuration.
+</span></span><span style="display:flex;"><span>*** Execute &#39;make&#39; to start the build or try &#39;make help&#39;.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GENCONFIG
+</span></span><span style="display:flex;"><span>Project is not inside a git repository, will not use &#39;git describe&#39; to determine PROJECT_VER.
+</span></span><span style="display:flex;"><span>App &#34;hello-world&#34; version: 1
+</span></span></code></pre></div><p>大丈夫そうなのでmake</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make
+</span></span></code></pre></div><p>特にエラーなどなければflashする</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make flash
+</span></span></code></pre></div><p>monitorで確認する</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make monitor
+</span></span></code></pre></div><p><img loading="lazy" src="20190221010539.png" alt="f:id:socketo:20190221010539p:plain"  title="f:id:socketo:20190221010539p:plain"  />
+</p>
+<p>とりあえずSampleの動かし方はなんとなく分かった。</p>
+<h2 id="ble-ctfをビルドする">BLE CTFをビルドする<a hidden class="anchor" aria-hidden="true" href="#ble-ctfをビルドする">#</a></h2>
+<p>Hello Worldと同様に今回のBLE CTFもビルドする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ git clone https://github.com/hackgnar/ble_ctf
+</span></span><span style="display:flex;"><span>$ cd ble_ctf
+</span></span><span style="display:flex;"><span>$ make menuconfig
+</span></span></code></pre></div><p>「Serial flasher config」を選択、「(/dev/ttyUSB0) Default serial port」の部分を、macOSの環境なので「/dev/cu.SLAB_USBtoUART」に変更して他は特に変更せずにSaveしてexit exit</p>
+<p>特に問題がなければmake</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make
+</span></span></code></pre></div><p>特にエラーなどの問題がなければflash</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make flash
+</span></span></code></pre></div><p>稼働しているかをnRF Connect(アプリ)で確認する。</p>
+<p>nRF Connect on the App Store : <a href="https://itunes.apple.com/us/app/nrf-connect/id1054362403">https://itunes.apple.com/us/app/nrf-connect/id1054362403</a></p>
+<p><img loading="lazy" src="20190221001331.jpg" alt="f:id:socketo:20190221001331j:plain"  title="f:id:socketo:20190221001331j:plain"  />
+</p>
+<p>とりあえず稼働しているようなので、前置きが長くなったがこれでようやくCTFの問題に取り組む。</p>
+<h1 id="ble-ctf">BLE CTF<a hidden class="anchor" aria-hidden="true" href="#ble-ctf">#</a></h1>
+<p>BLE CTFのスコアはgatttoolか<a href="https://github.com/evilsocket/bleah">Bleah</a>で確認することが出来る。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>gatttool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F&#39;:&#39; &#39;{print $2}&#39;|tr -d &#39; &#39;|xxd -r -p;printf &#39;\n&#39;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Score: 0/20
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Bleah
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34; -e
+</span></span></code></pre></div><p><img loading="lazy" src="20190221001356.png" alt="f:id:socketo:20190221001356p:plain"  title="f:id:socketo:20190221001356p:plain"  />
+</p>
+<p>FLAGのSubmitもgatttoolかBleahで可能。</p>
+<p>FLAGの形式は20文字で切ったMD5ハッシュ(MTU制限の為20文字にした様子)になっており、ハンドル44(0x002c)でgattサーバへ送信する形式になってる。</p>
+<p>FLAGは全部で20個。</p>
+<h2 id="flag1-this-flag-is-a-gift-and-can-only-be-obtained-from-reading-the-hint">FLAG1 This flag is a gift and can only be obtained from reading the hint!<a hidden class="anchor" aria-hidden="true" href="#flag1-this-flag-is-a-gift-and-can-only-be-obtained-from-reading-the-hint">#</a></h2>
+<p><a href="https://github.com/hackgnar/ble_ctf/blob/master/docs/hints/flag1.md">https://github.com/hackgnar/ble_ctf/blob/master/docs/hints/flag1.md</a></p>
+<p>BLE handleにwriteする為の練習問題。</p>
+<p>gatttoolで現在のスコアを確認</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F&#39;:&#39; &#39;{print $2}&#39;|tr -d &#39; &#39;|xxd -r -p;printf &#39;\n&#39;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Score: 0/20
+</span></span></code></pre></div><p>gatttoolでFLAGをsubmitする。(gatttoolの場合は<code>xxd -ps</code>でhexにする必要がある)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ gatttool -b 24:0a:c4:23:d3:16 --char-write-req -a 0x002c -n $(echo -n &#34;12345678901234567890&#34;|xxd -ps)
+</span></span></code></pre></div><p>書き込みが成功した様子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Characteristic value was written successfully
+</span></span></code></pre></div><p>スコアを確認すると、1/20となっており得点が入った。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002a|awk -F&#39;:&#39; &#39;{print $2}&#39;|tr -d &#39; &#39;|xxd -r -p;printf &#39;\n&#39;
+</span></span></code></pre></div><p>こんな感じでFLAGをsubmitしていく。</p>
+<p>以降、gatttoolではなくbleahでsubmitしていく</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34; -n 0x002c -d &#34;[FLAG]&#34;
+</span></span></code></pre></div><h2 id="flag-0x002e-learn-how-to-read-handles">Flag 0x002e Learn how to read handles<a hidden class="anchor" aria-hidden="true" href="#flag-0x002e-learn-how-to-read-handles">#</a></h2>
+<p>はじめにbleahでスコアを確認した時(<code>$ bleah -b &quot;24:0a:c4:23:d3:16&quot; -e</code>)にhandle「0x002e」にDataの部分にFLAGが書いてあった。</p>
+<p><img loading="lazy" src="20190221001425.png" alt="f:id:socketo:20190221001425p:plain"  title="f:id:socketo:20190221001425p:plain"  />
+</p>
+<p>一応gatttoolで確かめる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x002e|awk -F&#39;:&#39; &#39;{print $2}&#39;|tr -d &#39; &#39;|xxd -r -p;printf &#39;\n&#39;
+</span></span></code></pre></div><p>FLAG:<code>d205303e099ceff44835</code></p>
+<h2 id="flag-0x0030-read-handle-puzzle-fun">Flag 0x0030 Read handle puzzle fun<a hidden class="anchor" aria-hidden="true" href="#flag-0x0030-read-handle-puzzle-fun">#</a></h2>
+<p>handle 0x0030を見ると以下のASCIIが読める。</p>
+<p>MD5 of Device Name</p>
+<p>このデバイスの名前のMD5ハッシュ値がFLAGのようで、nRF ConnectでもBleahでも見たように、このデバイスの名前は「BLECTF」なのでMD5ハッシュ値にした後に先頭20文字を切り出す。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo -n &#34;BLECTF&#34; | md5sum | cut -c-20
+</span></span></code></pre></div><p>FLAG:<code>5cd56d74049ae40f442e</code></p>
+<h2 id="flag-0x0016-learn-about-discoverable-device-attributes">Flag 0x0016 Learn about discoverable device attributes<a hidden class="anchor" aria-hidden="true" href="#flag-0x0016-learn-about-discoverable-device-attributes">#</a></h2>
+<p>deviceのattributesについて。handle「0x0016」をのData部分を確認。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x0016 | awk -F&#39;:&#39; &#39;{print $2}&#39;|tr -d &#39; &#39;|xxd -r -p;printf &#39;\n&#39;
+</span></span></code></pre></div><p>先頭20文字を切り出す。</p>
+<p>FLAG:<code>2b00042f7481c7b056c4</code></p>
+<h2 id="flag-0x0032-learn-about-reading-and-writing-to-handles">Flag 0x0032 Learn about reading and writing to handles<a hidden class="anchor" aria-hidden="true" href="#flag-0x0032-learn-about-reading-and-writing-to-handles">#</a></h2>
+<p>handle「0x0032」のData部分を読むと、「Write anything here」となっており何かしら書き込む必要があるらしい。</p>
+<p><img loading="lazy" src="20190221001501.png" alt="f:id:socketo:20190221001501p:plain"  title="f:id:socketo:20190221001501p:plain"  />
+</p>
+<p>適当にhandle「0x0032」へbleahで書き込みをする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34; -n 0x0032 -d &#34;hogehoge&#34;
+</span></span></code></pre></div><p>すると、Data部分が書き換わりFLAGが出てくる。</p>
+<p><img loading="lazy" src="20190221001528.png" alt="f:id:socketo:20190221001528p:plain"  title="f:id:socketo:20190221001528p:plain"  />
+</p>
+<p>FLAG:<code>3873c0270763568cf7aa</code></p>
+<h2 id="flag-0x0034-learn-about-reading-and-writing-ascii-to-handles">Flag 0x0034 Learn about reading and writing ascii to handles<a hidden class="anchor" aria-hidden="true" href="#flag-0x0034-learn-about-reading-and-writing-ascii-to-handles">#</a></h2>
+<p>handle「0x0034」のData部分を読むと以下の文字列が出てくる。</p>
+<p>「Write the ascii value &ldquo;yo&rdquo; here」</p>
+<p>”yo”と書き込めとのことなので、bleahで「yo」と書き込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34; -n 0x0034 -d &#34;yo&#34;
+</span></span></code></pre></div><p>すると、一つ前の問題と同じでData部分が書き換わりFLAGが出てくる。</p>
+<p>FLAG:<code>c55c6314b3db0a6128af</code></p>
+<h2 id="flag-0x0036-learn-about-reading-and-writing-hex-to-handles">Flag 0x0036 Learn about reading and writing hex to handles<a hidden class="anchor" aria-hidden="true" href="#flag-0x0036-learn-about-reading-and-writing-hex-to-handles">#</a></h2>
+<p>handle「0x0036」を読むと以下の文字列が出てくる。</p>
+<p>「Write the hex value 0x07 here」</p>
+<p>hexで「0x07」を書き込む。bleahは&ndash;data部分をそのままhexに書くとhexで書き込むことになる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34;  -n 0x0036 -d 0x07
+</span></span></code></pre></div><p>FLAG:<code>1179080b29f8da16ad66</code></p>
+<h2 id="flag-0x0038-learn-about-reading-and-writing-to-handles-differently">Flag 0x0038 Learn about reading and writing to handles differently<a hidden class="anchor" aria-hidden="true" href="#flag-0x0038-learn-about-reading-and-writing-to-handles-differently">#</a></h2>
+<p>handle「0x0038」を読むと以下の文字列が出てくる。</p>
+<p>「Write 0xC9 to handle 58」</p>
+<p>handle58(0x3a)へ0xC9を書き込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34;  -n 0x003a -d 0xc9
+</span></span></code></pre></div><p>FLAG:<code>f8b136d937fad6a2be9f</code></p>
+<p>大分同じような問題で飽きてきた。</p>
+<h2 id="flag-0x003c-learn-about-write-fuzzing">Flag 0x003c Learn about write fuzzing<a hidden class="anchor" aria-hidden="true" href="#flag-0x003c-learn-about-write-fuzzing">#</a></h2>
+<p> handle「0x003c」を読むと以下の文字列が出てくる。</p>
+<p>「Brute force my value 00 to ff」</p>
+<p>00〜ffまでBrute Forceしろとのこと。</p>
+<p>許してと言いながら雑にgatttoolでhandle「0x003c」へ00〜ffの書き込みを繰り返す。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#!/bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for i in `seq 0 255`;
+</span></span><span style="display:flex;"><span>do
+</span></span><span style="display:flex;"><span>printf &#34;%02x&#34; $i
+</span></span><span style="display:flex;"><span>gatttool -b 24:0a:c4:23:d3:16 --char-write-req -a 0x003c -n `printf &#34;%02x&#34; $i`
+</span></span><span style="display:flex;"><span>done
+</span></span></code></pre></div><p>FLAG:<code>933c1fcfa8ed52d2ec05</code></p>
+<h2 id="flag-0x003e-learn-about-read-and-write-speeds">Flag 0x003e Learn about read and write speeds<a hidden class="anchor" aria-hidden="true" href="#flag-0x003e-learn-about-read-and-write-speeds">#</a></h2>
+<p> handle「0x003e」を読むと以下の文字列が出てくる。</p>
+<p>「Read me 1000 times」</p>
+<p>またも許してと言いながらgatttoolでhandle「0x003e」を1000回読む</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#!/bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for i in `seq 0 999`;
+</span></span><span style="display:flex;"><span>do
+</span></span><span style="display:flex;"><span>echo -n $i
+</span></span><span style="display:flex;"><span>gatttool -b 24:0a:c4:23:d3:16 --char-read -a 0x003e
+</span></span><span style="display:flex;"><span>done
+</span></span></code></pre></div><p>FLAG:<code>6ffcd214ffebdc0d069e</code></p>
+<h2 id="flag-0x0040-learn-about-single-response-notifications">Flag 0x0040 Learn about single response notifications<a hidden class="anchor" aria-hidden="true" href="#flag-0x0040-learn-about-single-response-notifications">#</a></h2>
+<p> handle「0x0040」を読むと以下の文字列が出てくる。</p>
+<p>「Listen to me for a single notification」</p>
+<p>Notificationを受け取る為に分かりやすくgatttoolのインタラクティブモードにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>＄gatttool -i hci0 -b 24:0a:c4:23:d3:16 -I
+</span></span><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; connect
+</span></span><span style="display:flex;"><span>Attempting to connect to 24:0a:c4:23:d3:16
+</span></span><span style="display:flex;"><span>Connection successful
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>「ENABLE_NOTIFICATION_value=0x0100」にすると良いらしいので、handleに「0x0100」を書き込む。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; char-write-req 0x0040 0x0100
+</span></span><span style="display:flex;"><span>Characteristic value was written successfully
+</span></span><span style="display:flex;"><span>Notification handle = 0x0040 value: 35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62
+</span></span></code></pre></div><p>FLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62&#34; | tr -d &#39; &#39; | xxd -r -p;
+</span></span></code></pre></div><p>FLAG:<code>5ec3772bcd00cf06d8eb</code></p>
+<h2 id="flag-0x0042-learn-about-single-response-indicate">Flag 0x0042 Learn about single response indicate<a hidden class="anchor" aria-hidden="true" href="#flag-0x0042-learn-about-single-response-indicate">#</a></h2>
+<p>handle「0x0044」を読むと以下の文字列が出てくる。</p>
+<p>「Listen to handle 0x0044 for a single indication」</p>
+<p>Notificationとの違いはIndicateはクライアントからの応答も要求することらしい。</p>
+<p><a href="http://yegang.hatenablog.com/entry/2014/08/09/195246">http://yegang.hatenablog.com/entry/2014/08/09/195246</a></p>
+<p>「0x0200」を書き込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; char-write-req 0x0044 0x0200
+</span></span><span style="display:flex;"><span>Characteristic value was written successfully
+</span></span><span style="display:flex;"><span>Indication   handle = 0x0044 value: 63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33
+</span></span></code></pre></div><p>FLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33&#34; | tr -d &#39; &#39; | xxd -r -p;
+</span></span></code></pre></div><p>FLAG:<code>c7b86dd121848c77c113</code></p>
+<h2 id="flag-0x0046-learn-about-multi-response-notifications">Flag 0x0046 Learn about multi response notifications<a hidden class="anchor" aria-hidden="true" href="#flag-0x0046-learn-about-multi-response-notifications">#</a></h2>
+<p>handle「0x0046」を読むと以下の文字列が出てくる。</p>
+<p>「Listen to me for multi notifications」</p>
+<p>複数のNotificationを受け取る。</p>
+<p>相変わらずgatttoolのインタラクティブモードでやる。</p>
+<p>handle「0x0046」に「0x0100」を書き込むとNotificationがどんどん降ってくる。</p>
+<p><img loading="lazy" src="20190221010559.png" alt="f:id:socketo:20190221010559p:plain"  title="f:id:socketo:20190221010559p:plain"  />
+</p>
+<p>最初Notificationだけが違って、それ以降は同じものの様子。</p>
+<p>最初のNotificationをASCIIにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;55 20 6e 6f 20 77 61 6e 74 20 74 68 69 73 20 6d 73 67 00 00&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>「U no want this msg」となり、それ以降がFLAGの様子なのでFLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>FLAG:<code>c9457de5fd8cafe349fd</code></p>
+<h2 id="flag-0x0048-learn-about-multi-response-indicate">Flag 0x0048 Learn about multi response indicate<a hidden class="anchor" aria-hidden="true" href="#flag-0x0048-learn-about-multi-response-indicate">#</a></h2>
+<p>handle「0x0048」を読むと以下の文字列が出てくる。</p>
+<p>「Listen to handle 0x004a for multi indications」</p>
+<p>Flag「0x0046」と同じgatttoolのインタラクティブモードでやる。 Flag「0x0042」と同じように「0x0200」を書き込む。</p>
+<p><img loading="lazy" src="20190221010635.png" alt="f:id:socketo:20190221010635p:plain"  title="f:id:socketo:20190221010635p:plain"  />
+</p>
+<p>一番最初は同じくダミーなので、それ以降のvalueをFLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>FLAG:<code>b6f3a47f207d38e16ffa</code></p>
+<h2 id="flag-0x004c-learn-about-bt-client-device-attributes">Flag 0x004c Learn about BT client device attributes<a hidden class="anchor" aria-hidden="true" href="#flag-0x004c-learn-about-bt-client-device-attributes">#</a></h2>
+<p>handle「0x004c」を読むと以下の文字列が出てくる。</p>
+<p>「Connect with BT MAC address 11:22:33:44:55:66」</p>
+<p>BluetoothのMAC Addressを「11:22:33:44:55:66」にして接続をする。</p>
+<p>参考 : Bluetoothアダプタのデバイスアドレスを変更する。 - freefielder.jp</p>
+<p><a href="https://freefielder.jp/blog/2015/10/changing-bluetooth-address.html">https://freefielder.jp/blog/2015/10/changing-bluetooth-address.html</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bccmd psset -s 0 bdaddr 0x44 0x00 0x66 0x55 0x33 0x00 0x22 0x11
+</span></span></code></pre></div><p>hciconfigでBDのアドレスが変更されたことを確認。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>hci0:    Type: Primary  Bus: USB
+</span></span><span style="display:flex;"><span>BD Address: 11:22:33:44:55:66  ACL MTU: 310:10  SCO MTU: 64:8
+</span></span><span style="display:flex;"><span>DOWN
+</span></span><span style="display:flex;"><span>RX bytes:574 acl:0 sco:0 events:30 errors:0
+</span></span><span style="display:flex;"><span>TX bytes:368 acl:0 sco:0 commands:30 errors:0
+</span></span></code></pre></div><p>BLECTFへ接続するとFLAGが降ってくる。</p>
+<p>FLAG:<code>aca16920583e42bdcf5f</code></p>
+<h2 id="flag-0x004e-learn-about-message-sizes-mtu">Flag 0x004e Learn about message sizes MTU<a hidden class="anchor" aria-hidden="true" href="#flag-0x004e-learn-about-message-sizes-mtu">#</a></h2>
+<p>handle「0x004e」を読むと以下の文字列が出てくる。</p>
+<p>「Set your connection MTU to 444」</p>
+<p>MTUを「444」に変更する。</p>
+<p>gatttoolのインタラクティブモードにして、helpを見ると「mtu」を変更出来る項目がある。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; help
+</span></span><span style="display:flex;"><span>help                                           Show this help
+</span></span><span style="display:flex;"><span>exit                                           Exit interactive mode
+</span></span><span style="display:flex;"><span>quit                                           Exit interactive mode
+</span></span><span style="display:flex;"><span>connect         [address [address type]]       Connect to a remote device
+</span></span><span style="display:flex;"><span>disconnect                                     Disconnect from a remote device
+</span></span><span style="display:flex;"><span>primary         [UUID]                         Primary Service Discovery
+</span></span><span style="display:flex;"><span>included        [start hnd [end hnd]]          Find Included Services
+</span></span><span style="display:flex;"><span>characteristics [start hnd [end hnd [UUID]]]   Characteristics Discovery
+</span></span><span style="display:flex;"><span>char-desc       [start hnd] [end hnd]          Characteristics Descriptor Discovery
+</span></span><span style="display:flex;"><span>char-read-hnd   &lt;handle&gt;                       Characteristics Value/Descriptor Read by handle
+</span></span><span style="display:flex;"><span>char-read-uuid  &lt;UUID&gt; [start hnd] [end hnd]   Characteristics Value/Descriptor Read by UUID
+</span></span><span style="display:flex;"><span>char-write-req  &lt;handle&gt; &lt;new value&gt;           Characteristic Value Write (Write Request)
+</span></span><span style="display:flex;"><span>char-write-cmd  &lt;handle&gt; &lt;new value&gt;           Characteristic Value Write (No response)
+</span></span><span style="display:flex;"><span>sec-level       [low | medium | high]          Set security level. Default: low
+</span></span><span style="display:flex;"><span>mtu             &lt;value&gt;                        Exchange MTU for GATT/ATT
+</span></span></code></pre></div><p>mtuを444に変更してhandle「0x004e」を読む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; mtu 444
+</span></span><span style="display:flex;"><span>MTU was exchanged successfully: 444
+</span></span><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; char-read-hnd 0x004e
+</span></span><span style="display:flex;"><span>Characteristic value/descriptor: 62 31 65 34 30 39 65 35 61 34 65 61 66 39 66 65 35 31 35 38
+</span></span></code></pre></div><p>FLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;62 31 65 34 30 39 65 35 61 34 65 61 66 39 66 65 35 31 35 38&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>FLAG:<code>b1e409e5a4eaf9fe5158</code></p>
+<h2 id="flag-0x0050-learn-about-write-responses">Flag 0x0050 Learn about write responses<a hidden class="anchor" aria-hidden="true" href="#flag-0x0050-learn-about-write-responses">#</a></h2>
+<p>handle「0x0050」を読むと以下の文字列が出てくる。</p>
+<p>「Write+resp &lsquo;hello&rsquo;」</p>
+<p>普通にhandle「0x0050」に書き込みをして読み直したら、FLAGが出てきた。</p>
+<p>想定としては書き込んだらレスポンスで返ってくる？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ bleah -b &#34;24:0a:c4:23:d3:16&#34; -n 0x0050 -d &#34;hello&#34;
+</span></span></code></pre></div><p>FLAG:<code>d41d8cd98f00b204e980</code></p>
+<h2 id="flag-0x0052-hidden-notify-property">Flag 0x0052 Hidden notify property<a hidden class="anchor" aria-hidden="true" href="#flag-0x0052-hidden-notify-property">#</a></h2>
+<p>handle「0x0052」を読むと以下の文字列が出てくる。</p>
+<p>「No notifications here! really?」</p>
+<p>確かにBleahで見てもNotificationが無い。</p>
+<p><img loading="lazy" src="20190221001640.png" alt="f:id:socketo:20190221001640p:plain"  title="f:id:socketo:20190221001640p:plain"  />
+</p>
+<p>gatttoolのインタラクティブモードでNotificationをONにする「0x0100」を書き込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; char-write-req 0x0052 0x0100
+</span></span><span style="display:flex;"><span>Characteristic value was written successfully
+</span></span><span style="display:flex;"><span>Notification handle = 0x0052 value: 66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62
+</span></span></code></pre></div><p>FLAGのフォーマットにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>FLAG:<code>fc920c68b6006169477b</code></p>
+<h2 id="flag-0x0054-use-multiple-handle-properties">Flag 0x0054 Use multiple handle properties<a hidden class="anchor" aria-hidden="true" href="#flag-0x0054-use-multiple-handle-properties">#</a></h2>
+<p>handle「0x0054」を読むと以下の文字列が出てくる。</p>
+<p>「So many properties!」</p>
+<p>BleahでPropatiesを見ると「NOTIFY BROADCAST READ WRITE EXTENDED PROPERTIES」と様々ある。</p>
+<p>よく分からないのでHintを見る</p>
+<p>Check out all of the handle properties on 0x0054! Poke around with all of them and find pieces to your flag.</p>
+<p>Propatiesをチェックして、FLAGの断片を見つけてとのこと。</p>
+<p>適当に書き込む。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[24:0a:c4:23:d3:16][LE]&gt; char-write-req 0x0054 0xFFFF
+</span></span><span style="display:flex;"><span>Characteristic value was written successfully
+</span></span><span style="display:flex;"><span>Notification handle = 0x0054 value: 30 37 65 34 61 30 63 63 34 38
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo &#34;30 37 65 34 61 30 63 63 34 38&#34; | tr -d &#39; &#39; | xxd -r -p
+</span></span></code></pre></div><p>10文字<code>07e4a0cc48</code>が出てきた。</p>
+<p>書き込んだ後にhandle「0x0054」をreadすると10文字<code>fbb966958f</code>が出てくる。</p>
+<p><code>07e4a0cc48fbb966958f</code>か<code>fbb966958f07e4a0cc48</code>を書き込んで得点できれば多分合っているだろうという感じで書き込む。</p>
+<p>当たりは後半の方だった。</p>
+<p>FLAG:<code>fbb966958f07e4a0cc48</code></p>
+<h2 id="flag-0x0056-osint-the-author">Flag 0x0056 OSINT the author!<a hidden class="anchor" aria-hidden="true" href="#flag-0x0056-osint-the-author">#</a></h2>
+<p>handle「0x0054」を読むと以下の文字列が出てくる。</p>
+<p>「MD5 of author&rsquo;s twitter handle」</p>
+<p>この作者のTwitterのハンドルのMD5ハッシュ値を答えろとのこと。</p>
+<p>冒頭でも書いた通り、この作者は<a href="https://twitter.com/hackgnar">@hackgnar</a>氏なので、この文字列をMD5ハッシュ値を20文字にする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ echo -n &#39;@hackgnar&#39; | md5sum | cut -c-20
+</span></span></code></pre></div><p>FLAG:<code>d953bfb9846acc2e15ee</code></p>
+<h2 id="おわり">おわり<a hidden class="anchor" aria-hidden="true" href="#おわり">#</a></h2>
+<p><img loading="lazy" src="20190221001704.png" alt="f:id:socketo:20190221001704p:plain"  title="f:id:socketo:20190221001704p:plain"  />
+</p>
+<p>ESP32-DevkitCを買ったまま腐らしていたので、使い道として適当に使えたのは良かった。</p>
+<p>gatttoolとBleahの使い方とかを学ぶには良い感じだった、多分BLE通信をするデバイスとかをESP32などで開発するとより理解が追いつく気がしたのでこれを機にちょっとやっていきたい。</p>
+<p>ArduinoIDEなどでもサクッと書けるようなので遊んでいきたい気持ち。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/security/">Security</a></li>
+      <li><a href="https://socketo.github.io/tags/ctf/">CTF</a></li>
+      <li><a href="https://socketo.github.io/tags/bluetooth/">Bluetooth</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

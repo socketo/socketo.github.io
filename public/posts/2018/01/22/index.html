@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ハニーポットCowrieを設置した話 | socketo.github.io</title>
+<meta name="keywords" content="Security, Honeypot">
+<meta name="description" content="※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include &lt;sys_socket.h&gt;
+はい．
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+Cowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot
+Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.
+攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．
+導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
+今回はUbuntu　16.04.3 LTSで構築していきます．
+必要なパッケージのインストール
+$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2018/01/22/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="ハニーポットCowrieを設置した話" />
+<meta property="og:description" content="※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include &lt;sys_socket.h&gt;
+はい．
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+Cowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot
+Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.
+攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．
+導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
+今回はUbuntu　16.04.3 LTSで構築していきます．
+必要なパッケージのインストール
+$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2018/01/22/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-01-22T00:05:37+00:00" />
+<meta property="article:modified_time" content="2018-01-22T00:05:37+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ハニーポットCowrieを設置した話"/>
+<meta name="twitter:description" content="※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include &lt;sys_socket.h&gt;
+はい．
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+Cowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot
+Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.
+攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．
+導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
+今回はUbuntu　16.04.3 LTSで構築していきます．
+必要なパッケージのインストール
+$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "ハニーポットCowrieを設置した話",
+      "item": "https://socketo.github.io/posts/2018/01/22/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ハニーポットCowrieを設置した話",
+  "name": "ハニーポットCowrieを設置した話",
+  "description": "※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include \u0026lt;sys_socket.h\u0026gt;\nはい．\n本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)\nCowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot\nCowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.\n攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．\n導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub\n今回はUbuntu　16.04.3 LTSで構築していきます．\n必要なパッケージのインストール\n$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.",
+  "keywords": [
+    "Security", "Honeypot"
+  ],
+  "articleBody": "※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include はい．\n本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)\nCowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot\nCowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.\n攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．\n導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub\n今回はUbuntu　16.04.3 LTSで構築していきます．\n必要なパッケージのインストール\n$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています． Python3系はサポートされていません．\nCowrie用のユーザを作成/cowrieユーザにスイッチ\n$ sudo adduser --disabled-password cowrie $ sudo su - cowrie Cowrieリポジトリをclone\n$ git clone https://github.com/micheloosterhof/cowrie.git $ cd cowrie python-virtualenvでPython環境を作成し，必要なPythonパッケージをインストールする\n$ virtualenv cowrie-env $ source cowrie-env/bin/activate (cowrie-env) $ pip install --upgrade pip (cowrie-env) $ pip install --upgrade -r requirements.txt Cowrieの設定ファイルはリポジトリのディレクトリのcowrie.cfg.distとcowrie.cfgの2つ． どちらのファイルも起動時に読み込まれてcowrie.cfgの方が優先される． 設定ファイルを作成．\n$ cp cowrie.cfg.dist cowrie.cfg ここで色々と設定を変更出来ます．\nCowrieはデフォルトではtelnetが有効になっていないので，telnetハニーポットとして利用する際は有効にする．\n# ============================================================================ # Telnet Specific Options # ============================================================================ [telnet] # Enable Telnet support, disabled by default enabled = true # ここをfalseからtrueに 通常ユーザに戻り，22と23ポートへの通信をCowrieが待ち構えているポート2222と2223へリダイレクトする設定をする\n$ sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 $ sudo iptables -t nat -A PREROUTING -p tcp --dport 23 -j REDIRECT --to-port 2223 iptabelsを管理するiptables-persistentをインストール\niptablesの設定を永続化する\n$ sudo apt install iptables-persistent iptablesの確認\n$ cat /etc/iptables/rules.v4 user cowrieでCowrieを起動\n$ sudo su - cowrie $ ~/cowrie/bin/cowrie start Cowrieの動作を確認\n$ netstat -antp | grep -e 2222 -e 2223 Cowrieに登録されているダミーユーザ/パスワードの確認\n$ cat cowrie/data/userdb.txt 別の端末からSSH接続をして動いているか確かめる．\nuserdb.txtに存在するダミーユーザでログインしてみる．\nこの接続ログも記録されるので後々ログを見る際に注意をする．\n$ ssh root@{ipaddress} ログの確認 palylogを使うことで攻撃者が侵入した後のコマンド内容を再生することが出来る．\n$ ~/cowrie/bin/playlog ~/cowrie/log/tty/XXXXXXXX-XXXXXX-XXXXXXXXXXXX-XX.log ログにあたりがついていて適当に見る分にはこれがいいが，良い感じにシュッと見たい．\n個人的にはELK Stackを使いたかったが，ELK Stackを使うとなると結構ハードウェア的にスペックが必要になりそうで今回は断念．\nLogging Cowrie logs to the ELK stack - Fernando Domínguez\nそういうわけで今回は，ある程度LogViewerとして軽量でシンプルそうなCowrie Log Viewerを使用\nGitHub - mindphluxnet/cowrie-logviewer: A simple log viewer for cowrie\nCowrieサーバにログインし，cowrieユーザにスイッチ，cowrie-logviewerをインストール\n$ sudo su - cowrie $ cd ~/../cowrie $ git clone https://github.com/mindphluxnet/cowrie-logviewer.git $ cd cowrie-logviewer $ source ~/cowrie/cowrie-env/bin/activate $ pip install -r requirements.txt $ chmod +x cowrie-logviewer.py MaxMind GeoLite 2 Country databaseの設定\n$ mkdir maxmind $ cd maxmind $ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz $ gunzip GeoLite2-Country.mmdb.gz $ rm GeoLite2-Country.mmdb.gz Cowrie Log Viewerの起動\n$ python cowrie-logviewer.py ポートフォワーディングを行いブラウザでそのアドレスを開くとCowrie Log Viewerのダッシュボードにアクセスできる．\nこんな感じで見れる．\nダッシュボード\nAttackers by country\nELK Stackにしたいな…いつかやります\n運用の際の注意 ハニーポットを設置するサーバは，個人の自宅にある物理サーバかVPSという選択肢があるようです．\nVPSを利用する際は，利用規約に注意が必要です．\nサーバ上でハニーポットを運用するのが利用可能かどうかは以下の@blackle0pard_さんのブログがとても参考になります．\nくろひょうのぶろぐ - ハニーポットの運用が規約違反でないか調べてみた まとめ SSH/TelnetハニーポットのCowrieの構築をしてきました．\nわりと簡単に構築出来て良い感じでした．\n今回設置するにあたり調べた時にT-Pot良い感じだなと思ったのですが，やっぱりある程度ハードウェア的なスペックが必要なよう．\nここ最近Honeypot Advent Calendar 2017](https://adventar.org/calendars/2263)やmorihi-socさんのブログwww.morihi-soc.netなど色々と読んでいたのですが，[ハニーポット運用楽しそうだなという軽いモチベーションからはじめましたがよろしくやっていきたいなという感じです．\nとりあえず今回設置したCowrieを観察しつつ色々と手を出していきたいなという気持ちです．\n参考 ハニーポットCowrieをCentOS7に入れてみた。 - Shi0shishi0 cowrieを設置した // 題未定 // Amazon LinuxにハニーポットCowrieを入れてみる - kopug memo ",
+  "wordCount" : "338",
+  "inLanguage": "en",
+  "datePublished": "2018-01-22T00:05:37Z",
+  "dateModified": "2018-01-22T00:05:37Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2018/01/22/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      ハニーポットCowrieを設置した話
+    </h1>
+    <div class="post-meta"><span title='2018-01-22 00:05:37 +0000 UTC'>January 22, 2018</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>※ 移行前の元ブログ記事 : <a href="https://socketo.hatenablog.jp/entry/2018/01/22/000537">ハニーポットCowrieを設置した話 - #include &lt;sys_socket.h&gt;</a></p>
+<p>はい．</p>
+<p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:<a href="https://twitter.com/sys_socket">@sys_socket</a>)</p>
+<h2 id="cowrieとは">Cowrieとは<a hidden class="anchor" aria-hidden="true" href="#cowrieとは">#</a></h2>
+<p><a href="https://github.com/micheloosterhof/cowrie">GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot</a></p>
+<blockquote>
+<p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
+Cowrie is developed by Michel Oosterhof.</p>
+</blockquote>
+<p>攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．</p>
+<h2 id="導入">導入<a hidden class="anchor" aria-hidden="true" href="#導入">#</a></h2>
+<p>ここを見てやっていきます．
+<a href="https://github.com/micheloosterhof/cowrie">cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub</a></p>
+<p>今回はUbuntu　16.04.3 LTSで構築していきます．</p>
+<p>必要なパッケージのインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind
+</span></span></code></pre></div><p>インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています．
+Python3系はサポートされていません．</p>
+<p>Cowrie用のユーザを作成/cowrieユーザにスイッチ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo adduser --disabled-password cowrie
+</span></span><span style="display:flex;"><span>$ sudo su - cowrie
+</span></span></code></pre></div><p>Cowrieリポジトリをclone</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ git clone https://github.com/micheloosterhof/cowrie.git
+</span></span><span style="display:flex;"><span>$ cd cowrie
+</span></span></code></pre></div><p>python-virtualenvでPython環境を作成し，必要なPythonパッケージをインストールする</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ virtualenv cowrie-env
+</span></span><span style="display:flex;"><span>$ source cowrie-env/bin/activate
+</span></span><span style="display:flex;"><span>(cowrie-env) $ pip install --upgrade pip
+</span></span><span style="display:flex;"><span>(cowrie-env) $ pip install --upgrade -r requirements.txt
+</span></span></code></pre></div><p>Cowrieの設定ファイルはリポジトリのディレクトリのcowrie.cfg.distとcowrie.cfgの2つ．
+どちらのファイルも起動時に読み込まれてcowrie.cfgの方が優先される．
+設定ファイルを作成．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ cp cowrie.cfg.dist cowrie.cfg
+</span></span></code></pre></div><p>ここで色々と設定を変更出来ます．</p>
+<p>Cowrieはデフォルトではtelnetが有効になっていないので，telnetハニーポットとして利用する際は有効にする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># ============================================================================
+</span></span><span style="display:flex;"><span># Telnet Specific Options
+</span></span><span style="display:flex;"><span># ============================================================================
+</span></span><span style="display:flex;"><span>[telnet]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Enable Telnet support, disabled by default
+</span></span><span style="display:flex;"><span>enabled = true # ここをfalseからtrueに
+</span></span></code></pre></div><p>通常ユーザに戻り，22と23ポートへの通信をCowrieが待ち構えているポート2222と2223へリダイレクトする設定をする</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222
+</span></span><span style="display:flex;"><span>$ sudo iptables -t nat -A PREROUTING -p tcp --dport 23 -j REDIRECT --to-port 2223
+</span></span></code></pre></div><p>iptabelsを管理するiptables-persistentをインストール</p>
+<p>iptablesの設定を永続化する</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo apt install iptables-persistent
+</span></span></code></pre></div><p>iptablesの確認</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ cat /etc/iptables/rules.v4
+</span></span></code></pre></div><p>user cowrieでCowrieを起動</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo su - cowrie
+</span></span><span style="display:flex;"><span>$ ~/cowrie/bin/cowrie start
+</span></span></code></pre></div><p>Cowrieの動作を確認</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ netstat -antp | grep -e 2222 -e 2223
+</span></span></code></pre></div><p>Cowrieに登録されているダミーユーザ/パスワードの確認</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ cat cowrie/data/userdb.txt
+</span></span></code></pre></div><p>別の端末からSSH接続をして動いているか確かめる．</p>
+<p>userdb.txtに存在するダミーユーザでログインしてみる．</p>
+<p>この接続ログも記録されるので後々ログを見る際に注意をする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ ssh root@{ipaddress}
+</span></span></code></pre></div><h2 id="ログの確認">ログの確認<a hidden class="anchor" aria-hidden="true" href="#ログの確認">#</a></h2>
+<p>palylogを使うことで攻撃者が侵入した後のコマンド内容を再生することが出来る．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ ~/cowrie/bin/playlog ~/cowrie/log/tty/XXXXXXXX-XXXXXX-XXXXXXXXXXXX-XX.log
+</span></span></code></pre></div><p>ログにあたりがついていて適当に見る分にはこれがいいが，良い感じにシュッと見たい．</p>
+<p>個人的にはELK Stackを使いたかったが，ELK Stackを使うとなると結構ハードウェア的にスペックが必要になりそうで今回は断念．</p>
+<p><a href="http://blog.fernandodominguez.me/logging-cowrie-logs-to-the-elk-stack/">Logging Cowrie logs to the ELK stack - Fernando Domínguez</a></p>
+<p>そういうわけで今回は，ある程度LogViewerとして軽量でシンプルそうなCowrie Log Viewerを使用</p>
+<p><a href="https://github.com/mindphluxnet/cowrie-logviewer">GitHub - mindphluxnet/cowrie-logviewer: A simple log viewer for cowrie</a></p>
+<p>Cowrieサーバにログインし，cowrieユーザにスイッチ，cowrie-logviewerをインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ sudo su - cowrie
+</span></span><span style="display:flex;"><span>$ cd ~/../cowrie
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/mindphluxnet/cowrie-logviewer.git
+</span></span><span style="display:flex;"><span>$ cd cowrie-logviewer
+</span></span><span style="display:flex;"><span>$ source ~/cowrie/cowrie-env/bin/activate
+</span></span><span style="display:flex;"><span>$ pip install -r requirements.txt
+</span></span><span style="display:flex;"><span>$ chmod +x cowrie-logviewer.py
+</span></span></code></pre></div><p>MaxMind GeoLite 2 Country databaseの設定</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ mkdir maxmind
+</span></span><span style="display:flex;"><span>$ cd maxmind
+</span></span><span style="display:flex;"><span>$ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
+</span></span><span style="display:flex;"><span>$ gunzip GeoLite2-Country.mmdb.gz
+</span></span><span style="display:flex;"><span>$ rm GeoLite2-Country.mmdb.gz
+</span></span></code></pre></div><p>Cowrie Log Viewerの起動</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ python cowrie-logviewer.py
+</span></span></code></pre></div><p>ポートフォワーディングを行いブラウザでそのアドレスを開くとCowrie Log Viewerのダッシュボードにアクセスできる．</p>
+<p>こんな感じで見れる．</p>
+<p><img loading="lazy" src="https://i.imgur.com/ojhKfFQ.jpg" alt=""  />
+</p>
+<p>ダッシュボード</p>
+<p><img loading="lazy" src="https://i.imgur.com/0PBmXFM.jpg" alt=""  />
+
+Attackers by country</p>
+<p>ELK Stackにしたいな…いつかやります</p>
+<h2 id="運用の際の注意">運用の際の注意<a hidden class="anchor" aria-hidden="true" href="#運用の際の注意">#</a></h2>
+<p>ハニーポットを設置するサーバは，個人の自宅にある物理サーバかVPSという選択肢があるようです．</p>
+<p>VPSを利用する際は，利用規約に注意が必要です．</p>
+<p>サーバ上でハニーポットを運用するのが利用可能かどうかは以下の<a href="https://twitter.com/blackle0pard_">@blackle0pard_</a>さんのブログがとても参考になります．</p>
+<ul>
+<li><a href="https://blackle0pard.net/v9bnm7/">くろひょうのぶろぐ - ハニーポットの運用が規約違反でないか調べてみた</a></li>
+</ul>
+<h2 id="まとめ">まとめ<a hidden class="anchor" aria-hidden="true" href="#まとめ">#</a></h2>
+<p>SSH/TelnetハニーポットのCowrieの構築をしてきました．</p>
+<p>わりと簡単に構築出来て良い感じでした．</p>
+<p>今回設置するにあたり調べた時に<a href="http://dtag-dev-sec.github.io/mediator/feature/2016/10/31/t-pot-16.10.html">T-Pot</a>良い感じだなと思ったのですが，やっぱりある程度ハードウェア的なスペックが必要なよう．</p>
+<p>ここ最近Honeypot Advent Calendar 2017](<a href="https://adventar.org/calendars/2263">https://adventar.org/calendars/2263</a>)や<a href="https://twitter.com/morihi_soc">morihi-soc</a>さんのブログ<a href="http://www.morihi-soc.net/">www.morihi-soc.net</a>など色々と読んでいたのですが，[ハニーポット運用楽しそうだなという軽いモチベーションからはじめましたがよろしくやっていきたいなという感じです．</p>
+<p>とりあえず今回設置したCowrieを観察しつつ色々と手を出していきたいなという気持ちです．</p>
+<h3 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h3>
+<ul>
+<li><a href="http://ecoha0630.hatenablog.com/entry/2016/02/07/125110">ハニーポットCowrieをCentOS7に入れてみた。 - Shi0shishi0</a></li>
+<li><a href="https://www.lapis-zero09.xyz/25th.html">cowrieを設置した // 題未定 //</a></li>
+<li><a href="http://kopug.hatenablog.com/entry/2016/12/30/183349">Amazon LinuxにハニーポットCowrieを入れてみる - kopug memo</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/security/">Security</a></li>
+      <li><a href="https://socketo.github.io/tags/honeypot/">Honeypot</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

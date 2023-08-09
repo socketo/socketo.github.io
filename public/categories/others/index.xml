@@ -6,7 +6,6 @@
     <description>Recent content in Others on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>© Copyright socketo - All rights reserved.</copyright>
     <lastBuildDate>Tue, 25 Apr 2023 22:00:26 +0900</lastBuildDate><atom:link href="https://socketo.github.io/categories/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello Hugo</title>
@@ -17,7 +16,7 @@
       <description>いつの頃からか、自分のはてなブログ #include &amp;lt;sys/socket.h&amp;gt;の冒頭に「この広告は、90日以上更新していないブログに表示しています。」と表示がされるようになった。
 3年以上、個人の技術ブログを書いていないのは如何なものかと思い重い腰を上げた次第である。
 Hugoのインストール Homebrewでhugoをインストールし、ブログを作成する。
-$ brew install hugo $ hugo new site socketo.github.io socketo.github.ioディレクトリが作成されたので、テーマの追加。今回はシンプルで良さそうなHugo PaperModを使用する。
+$ brew install hugo $ hugo new site hugo_blog hubo_blogディレクトリが作成されたので、テーマの追加。今回はシンプルで良さそうなHugo PaperModを使用する。
 $ git init . $ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod configにブログのbaseURLの修正やテーマの追加をする。
 baseURL = &amp;#39;https://socketo.github.io&amp;#39; title = &amp;#39;socketo.github.io&amp;#39; languageCode = &amp;#39;ja&amp;#39; theme = &amp;#39;PaperMod&amp;#39; author = &amp;#39;socketo&amp;#39; copyright = &amp;#39;© Copyright socketo - All rights reserved.&amp;#39; テーマの導入まで完了をしているので、実際に動かして確認をする。
 $ hugo serve 起動し、 localhost:1313 にアクセスする。

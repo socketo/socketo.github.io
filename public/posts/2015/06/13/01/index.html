@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>MINI Hardening Project #1.1 に参加した話 | socketo.github.io</title>
+<meta name="keywords" content="Security, event">
+<meta name="description" content="※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include &lt;sys_socket.h&gt;
+5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．
+MINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/
+2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．
+====
+最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．
+Hardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．
+Hardening Project | Web Application Security Forum - WASForum
+&ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント&quot;らしく，CTFとは違った競技とのこと．
+競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()
+競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．
+アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．
+優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23
+結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．
+感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．
+おまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2015/06/13/01/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="MINI Hardening Project #1.1 に参加した話" />
+<meta property="og:description" content="※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include &lt;sys_socket.h&gt;
+5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．
+MINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/
+2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．
+====
+最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．
+Hardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．
+Hardening Project | Web Application Security Forum - WASForum
+&ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント&quot;らしく，CTFとは違った競技とのこと．
+競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()
+競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．
+アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．
+優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23
+結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．
+感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．
+おまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2015/06/13/01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-06-13T20:33:33+00:00" />
+<meta property="article:modified_time" content="2015-06-13T20:33:33+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MINI Hardening Project #1.1 に参加した話"/>
+<meta name="twitter:description" content="※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include &lt;sys_socket.h&gt;
+5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．
+MINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/
+2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．
+====
+最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．
+Hardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．
+Hardening Project | Web Application Security Forum - WASForum
+&ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント&quot;らしく，CTFとは違った競技とのこと．
+競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()
+競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．
+アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．
+優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23
+結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．
+感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．
+おまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "MINI Hardening Project #1.1 に参加した話",
+      "item": "https://socketo.github.io/posts/2015/06/13/01/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MINI Hardening Project #1.1 に参加した話",
+  "name": "MINI Hardening Project #1.1 に参加した話",
+  "description": "※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include \u0026lt;sys_socket.h\u0026gt;\n5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．\nMINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/\n2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．\n====\n最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．\nHardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．\nHardening Project | Web Application Security Forum - WASForum\n\u0026ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント\u0026quot;らしく，CTFとは違った競技とのこと．\n競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．\nチーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．\n与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．\n競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．\n今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()\n競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．\nサーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．\nアップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．\n優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23\n結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．\n感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．\n今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．\nサーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．\nおまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．\n世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．",
+  "keywords": [
+    "Security", "event"
+  ],
+  "articleBody": "※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include 5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．\nMINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/\n2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．\n====\n最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．\nHardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．\nHardening Project | Web Application Security Forum - WASForum\n“「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント\"らしく，CTFとは違った競技とのこと．\n競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．\nチーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．\n与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．\n競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．\n今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()\n競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．\nサーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．\nアップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．\n優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23\n結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．\n感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．\n今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．\nサーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．\nおまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．\n世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．\n",
+  "wordCount" : "68",
+  "inLanguage": "en",
+  "datePublished": "2015-06-13T20:33:33Z",
+  "dateModified": "2015-06-13T20:33:33Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2015/06/13/01/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      MINI Hardening Project #1.1 に参加した話
+    </h1>
+    <div class="post-meta"><span title='2015-06-13 20:33:33 +0000 UTC'>June 13, 2015</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>※ 移行前の元ブログ記事 : <a href="https://socketo.hatenablog.jp/entry/2015/06/13/203333_1">MINI Hardening Project #1.1 に参加した話 - #include &lt;sys_socket.h&gt;</a></p>
+<p>5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．</p>
+<p>MINI Hardening Project #1.1 (2015/05/23 10:30〜) : <a href="http://minihardening.connpass.com/event/13818/">http://minihardening.connpass.com/event/13818/</a></p>
+<p>2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．</p>
+<p>====</p>
+<p>最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．</p>
+<h1 id="hardening-とは">Hardening #とは<a hidden class="anchor" aria-hidden="true" href="#hardening-とは">#</a></h1>
+<p>MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．</p>
+<p><a href="http://wasforum.jp/hardening-project/">Hardening Project | Web Application Security Forum - WASForum</a></p>
+<p>&ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント&quot;らしく，CTFとは違った競技とのこと．</p>
+<p>競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．<br>
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．<br>
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．<br>
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．<br>
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()</p>
+<h1 id="競技">競技<a hidden class="anchor" aria-hidden="true" href="#競技">#</a></h1>
+<p>はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．<br>
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．</p>
+<p>アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．</p>
+<blockquote>
+<p>優勝賞品の（ミニ）麻袋贈呈です！ <a href="https://twitter.com/hashtag/minihardening?src=hash">#minihardening</a> <a href="http://t.co/l6QfD4fzag">pic.twitter.com/l6QfD4fzag</a>
+— Minoru Kobayashi (@unkn0wnbit) <a href="https://twitter.com/unkn0wnbit/status/602015177756643328">2015, 5月 23</a></p>
+</blockquote>
+<p>結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．</p>
+<h1 id="感想">感想<a hidden class="anchor" aria-hidden="true" href="#感想">#</a></h1>
+<p>競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．<br>
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．<br>
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．</p>
+<h1 id="おまけ">おまけ<a hidden class="anchor" aria-hidden="true" href="#おまけ">#</a></h1>
+<p>チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．<br>
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/security/">Security</a></li>
+      <li><a href="https://socketo.github.io/tags/event/">event</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

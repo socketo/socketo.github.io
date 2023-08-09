@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bluetooth on socketo.github.io</title>
+    <link>https://socketo.github.io/tags/bluetooth/</link>
+    <description>Recent content in Bluetooth on socketo.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BLE CTF WriteUp</title>
+      <link>https://socketo.github.io/posts/2019/02/21/</link>
+      <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
+      <description>※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;
+はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
+hackgnar - Learning Bluetooth Hackery with BLE CTF
+http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html
+ble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf
+READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。
+私の今回の環境は以下
+ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
+ESP32ビルド環境 macOS Mojave version 10.14.3
+端末(ThinkPad X220) Kali Linux
+環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
+国内だと秋月やマルツなどで売ってる。
+ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
+Wi-Fi+BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
+ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
+Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
+Espressif IoT Development Framework : https://github.</description>
+    </item>
+    
+  </channel>
+</rss>
