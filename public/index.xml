@@ -6,14 +6,24 @@
     <description>Recent content on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 25 Apr 2023 22:00:26 +0900</lastBuildDate><atom:link href="https://socketo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 15:58:43 +0900</lastBuildDate><atom:link href="https://socketo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>はてなブログからブログを移行しました</title>
+      <link>https://socketo.github.io/posts/2023/08/10/</link>
+      <pubDate>Wed, 09 Aug 2023 15:58:43 +0900</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2023/08/10/</guid>
+      <description>3ヶ月前くらいに、GitHub Pagesにブログを移行しようとして止まっていた手をようやく動かして、過去のブログにあった記事をすべてこっちに移行した。
+旧ブログ : https://socketo.hatenablog.jp/</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>https://socketo.github.io/about/</link>
       <pubDate>Wed, 26 Apr 2023 12:18:51 +0900</pubDate>
       
       <guid>https://socketo.github.io/about/</guid>
-      <description>About このサイトは、基本的に個人的に気になった技術の情報を発信するものです。(予定)
+      <description>このサイトは、基本的に個人的に気になった技術の情報を発信するものです。(予定)
 Profile Name : socketo(そけと) Job : Security Engineer (Digital Forensics Analyst) Links Twitter : @sys_socket GitHub : https://github.com/socketo Hatena Blog : https://socketo.hatenablog.jp/ SpeakerDeck : https://speakerdeck.com/socketo </description>
     </item>
     
