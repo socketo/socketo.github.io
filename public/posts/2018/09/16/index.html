@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp | socketo.github.io</title>
+<meta name="keywords" content="Forensics">
+<meta name="description" content="※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 以下の記事の続き．
+Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp
+ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)
+File Server Basic HR Serverの問題を解いているといつの間にかNextという項目が増えて，Image2.7zのパスワードが開示されるので，Imag2(File Server)をやっていくことができる
+File Server - Basic 1(2) 問題文
+What is the volume serial number of the only partition on the File Server Disk Image Volumeのシリアルナンバーを答える．
+FTK Imagerで開いているイメージファイルのFile System Informationを見る．
+FLAG:C096-2465
+File Server - Basic 2(2) 問題文
+What is the name of the examiner who made the Forensic Image?">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2018/09/16/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp" />
+<meta property="og:description" content="※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 以下の記事の続き．
+Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp
+ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)
+File Server Basic HR Serverの問題を解いているといつの間にかNextという項目が増えて，Image2.7zのパスワードが開示されるので，Imag2(File Server)をやっていくことができる
+File Server - Basic 1(2) 問題文
+What is the volume serial number of the only partition on the File Server Disk Image Volumeのシリアルナンバーを答える．
+FTK Imagerで開いているイメージファイルのFile System Informationを見る．
+FLAG:C096-2465
+File Server - Basic 2(2) 問題文
+What is the name of the examiner who made the Forensic Image?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2018/09/16/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-09-16T15:11:41+00:00" />
+<meta property="article:modified_time" content="2018-09-16T15:11:41+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp"/>
+<meta name="twitter:description" content="※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 以下の記事の続き．
+Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp
+ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)
+File Server Basic HR Serverの問題を解いているといつの間にかNextという項目が増えて，Image2.7zのパスワードが開示されるので，Imag2(File Server)をやっていくことができる
+File Server - Basic 1(2) 問題文
+What is the volume serial number of the only partition on the File Server Disk Image Volumeのシリアルナンバーを答える．
+FTK Imagerで開いているイメージファイルのFile System Informationを見る．
+FLAG:C096-2465
+File Server - Basic 2(2) 問題文
+What is the name of the examiner who made the Forensic Image?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp",
+      "item": "https://socketo.github.io/posts/2018/09/16/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp",
+  "name": "Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp",
+  "description": "※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include \u0026lt;sys_socket.h\u0026gt;\nはじめに 以下の記事の続き．\nDefcon DFIR CTF 2018 # Image1 - HRServer WriteUp\nディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)\nFile Server Basic HR Serverの問題を解いているといつの間にかNextという項目が増えて，Image2.7zのパスワードが開示されるので，Imag2(File Server)をやっていくことができる\nFile Server - Basic 1(2) 問題文\nWhat is the volume serial number of the only partition on the File Server Disk Image Volumeのシリアルナンバーを答える．\nFTK Imagerで開いているイメージファイルのFile System Informationを見る．\nFLAG:C096-2465\nFile Server - Basic 2(2) 問題文\nWhat is the name of the examiner who made the Forensic Image?",
+  "keywords": [
+    "Forensics"
+  ],
+  "articleBody": "※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include はじめに 以下の記事の続き．\nDefcon DFIR CTF 2018 # Image1 - HRServer WriteUp\nディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)\nFile Server Basic HR Serverの問題を解いているといつの間にかNextという項目が増えて，Image2.7zのパスワードが開示されるので，Imag2(File Server)をやっていくことができる\nFile Server - Basic 1(2) 問題文\nWhat is the volume serial number of the only partition on the File Server Disk Image Volumeのシリアルナンバーを答える．\nFTK Imagerで開いているイメージファイルのFile System Informationを見る．\nFLAG:C096-2465\nFile Server - Basic 2(2) 問題文\nWhat is the name of the examiner who made the Forensic Image? X-Waysとかでイメージを取得するとき，調査員の名前をオプションとして記入することができる． その際，取得時のログにその名前とかが書かれるんで，FileServer_Disk0.txtを見るとexaminer’s name的なところに書いてある．\nFLAG:Professor Frink\nFile Server - Basic 3(2) 問題文\nWho cleared the security event log? (忘れたけど確かAdmministratorだった気が)\nFLAG:Administrator\nFIle Server - Basic 4(2) 問題文\nWhat is the hostname of the computer? Regripperで調べる\n# rip.pl -r SYSTEM -p compname\nLaunching compname v.20090727 compname v.20090727 (System) Gets ComputerName and Hostname values from System hive ComputerName = WIN-M5327EF98B9 TCP/IP Hostname = WIN-M5327EF98B9 FLAG:WIN-M5327EF98B9\nFile Server - Basic 5(2) 問題文\nWhen was the computer last shutdown? UTC Time In the format of Month/Day/Year Hour:Minute:Second in 24 hour timr 1/1/2018 14:01:01 Regripperで調べる\n# rip.pl -r SYSTEM -p shutdown\nLaunching shutdown v.20080324 shutdown v.20080324 (System) Gets ShutdownTime value from System hive ControlSet001\\Control\\Windows key, ShutdownTime value ControlSet001\\Control\\Windows LastWrite Time Thu Jul 26 10:16:16 2018 (UTC) ShutdownTime = Thu Jul 26 10:16:16 2018 (UTC) FLAG:7/26/2018 10:16:16\nFile Server - Basic 6(2) 問題文\nWhat is the Current Build number of Windows on the File Server computer? このWindowsのBuildナンバーを見る．\nSYSTEMハイブを抽出して，Registry Explolerで見る． FLAG:7601\nFile Server - Basic 7(2) 問題文\nwhat was mpowers user id? mpowersのユーザIDは何という話．\nRegripperを使ってSAMから情報を取得する\n# rip.pl -r Windows/System32/config/SAM -p samparse\nUsername : mpowers [1000] Full Name : mpowers User Comment : Account Type : Default Admin User Account Created : Wed Jul 11 20:35:55 2018 Z Name : Password Hint : 1 Last Login Date : Wed Aug 8 21:36:48 2018 Z Pwd Reset Date : Wed Jul 11 20:36:40 2018 Z Pwd Fail Date : Mon Jul 30 16:55:55 2018 Z Login Count : 10 --\u003e Normal user account --\u003e Password does not expire FLAG:1000\nFile Server - Basic 8(2) 問題文\nWhich program did Max Powers last run through the GUI? RegripperでUserAssist実行履歴を見る\n# rip.pl -r Users/mpowers/NTUSER.DAT -p userassist\nLaunching userassist v.20170204 UserAssist Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\UserAssist LastWrite Time Mon Jul 16 17:05:01 2018 (UTC) {CEBFF5CD-ACE2-4F4F-9178-9926F41749EA} Wed Aug 8 21:37:04 2018 Z C:\\Users\\mpowers\\Desktop\\sub-win-x64_104.148.109.124_5682_3262.exe (2) Wed Aug 8 00:16:07 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\services.msc (1) Tue Aug 7 23:59:01 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\msiexec.exe (2) Tue Aug 7 23:57:57 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\ServerManager.msc (1) Tue Aug 7 20:33:21 2018 Z Microsoft.Windows.RemoteDesktop (1) Tue Aug 7 20:16:34 2018 Z Chrome (4) Tue Aug 7 20:13:14 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\cmd.exe (16) Tue Aug 7 20:05:30 2018 Z {F38BF404-1D43-42F2-9305-67DE0B28FC23}\\explorer.exe (6) Mon Jul 30 22:44:12 2018 Z {6D809377-6AF0-444B-8957-A3773F02200E}\\Notepad++\\notepad++.exe (4) Mon Jul 30 22:43:35 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\WindowsPowerShell\\v1.0\\powershell.exe (3) Tue Jul 24 15:47:39 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\WF.msc (2) Mon Jul 16 17:03:14 2018 Z {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\notepad.exe (13) Microsoft.InternetExplorer.Default (12) FLAG:sub-win-x64_104.148.109.124_5682_3262.exe\nFile Server - Basic 9(2) 問題文\nWhen did Max Powers last open projections.zip? UTC TIme Day/Month/year Hour:Minute:Sec in 24 hour time 1/1/2018 15:20:11 わからん〜〜〜\nFile Server - Basic 10(2) 問題文\nHow many clusters are on the partition? FTK ImagerでFIle System Infromationを見る\nFLAG:13081343\nFile Server - Advanced File Server - Advanced 1(4) 問題文\nWhere does the \\VSS directory go? \\VSSディレクトリはどこへ行くか．\n確かにSIFT WorkstationでFile Serverをマウントしてvssディレクトリを見ると，リンクがunsupported reparse pointとなってる．\nFTK Imagerでマウントして，見るとファイルTypeがReparse Pointになっていて，hexで見るとリンク先が見える．\nFLAG:\\GLOBALROOT\\Device\\Harddisk\\VolumeShadowCopy1\\\nFile Server - Advanced 2(4) 問題文\nWhen was the Volume Shadow Copy 1 created? Enter answer in UTC TIme in the following format 1/1/2018 13:11:11 Month/Day/Year 24 Hour Time USNAnalyticsを使ってUSNジャーナルの解析をした出力ファイルに対して，\\System Volume Information\\下にある{f491dfb8-90bc-11e8-a336-c4ce02cc7d80}{3808876b-c176-4e48-b7ae-04046e6cc752}を探す\nFLAG:8/7/2018 20:32:40\nFile Server - Advanced 3(4) 問題文\nWhere did Max Powers login from? Max Powersはどこからログインしたのかという話． 今までmpowersだったのに突然名前になったのはな何という感じ．(これで引っかかってわりと時間をかけてしまった)\nSIFT WorkstationでマウントしたHR Server, FileServerに対してMax Powersで全文検索する．\n[HR Server]/Users/Administrator/AppData/Local/Microsoft/Windows/INetCache/IE/TQ2DH63X/viewMyDetails[1].htmというファイルでMax Powersの部分がヒットしている．\nこのファイルはパスを見ると，IEのキャッシュファイルっぽい．\nHR ServerのAdministratorアカウントでIEでアクセスがされているようには見える．\n実際のhtmファイルを見ると以下のような感じになっていて，ログインをするとユーザのアカウント名が表示されるっぽい？\nこのキャッシュが生成されたアクセスをIEのWEB履歴ファイルWebCache下を抽出し，IECaheViewで食わせて見る．\nIECacheView - Internet Explorer Cache Viewer : http://www.nirsoft.net/utils/ie_cache_viewer.html\n履歴を見ると，URLがhttp://74.118.139.108/symfony/web/index.php/pim/ViewMyDetailsになっていることが確認できる．\nログインして自分のアカウントを見たときにはこんな感じのURLになると推測できる．\nそしてWEBサービスなんで，DBとかにログインの履歴とか残ってたりしないかと思い，xamppで管理されているであろうOrangeHRM関係のファイルを見る．\n``[HRServer]/Program Files/OrangeHRM/4.1/mysql/bin/にmy.iniファイルがあるので色々と見るが，本当は[HRServer]/Users/Administrator/Downloadsにorangehrm_mysql.sql`という明らかに[MySQLからダンプされたようなファイルがあってそれを見れば良い．\nMySQLのダンプファイルなので，MySQLのDBをリストアする．\nmysql \u003e CREATE DATABASE OrangeHRM;` # mysql -u username -ppassword -D OrangeHRM \u003c orangehrm_mysql.sql mysql\u003e select * ohrm_users; ohrm_usersに登録されているユーザは4つ\nhs_hr_employeeではユーザが3人登録されていて，Max Powersがいることが確認できる．\nログインした感じのものがohrm_loginに残っている．\nMaxがログインしているところが多々あり，それのアクセスを調べる為に．apacheのaccess.logを調べる． viewMyDetailがログインしている状態っぽいので，それでgrepする\n$ cat access.log| grep \"symfony/web/index.php/pim/viewMyDetail*\"\nこれを見るとIPアドレスが共通しており，74.118.138.195からログインしていることが分かる．\nFLAG:74.118.138.195\nFile Server - Advanced 4(4) 問題文\nWhat program was used to delete forensic artifacts? フォレンジックアーティファクトを削除するのに使われたプログラムは何という話．\n\\Users\\mpowers\\Desktopにそれっぽい実行ファイルがある．\nRegripperで出力したUseAssistにも怪しい実行ファイルがある．\nValue names with no time stamps: {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\cleanmgr.exe C:\\Users\\mpowers\\Desktop\\PrivaZer.exe Microsoft.Windows.WindowsInstaller {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\SystemPropertiesComputerName.exe {1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\taskmgr.exe PrivaZer.exeを調べると，PCのクリーンをするプログラムだというのが出てくる． Free PC cleaner - Download : https://privazer.com/download.php#.W4A9B5MzYsk\nそれっぽい．\nFLAG:PrivaZer.exe\nFile Server - Advanced 5(4) 問題文\nWhat is the name of the zip file that contains the M4Projects directory? VSSをマウントして，現状無い部分を見てみる\nFLAG:FileServerShare.zip\nFile Server - Advanced 10(4) 問題文\nWhat service did the attacker use to access this system? 攻撃者が使って侵入したシステムは何？ RDP\nFLAG:RDP\nFile Server -Expert File Server - Expert 1(8) 問題文\nWhat program extracted Mnemosyne.sys? どのプログラムがMnemosyne.sysを抽出したか？ Desktop下にフォレンジックツールF-Responseがあり，マニュアルを見るとMnemosyne.sysを抽出する感じがあるのでそれっぽい．\nhttps://f-response.com/assets/pdfs/F-Response_Manual_5.00.01-August2013.pdf\nFLAG:F-Response\n",
+  "wordCount" : "732",
+  "inLanguage": "en",
+  "datePublished": "2018-09-16T15:11:41Z",
+  "dateModified": "2018-09-16T15:11:41Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2018/09/16/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp
+    </h1>
+    <div class="post-meta"><span title='2018-09-16 15:11:41 +0000 UTC'>September 16, 2018</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>※ 移行前の元ブログ記事 : <a href="https://socketo.hatenablog.jp/entry/2018/09/16/151141">Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &lt;sys_socket.h&gt;</a></p>
+<h2 id="はじめに">はじめに<a hidden class="anchor" aria-hidden="true" href="#はじめに">#</a></h2>
+<p>以下の記事の続き．</p>
+<p><a href="https://socketo.hatenablog.jp/entry/2018/08/26/030815">Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp</a></p>
+<p>ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)</p>
+<h2 id="file-server-basic">File Server Basic<a hidden class="anchor" aria-hidden="true" href="#file-server-basic">#</a></h2>
+<p>HR Serverの問題を解いているといつの間にか<code>Next</code>という項目が増えて，<code>Image2.7z</code>のパスワードが開示されるので，Imag2(File Server)をやっていくことができる</p>
+<h3 id="file-server---basic-12">File Server - Basic 1(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-12">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What is the volume serial number of the only partition on the File Server Disk Image
+</span></span></code></pre></div><p>Volumeのシリアルナンバーを答える．</p>
+<p>FTK Imagerで開いているイメージファイルのFile System Informationを見る．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916135827.png" alt="f:id:socketo:20180916135827p:plain"  title="f:id:socketo:20180916135827p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FLAG:<code>C096-2465</code></p>
+<h3 id="file-server---basic-22">File Server - Basic 2(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-22">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What is the name of the examiner who made the Forensic Image?
+</span></span></code></pre></div><p>X-Waysとかでイメージを取得するとき，調査員の名前をオプションとして記入することができる．
+その際，取得時のログにその名前とかが書かれるんで，<code>FileServer_Disk0.txt</code>を見るとexaminer&rsquo;s name的なところに書いてある．</p>
+<p>FLAG:<code>Professor Frink</code></p>
+<h3 id="file-server---basic-32">File Server - Basic 3(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-32">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Who cleared the security event log?
+</span></span></code></pre></div><p>(忘れたけど確かAdmministratorだった気が)</p>
+<p>FLAG:<code>Administrator</code></p>
+<h3 id="file-server---basic-42">FIle Server - Basic 4(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-42">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What is the hostname of the computer?
+</span></span></code></pre></div><p>Regripperで調べる</p>
+<p><code># rip.pl -r SYSTEM -p compname</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Launching compname v.20090727
+</span></span><span style="display:flex;"><span>compname v.20090727
+</span></span><span style="display:flex;"><span>(System) Gets ComputerName and Hostname values from System hive
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ComputerName    = WIN-M5327EF98B9
+</span></span><span style="display:flex;"><span>TCP/IP Hostname = WIN-M5327EF98B9
+</span></span></code></pre></div><p>FLAG:<code>WIN-M5327EF98B9</code></p>
+<h3 id="file-server---basic-52">File Server - Basic 5(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-52">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>When was the computer last shutdown? UTC Time In the format of Month/Day/Year Hour:Minute:Second in 24 hour timr 1/1/2018 14:01:01
+</span></span></code></pre></div><p>Regripperで調べる</p>
+<p><code># rip.pl -r SYSTEM -p shutdown</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Launching shutdown v.20080324
+</span></span><span style="display:flex;"><span>shutdown v.20080324
+</span></span><span style="display:flex;"><span>(System) Gets ShutdownTime value from System hive
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ControlSet001\Control\Windows key, ShutdownTime value
+</span></span><span style="display:flex;"><span>ControlSet001\Control\Windows
+</span></span><span style="display:flex;"><span>LastWrite Time Thu Jul 26 10:16:16 2018 (UTC)
+</span></span><span style="display:flex;"><span>ShutdownTime = Thu Jul 26 10:16:16 2018 (UTC)
+</span></span></code></pre></div><p>FLAG:<code>7/26/2018 10:16:16</code></p>
+<h3 id="file-server---basic-62">File Server - Basic 6(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-62">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What is the Current Build number of Windows on the File Server computer?
+</span></span></code></pre></div><p>このWindowsのBuildナンバーを見る．</p>
+<p><code>SYSTEM</code>ハイブを抽出して，Registry Explolerで見る．
+<!-- raw HTML omitted --><img loading="lazy" src="20180916140038.png" alt="f:id:socketo:20180916140038p:plain"  title="f:id:socketo:20180916140038p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FLAG:<code>7601</code></p>
+<h3 id="file-server---basic-72">File Server - Basic 7(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-72">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>what was mpowers user id?
+</span></span></code></pre></div><p><code>mpowers</code>のユーザIDは何という話．</p>
+<p>Regripperを使ってSAMから情報を取得する</p>
+<p><code># rip.pl -r Windows/System32/config/SAM -p samparse</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Username        : mpowers [1000]
+</span></span><span style="display:flex;"><span>Full Name       : mpowers
+</span></span><span style="display:flex;"><span>User Comment    :
+</span></span><span style="display:flex;"><span>Account Type    : Default Admin User
+</span></span><span style="display:flex;"><span>Account Created : Wed Jul 11 20:35:55 2018 Z
+</span></span><span style="display:flex;"><span>Name            :
+</span></span><span style="display:flex;"><span>Password Hint   : 1
+</span></span><span style="display:flex;"><span>Last Login Date : Wed Aug  8 21:36:48 2018 Z
+</span></span><span style="display:flex;"><span>Pwd Reset Date  : Wed Jul 11 20:36:40 2018 Z
+</span></span><span style="display:flex;"><span>Pwd Fail Date   : Mon Jul 30 16:55:55 2018 Z
+</span></span><span style="display:flex;"><span>Login Count     : 10
+</span></span><span style="display:flex;"><span>--&gt; Normal user account
+</span></span><span style="display:flex;"><span>--&gt; Password does not expire
+</span></span></code></pre></div><p>FLAG:<code>1000</code></p>
+<h3 id="file-server---basic-82">File Server - Basic 8(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-82">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Which program did Max Powers last run through the GUI?
+</span></span></code></pre></div><p>RegripperでUserAssist実行履歴を見る</p>
+<p><code># rip.pl -r Users/mpowers/NTUSER.DAT -p userassist</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Launching userassist v.20170204
+</span></span><span style="display:flex;"><span>UserAssist
+</span></span><span style="display:flex;"><span>Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
+</span></span><span style="display:flex;"><span>LastWrite Time Mon Jul 16 17:05:01 2018 (UTC)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{CEBFF5CD-ACE2-4F4F-9178-9926F41749EA}
+</span></span><span style="display:flex;"><span>Wed Aug  8 21:37:04 2018 Z
+</span></span><span style="display:flex;"><span>C:\Users\mpowers\Desktop\sub-win-x64_104.148.109.124_5682_3262.exe (2)
+</span></span><span style="display:flex;"><span>Wed Aug  8 00:16:07 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\services.msc (1)
+</span></span><span style="display:flex;"><span>Tue Aug  7 23:59:01 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\msiexec.exe (2)
+</span></span><span style="display:flex;"><span>Tue Aug  7 23:57:57 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\ServerManager.msc (1)
+</span></span><span style="display:flex;"><span>Tue Aug  7 20:33:21 2018 Z
+</span></span><span style="display:flex;"><span>Microsoft.Windows.RemoteDesktop (1)
+</span></span><span style="display:flex;"><span>Tue Aug  7 20:16:34 2018 Z
+</span></span><span style="display:flex;"><span>Chrome (4)
+</span></span><span style="display:flex;"><span>Tue Aug  7 20:13:14 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\cmd.exe (16)
+</span></span><span style="display:flex;"><span>Tue Aug  7 20:05:30 2018 Z
+</span></span><span style="display:flex;"><span>{F38BF404-1D43-42F2-9305-67DE0B28FC23}\explorer.exe (6)
+</span></span><span style="display:flex;"><span>Mon Jul 30 22:44:12 2018 Z
+</span></span><span style="display:flex;"><span>{6D809377-6AF0-444B-8957-A3773F02200E}\Notepad++\notepad++.exe (4)
+</span></span><span style="display:flex;"><span>Mon Jul 30 22:43:35 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsPowerShell\v1.0\powershell.exe (3)
+</span></span><span style="display:flex;"><span>Tue Jul 24 15:47:39 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WF.msc (2)
+</span></span><span style="display:flex;"><span>Mon Jul 16 17:03:14 2018 Z
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\notepad.exe (13)
+</span></span><span style="display:flex;"><span>Microsoft.InternetExplorer.Default (12)
+</span></span></code></pre></div><p>FLAG:<code>sub-win-x64_104.148.109.124_5682_3262.exe</code></p>
+<h3 id="file-server---basic-92">File Server - Basic 9(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-92">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>When did Max Powers last open projections.zip? UTC TIme Day/Month/year Hour:Minute:Sec in 24 hour time 1/1/2018 15:20:11
+</span></span></code></pre></div><p>わからん〜〜〜</p>
+<h3 id="file-server---basic-102">File Server - Basic 10(2)<a hidden class="anchor" aria-hidden="true" href="#file-server---basic-102">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>How many clusters are on the partition?
+</span></span></code></pre></div><p>FTK ImagerでFIle System Infromationを見る</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140135.png" alt="f:id:socketo:20180916140135p:plain"  title="f:id:socketo:20180916140135p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FLAG:<code>13081343</code></p>
+<h2 id="file-server---advanced">File Server - Advanced<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced">#</a></h2>
+<h3 id="file-server---advanced-14">File Server - Advanced 1(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-14">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Where does the \VSS directory go?
+</span></span></code></pre></div><p>\VSSディレクトリはどこへ行くか．</p>
+<p>確かにSIFT WorkstationでFile Serverをマウントしてvssディレクトリを見ると，リンクが<code>unsupported reparse point</code>となってる．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140250.png" alt="f:id:socketo:20180916140250p:plain"  title="f:id:socketo:20180916140250p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FTK Imagerでマウントして，見るとファイルTypeがReparse Pointになっていて，hexで見るとリンク先が見える．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140322.png" alt="f:id:socketo:20180916140322p:plain"  title="f:id:socketo:20180916140322p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FLAG:<code>\GLOBALROOT\Device\Harddisk\VolumeShadowCopy1\</code></p>
+<h3 id="file-server---advanced-24">File Server - Advanced 2(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-24">#</a></h3>
+<p> 問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>When was the Volume Shadow Copy 1 created? Enter answer in UTC TIme in the following format 1/1/2018 13:11:11 Month/Day/Year 24 Hour Time
+</span></span></code></pre></div><p>USNAnalyticsを使ってUSNジャーナルの解析をした出力ファイルに対して，<code>\System Volume Information\</code>下にある<code>{f491dfb8-90bc-11e8-a336-c4ce02cc7d80}{3808876b-c176-4e48-b7ae-04046e6cc752}</code>を探す</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140433.png" alt="f:id:socketo:20180916140433p:plain"  title="f:id:socketo:20180916140433p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>FLAG:<code>8/7/2018 20:32:40</code></p>
+<h3 id="file-server---advanced-34">File Server - Advanced 3(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-34">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Where did Max Powers login from?
+</span></span></code></pre></div><p><code>Max Powers</code>はどこからログインしたのかという話．
+今まで<code>mpowers</code>だったのに突然名前になったのはな何という感じ．(これで引っかかってわりと時間をかけてしまった)</p>
+<p>SIFT WorkstationでマウントしたHR Server, FileServerに対して<code>Max Powers</code>で全文検索する．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140535.png" alt="f:id:socketo:20180916140535p:plain"  title="f:id:socketo:20180916140535p:plain"  />
+<!-- raw HTML omitted --></p>
+<p><code>[HR Server]/Users/Administrator/AppData/Local/Microsoft/Windows/INetCache/IE/TQ2DH63X/viewMyDetails[1].htm</code>というファイルで<code>&lt;h1&gt;Max Powers&lt;/h1&gt;</code>の部分がヒットしている．</p>
+<p>このファイルはパスを見ると，IEのキャッシュファイルっぽい．</p>
+<p>HR Serverの<code>Administrator</code>アカウントでIEでアクセスがされているようには見える．</p>
+<p>実際のhtmファイルを見ると以下のような感じになっていて，ログインをするとユーザのアカウント名が表示されるっぽい？</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140626.png" alt="f:id:socketo:20180916140626p:plain"  title="f:id:socketo:20180916140626p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>このキャッシュが生成されたアクセスをIEのWEB履歴ファイル<code>WebCache</code>下を抽出し，IECaheViewで食わせて見る．</p>
+<p>IECacheView - Internet Explorer Cache Viewer : <a href="http://www.nirsoft.net/utils/ie_cache_viewer.html">http://www.nirsoft.net/utils/ie_cache_viewer.html</a></p>
+<p>履歴を見ると，URLが<code>http://74.118.139.108/symfony/web/index.php/pim/ViewMyDetails</code>になっていることが確認できる．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140701.png" alt="f:id:socketo:20180916140701p:plain"  title="f:id:socketo:20180916140701p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>ログインして自分のアカウントを見たときにはこんな感じのURLになると推測できる．</p>
+<p>そしてWEBサービスなんで，DBとかにログインの履歴とか残ってたりしないかと思い，xamppで管理されているであろうOrangeHRM関係のファイルを見る．</p>
+<p>``[HRServer]/Program Files/OrangeHRM/4.1/mysql/bin/<code>に</code>my.ini<code>ファイルがあるので色々と見るが，本当は</code>[HRServer]/Users/Administrator/Downloads<code>に</code>orangehrm_mysql.sql`という明らかに[MySQLからダンプされたようなファイルがあってそれを見れば良い．</p>
+<p>MySQLのダンプファイルなので，MySQLのDBをリストアする．</p>
+<pre tabindex="0"><code>mysql &gt; CREATE DATABASE OrangeHRM;`
+# mysql -u username -ppassword -D OrangeHRM &lt; orangehrm_mysql.sql
+mysql&gt; select * ohrm_users;
+</code></pre><p><!-- raw HTML omitted --><img loading="lazy" src="20180916140815.png" alt="f:id:socketo:20180916140815p:plain"  title="f:id:socketo:20180916140815p:plain"  />
+<!-- raw HTML omitted --></p>
+<p><code>ohrm_users</code>に登録されているユーザは4つ</p>
+<p><code>hs_hr_employee</code>ではユーザが3人登録されていて，<code>Max Powers</code>がいることが確認できる．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140850.png" alt="f:id:socketo:20180916140850p:plain"  title="f:id:socketo:20180916140850p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>ログインした感じのものが<code>ohrm_login</code>に残っている．</p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916140919.png" alt="f:id:socketo:20180916140919p:plain"  title="f:id:socketo:20180916140919p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>Maxがログインしているところが多々あり，それのアクセスを調べる為に．apacheのaccess.logを調べる．
+<code>viewMyDetail</code>がログインしている状態っぽいので，それでgrepする</p>
+<p><code>$ cat access.log| grep &quot;symfony/web/index.php/pim/viewMyDetail*&quot;</code></p>
+<p><!-- raw HTML omitted --><img loading="lazy" src="20180916141103.png" alt="f:id:socketo:20180916141103p:plain"  title="f:id:socketo:20180916141103p:plain"  />
+<!-- raw HTML omitted --></p>
+<p>これを見るとIPアドレスが共通しており，<code>74.118.138.195</code>からログインしていることが分かる．</p>
+<p>FLAG:<code>74.118.138.195</code></p>
+<h3 id="file-server---advanced-44">File Server - Advanced 4(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-44">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What program was used to delete forensic artifacts?
+</span></span></code></pre></div><p>フォレンジックアーティファクトを削除するのに使われたプログラムは何という話．</p>
+<p><code>\Users\mpowers\Desktop</code>にそれっぽい実行ファイルがある．</p>
+<p>Regripperで出力したUseAssistにも怪しい実行ファイルがある．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Value names with no time stamps:
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\cleanmgr.exe
+</span></span><span style="display:flex;"><span>C:\Users\mpowers\Desktop\PrivaZer.exe
+</span></span><span style="display:flex;"><span>Microsoft.Windows.WindowsInstaller
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\SystemPropertiesComputerName.exe
+</span></span><span style="display:flex;"><span>{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\taskmgr.exe
+</span></span></code></pre></div><p>PrivaZer.exeを調べると，PCのクリーンをするプログラムだというのが出てくる．
+Free PC cleaner - Download : <a href="https://privazer.com/download.php#.W4A9B5MzYsk">https://privazer.com/download.php#.W4A9B5MzYsk</a></p>
+<p>それっぽい．</p>
+<p>FLAG:<code>PrivaZer.exe</code></p>
+<h3 id="file-server---advanced-54">File Server - Advanced 5(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-54">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What is the name of the zip file that contains the M4Projects directory?
+</span></span></code></pre></div><p>VSSをマウントして，現状無い部分を見てみる</p>
+<p>FLAG:<code>FileServerShare.zip</code></p>
+<h3 id="file-server---advanced-104">File Server - Advanced 10(4)<a hidden class="anchor" aria-hidden="true" href="#file-server---advanced-104">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What service did the attacker use to access this system?
+</span></span></code></pre></div><p>攻撃者が使って侵入したシステムは何？
+RDP</p>
+<p>FLAG:<code>RDP</code></p>
+<h2 id="file-server--expert">File Server -Expert<a hidden class="anchor" aria-hidden="true" href="#file-server--expert">#</a></h2>
+<h3 id="file-server---expert-18">File Server - Expert 1(8)<a hidden class="anchor" aria-hidden="true" href="#file-server---expert-18">#</a></h3>
+<p>問題文</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>What program extracted Mnemosyne.sys?
+</span></span></code></pre></div><p>どのプログラムがMnemosyne.sysを抽出したか？
+Desktop下にフォレンジックツール<code>F-Response</code>があり，マニュアルを見るとMnemosyne.sysを抽出する感じがあるのでそれっぽい．</p>
+<p><a href="https://f-response.com/assets/pdfs/F-Response_Manual_5.00.01-August2013.pdf">https://f-response.com/assets/pdfs/F-Response_Manual_5.00.01-August2013.pdf</a></p>
+<p>FLAG:<code>F-Response</code></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/forensics/">Forensics</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

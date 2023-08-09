@@ -6,14 +6,76 @@
     <description>Recent content in Tags on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>© Copyright socketo - All rights reserved.</copyright>
     <lastBuildDate>Tue, 25 Apr 2023 22:00:26 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>blog</title>
-      <link>https://socketo.github.io/tags/blog/</link>
+      <title>Others</title>
+      <link>https://socketo.github.io/tags/others/</link>
       <pubDate>Tue, 25 Apr 2023 22:00:26 +0900</pubDate>
       
-      <guid>https://socketo.github.io/tags/blog/</guid>
+      <guid>https://socketo.github.io/tags/others/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forensics</title>
+      <link>https://socketo.github.io/tags/forensics/</link>
+      <pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/forensics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bluetooth</title>
+      <link>https://socketo.github.io/tags/bluetooth/</link>
+      <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CTF</title>
+      <link>https://socketo.github.io/tags/ctf/</link>
+      <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://socketo.github.io/tags/security/</link>
+      <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Honeypot</title>
+      <link>https://socketo.github.io/tags/honeypot/</link>
+      <pubDate>Mon, 22 Jan 2018 00:05:37 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/honeypot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>event</title>
+      <link>https://socketo.github.io/tags/event/</link>
+      <pubDate>Sun, 14 Aug 2016 19:38:43 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://socketo.github.io/tags/python/</link>
+      <pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/tags/python/</guid>
       <description></description>
     </item>
     

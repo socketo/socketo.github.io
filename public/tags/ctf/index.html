@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CTF | socketo.github.io</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/tags/ctf/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://socketo.github.io/tags/ctf/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="CTF" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://socketo.github.io/tags/ctf/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CTF"/>
+<meta name="twitter:description" content=""/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    CTF
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>BLE CTF WriteUp
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &lt;sys_socket.h&gt;
+はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
+hackgnar - Learning Bluetooth Hackery with BLE CTF
+http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html
+ble_ctf_ A Bluetooth low energy capture the flag : https://github.com/hackgnar/ble_ctf
+READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。
+私の今回の環境は以下
+ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
+ESP32ビルド環境 macOS Mojave version 10.14.3
+端末(ThinkPad X220) Kali Linux
+環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
+国内だと秋月やマルツなどで売ってる。
+ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
+Wi-Fi&#43;BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
+ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
+Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
+Espressif IoT Development Framework : https://github....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-02-21 20:33:47 +0000 UTC'>February 21, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to BLE CTF WriteUp" href="https://socketo.github.io/posts/2019/02/21/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>SECCON 2018 Online CTF Forensics問題 Write-up
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※ 移行前の元ブログ記事 : SECCON 2018 Online CTF Forensics問題 Write-up - #include &lt;sys_socket.h&gt;
+はじめに SECCON2018のオンライン大会のForensics問題のWrite-up
+フォレンジック問題はやるかと腰を上げてやるだけやった
+UnzipとHistory
+Unzip 問題文 $ Unzip flag.zip. Write-up ファイル名:unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183fのZIPファイルが落ちてくる．
+$ file unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f: Zip archive data, at least v1.0 to extract 普通にzipファイルなのでunzipする
+$ unzip -d unzip unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f Archive: unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f extracting: unzip/flag.zip inflating: unzip/makefile.sh unzipするとflag.zipとmakefile.shが出てくる flag.zipは暗号化されたZIPファイル
+$ ls -la .rw-r--r--@ 225 socketo 27 10 0:10 flag.zip .rwx---r-x@ 99 socketo 27 10 0:10 makefile.sh makefile.shの中身を見ると，zipパスワードにperl -e &#34;print time()&#34;で出力されたunixtimeが設定されていることがわかる...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-10-28 15:41:22 +0000 UTC'>October 28, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to SECCON 2018 Online CTF Forensics問題 Write-up" href="https://socketo.github.io/posts/2018/10/28/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 - #include &lt;sys_socket.h&gt;
+2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加してきました．
+CTF for ビギナーズ2015 博多（Attack &amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
+今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．
+競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．
+競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．
+みたいな感じだった．
+はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．
+ちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）
+結果 結果としては結論から言うと9位だった．
+CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7
+一回攻め込まれてそのままズルズルとやってたら終了してた．
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
+攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-06-13 20:34:08 +0000 UTC'>June 13, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話" href="https://socketo.github.io/posts/2015/06/13/03/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>TDU CTF 2014 Satellite in ConoHaに参加した話
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※ 移行前の元ブログ記事 : TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &lt;sys_socket.h&gt;
+2015-03-29、TDU CTFに参加してきました。
+TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : http://connpass.com/event/11986/
+CTF for Beginnersでの簡易CTF以外ではCTF初参加なのでビクビクしながら行きました。
+本当の初心者だった自分は結局620pt取れました。
+懇親会でどのようにして問題を解いたかなどを参加者の方々と話していくなかで、自分が手も足も出なかった問題に対してのアプローチの仕方などを知ることがとても楽しいものでした。
+自分が解けた問題は少ないですがWriteupとか感想を。
+Web Easy SQLi
+とりあえず
+&#39; OR 1 = 1 -- をしてみたけどダメで色々と試してたらダブルコーテーションなら何か反応があり、
+&#34; OR 1 = 1 -- を突っ込んだらフラグが出た。複数フラグがあったようでしたがそれ以上進むことが出来ずに断念。
+binary string_compare
+実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。
+多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit
+競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。
+とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。
+KosakaHonokaではINVALID KEY
+Trip Picture
+20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした
+読めない文字1
+文末に&#34;==“がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に”==“がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。
+network 柚子胡椒 Vol.1
+Bluetoothの通信をキャプチャしたっぽいpcapが与えられたのでWiresharkで開いて内容を見てたらFlagがあったのでそれをsubmitした
+crypt 我が同胞に告ぐ
+文字列&#34;avia hhlam li as li ii llaem xiwe hhiso lllasom&#34;が与えられ、最初はシーザー暗号かと思いPythonで一文字ずつズラして表示したりしたけどそれっぽいものにはならくて諦めかけていたが、問題の作成者のnomukenさんが「この問題は宗教的な戦争が～…」との発言をしていたので、Vim/Emacsの宗教戦争かとのことでVimを起動してその文字列をスペースがあたる部分をEscで入力すると...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-03-31 00:26:42 +0000 UTC'>March 31, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to TDU CTF 2014 Satellite in ConoHaに参加した話" href="https://socketo.github.io/posts/2015/03/31/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

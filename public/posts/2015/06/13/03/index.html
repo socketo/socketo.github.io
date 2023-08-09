@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 | socketo.github.io</title>
+<meta name="keywords" content="CTF, event">
+<meta name="description" content="※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 - #include &lt;sys_socket.h&gt;
+2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加してきました．
+CTF for ビギナーズ2015 博多（Attack &amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
+今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．
+競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．
+競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．
+みたいな感じだった．
+はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．
+ちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）
+結果 結果としては結論から言うと9位だった．
+CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7
+一回攻め込まれてそのままズルズルとやってたら終了してた．
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
+攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2015/06/13/03/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話" />
+<meta property="og:description" content="※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 - #include &lt;sys_socket.h&gt;
+2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加してきました．
+CTF for ビギナーズ2015 博多（Attack &amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
+今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．
+競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．
+競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．
+みたいな感じだった．
+はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．
+ちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）
+結果 結果としては結論から言うと9位だった．
+CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7
+一回攻め込まれてそのままズルズルとやってたら終了してた．
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
+攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2015/06/13/03/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-06-13T20:34:08+00:00" />
+<meta property="article:modified_time" content="2015-06-13T20:34:08+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話"/>
+<meta name="twitter:description" content="※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 - #include &lt;sys_socket.h&gt;
+2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加してきました．
+CTF for ビギナーズ2015 博多（Attack &amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
+今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．
+競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．
+競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．
+みたいな感じだった．
+はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．
+ちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）
+結果 結果としては結論から言うと9位だった．
+CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7
+一回攻め込まれてそのままズルズルとやってたら終了してた．
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
+攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "CTF for ビギナーズ2015 博多（Attack \u0026 Defense）に参加した話",
+      "item": "https://socketo.github.io/posts/2015/06/13/03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CTF for ビギナーズ2015 博多（Attack \u0026 Defense）に参加した話",
+  "name": "CTF for ビギナーズ2015 博多（Attack \u0026 Defense）に参加した話",
+  "description": "※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack \u0026amp; Defense）に参加した話 - #include \u0026lt;sys_socket.h\u0026gt;\n2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack \u0026amp; Defense）に参加してきました．\nCTF for ビギナーズ2015 博多（Attack \u0026amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249\n今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．\n競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．\n各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．\n与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．\n競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．\nDefenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．\nAttackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．\nみたいな感じだった．\nはじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．\nちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．\n（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）\n結果 結果としては結論から言うと9位だった．\nCTF for ビギナーズ2015 博多(Attack \u0026amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7\n一回攻め込まれてそのままズルズルとやってたら終了してた．\n@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．\nつらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．\n攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．\n攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．\nおまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった",
+  "keywords": [
+    "CTF", "event"
+  ],
+  "articleBody": "※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack \u0026 Defense）に参加した話 - #include 2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack \u0026 Defense）に参加してきました．\nCTF for ビギナーズ2015 博多（Attack \u0026 Defense）: https://attack-and-defense.doorkeeper.jp/events/24249\n今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．\n競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．\n各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．\n与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．\n競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．\nDefenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．\nAttackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．\nみたいな感じだった．\nはじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．\nちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．\n（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）\n結果 結果としては結論から言うと9位だった．\nCTF for ビギナーズ2015 博多(Attack \u0026 Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7\n一回攻め込まれてそのままズルズルとやってたら終了してた．\n@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．\nつらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．\n攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．\n攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．\nおまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった\n",
+  "wordCount" : "65",
+  "inLanguage": "en",
+  "datePublished": "2015-06-13T20:34:08Z",
+  "dateModified": "2015-06-13T20:34:08Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2015/06/13/03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/posts" title="posts">
+                    <span><i class='fa fa-heart'></i>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
+    </h1>
+    <div class="post-meta"><span title='2015-06-13 20:34:08 +0000 UTC'>June 13, 2015</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>※ 移行前の元ブログ記事 : <a href="https://socketo.hatenablog.jp/entry/2015/06/13/203408_1">CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話 - #include &lt;sys_socket.h&gt;</a></p>
+<p>2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加してきました．</p>
+<p>CTF for ビギナーズ2015 博多（Attack &amp; Defense）: <a href="https://attack-and-defense.doorkeeper.jp/events/24249">https://attack-and-defense.doorkeeper.jp/events/24249</a></p>
+<p>今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．</p>
+<h1 id="競技">競技<a hidden class="anchor" aria-hidden="true" href="#競技">#</a></h1>
+<p>今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．<br>
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．<br>
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．</p>
+<p>競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．<br>
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．<br>
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．<br>
+みたいな感じだった．</p>
+<p>はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．<br>
+ちなみに今回私は<a href="https://twitter.com/Ranats_rifle">@Ranats_rifle</a>とIchigoMilkなる可愛らしいチーム名で参加した．<br>
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）</p>
+<h1 id="結果">結果<a hidden class="anchor" aria-hidden="true" href="#結果">#</a></h1>
+<p>結果としては結論から言うと9位だった．</p>
+<blockquote>
+<p>CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 <a href="https://twitter.com/hashtag/seccon?src=hash">#seccon</a> <a href="https://twitter.com/hashtag/ctf4b?src=hash">#ctf4b</a> <a href="https://twitter.com/hashtag/a_and_d?src=hash">#a_and_d</a> <a href="http://t.co/JFiED8niDe">pic.twitter.com/JFiED8niDe</a>
+— SECCON CTF (@secconctf) <a href="https://twitter.com/secconctf/status/607480338319695874">2015, 6月 7</a></p>
+</blockquote>
+<p>一回攻め込まれてそのままズルズルとやってたら終了してた．<br>
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．<br>
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．</p>
+<p>攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．<br>
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．</p>
+<h1 id="おまけ">おまけ<a hidden class="anchor" aria-hidden="true" href="#おまけ">#</a></h1>
+<p>本場の博多ラーメン美味しかった．（一緒に行った<a href="https://twitter.com/Ranats_rifle">@Ranats_rifle</a>が替え玉合わせて4玉食べててすごかった</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/ctf/">CTF</a></li>
+      <li><a href="https://socketo.github.io/tags/event/">event</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

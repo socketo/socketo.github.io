@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Others on socketo.github.io</title>
+    <link>https://socketo.github.io/tags/others/</link>
+    <description>Recent content in Others on socketo.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 25 Apr 2023 22:00:26 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello Hugo</title>
+      <link>https://socketo.github.io/posts/2023/04/25/</link>
+      <pubDate>Tue, 25 Apr 2023 22:00:26 +0900</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2023/04/25/</guid>
+      <description>いつの頃からか、自分のはてなブログ #include &amp;lt;sys/socket.h&amp;gt;の冒頭に「この広告は、90日以上更新していないブログに表示しています。」と表示がされるようになった。
+3年以上、個人の技術ブログを書いていないのは如何なものかと思い重い腰を上げた次第である。
+Hugoのインストール Homebrewでhugoをインストールし、ブログを作成する。
+$ brew install hugo $ hugo new site hugo_blog hubo_blogディレクトリが作成されたので、テーマの追加。今回はシンプルで良さそうなHugo PaperModを使用する。
+$ git init . $ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod configにブログのbaseURLの修正やテーマの追加をする。
+baseURL = &amp;#39;https://socketo.github.io&amp;#39; title = &amp;#39;socketo.github.io&amp;#39; languageCode = &amp;#39;ja&amp;#39; theme = &amp;#39;PaperMod&amp;#39; author = &amp;#39;socketo&amp;#39; copyright = &amp;#39;© Copyright socketo - All rights reserved.&amp;#39; テーマの導入まで完了をしているので、実際に動かして確認をする。
+$ hugo serve 起動し、 localhost:1313 にアクセスする。
+記事の作成 この記事を作成する。
+$ hugo new posts/hello-hugo.md 任意の記事の内容を書く。
+記事のビルド $ hugo さいごに ブログを書いていきたい。</description>
+    </item>
+    
+    <item>
+      <title>PythonでSeleniumを使ってagqrの登録を自動化する</title>
+      <link>https://socketo.github.io/posts/2016/04/10/</link>
+      <pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2016/04/10/</guid>
+      <description>※ 移行前の元ブログ記事 PythonでSeleniumを使ってagqrの登録を自動化する - #include &amp;lt;sys_socket.h&amp;gt;
+JOQR 超!A&amp;amp;G+でよく声優さんのラジオを聴いたり見たりしています．
+超！A&amp;amp;G | 文化放送
+僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．
+ここでは&amp;quot;初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。&amp;ldquo;と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．
+目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．
+そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．
+Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．
+radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．</description>
+    </item>
+    
+    <item>
+      <title>CpawLT #1に参加した話</title>
+      <link>https://socketo.github.io/posts/2015/06/13/02/</link>
+      <pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate>
+      
+      <guid>https://socketo.github.io/posts/2015/06/13/02/</guid>
+      <description>2015-5-31，CpawLT #1に参加してきました．
+CpawLT #1 : ATND : https://atnd.org/events/65601
+前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．
+====
+CpawLT #とは CpawというプログラミングサークルのLT大会らしいです．
+Cpawは”コポォ”と読むとか”シーパウ”と読むとか宗派があるらしいです．
+今回参加した経緯といいますと，この会を主催している@porisuteru さんが誘ってくれてという感じです．
+LTの内容はATNDに書いてある通り，なんでもOKという感じでしたがみなさんやはり技術系の話が多かったです．（自分のLTは技術系と言っていいのかわからない）
+参加者はやう10人ほどという感じでゆる〜い感じでLT大会が始まっていきました．
+LT LTは一人持ち時間約10分以内（？）くらいで時間もわりとあったのでLTでしがた時間を気にせずに話していきました．
+自分は外部の人間ですがLTをさせて頂くことになり，RaspberryPiの紹介と4DSystemsのLCDでハロー!!きんいろモザイクを見る話をしました．
+権利問題上，LTスライドは公開していいのかどうか怪しいのでこのまま供養します．
+参加者のみなさんのLTの内容は技術的な話題が多く，数学史から技術書の話，Unityを使ったゲーム制作の話などなど…
+普段，自分が聞く機会がない内容の話ばかりで大変有意義なものだった．
+懇親会&amp;ndash;ここから異常&amp;ndash; 懇親会は吉祥寺のムーの子孫で行われました．
+#CpawLT](https://twitter.com/hashtag/CpawLT?src=hash) (@ ムーの子孫 吉祥寺店 in [武蔵野市, 東京都) https://t.co/LGgcoOTd2P — そけと (@socket_x) 2015, 5月 31
+メンバーを所属組織割合が均等になるようにテーブルを分けて着席したわけですが，一方のテーブルではもんじゃ焼きを作るアルゴリズムの話やら，一方のテーブルではそもそももんじゃ焼きの作り方を知らない人しかおらず…など開始早々異常でした．
+まぁ，なんやかんや懇親会ともあって周りの方と楽しい会話をすることは出来ました．
+ぼくは早々にお腹がいっぱいになって後半は無限に水を飲み続けていました．
+なぞの闇っぽい物体が生成されたりしてましたが，美味しくいただけました．
+懇親会わず #cpawLT pic.twitter.com/k2aBarC1Gy — ぱろっくlv 0.05 (@porisuteru) 2015, 5月 31
+感想 LTは様々なところで聞く側として参加してきたが，自分自身が登壇するというのは初めてだったので，（内容はともかく）良い経験となったし面白い話が聞けて良かった．
+近いうちに身内でのLT大会でもやるかと某氏と話していたので，その時に役立てればいいかなと．
+Cpawのメンバーの方々には大変お世話になりました．</description>
+    </item>
+    
+  </channel>
+</rss>
