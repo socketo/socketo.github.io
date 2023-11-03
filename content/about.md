@@ -13,5 +13,6 @@ draft: false
 ## Links
 - Twitter : [@sys_socket](https://twitter.com/sys_socket)
 - GitHub : https://github.com/socketo
+- Blog : https://socketo.github.io/posts/
 - Hatena Blog (旧ブログ): ~~https://socketo.hatenablog.jp/~~
 - SpeakerDeck : https://speakerdeck.com/socketo
