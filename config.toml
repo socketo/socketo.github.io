@@ -15,6 +15,10 @@ socialIcons = [
     { name = "github", url = "https://github.com/socketo" },
 ]
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
 [[menu.main]]
     name = "archives"
     pre = "<i class='fa fa-heart'></i>"
@@ -22,6 +26,12 @@ socialIcons = [
     identifier = "archives"
     url = "/archives"
 
+[[menu.main]]
+    name = "tags"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -130
+    identifier = "tags"
+    url = "/tags"
 
 [[menu.main]]
     name = "about"
