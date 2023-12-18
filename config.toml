@@ -4,10 +4,10 @@ languageCode = 'ja'
 theme = 'PaperMod'
 author = 'socketo'
 
-[params.profileMode]
+[params.homeInfoParams]
 enabled = true
 title = "Hi, I'm scoketo"
-subtitle = 'Digital Forensics | Security Engineer'
+Content = 'Digital Forensics Analyst | Security Engineer;'
 
 [params]
 socialIcons = [
@@ -15,13 +15,13 @@ socialIcons = [
     { name = "github", url = "https://github.com/socketo" },
 ]
 
-
 [[menu.main]]
-    name = "posts"
+    name = "archives"
     pre = "<i class='fa fa-heart'></i>"
-    weight = -110
-    identifier = "posts"
-    url = "/posts"
+    weight = -150
+    identifier = "archives"
+    url = "/archives"
+
 
 [[menu.main]]
     name = "about"
