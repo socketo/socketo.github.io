@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GREM(GIAC Reverse Engineering Malware Certification)に合格した | socketo.github.io</title>
+<meta name="keywords" content="malware analysis, SANS, GIAC">
+<meta name="description" content="TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。
+GREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。
+Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。
+Security Certification Roadmap - Paul Jerimy Media
+実施した勉強方法 オンラインでのトレーニングを5日間&#43;1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）
+FOR610: Reverse Engineering Malware Training | Malware Tools &amp; Techniques | SANS Institute
+基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。
+一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。
+1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(Practical Malware Analysis、初めてのマルウェア解析)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。
+認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。
+試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。
+認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。">
+<meta name="author" content="">
+<link rel="canonical" href="https://socketo.github.io/posts/2023/11/02/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://socketo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://socketo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://socketo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="GREM(GIAC Reverse Engineering Malware Certification)に合格した" />
+<meta property="og:description" content="TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。
+GREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。
+Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。
+Security Certification Roadmap - Paul Jerimy Media
+実施した勉強方法 オンラインでのトレーニングを5日間&#43;1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）
+FOR610: Reverse Engineering Malware Training | Malware Tools &amp; Techniques | SANS Institute
+基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。
+一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。
+1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(Practical Malware Analysis、初めてのマルウェア解析)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。
+認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。
+試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。
+認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://socketo.github.io/posts/2023/11/02/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-02T18:42:49+09:00" />
+<meta property="article:modified_time" content="2023-11-02T18:42:49+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GREM(GIAC Reverse Engineering Malware Certification)に合格した"/>
+<meta name="twitter:description" content="TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。
+GREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。
+Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。
+Security Certification Roadmap - Paul Jerimy Media
+実施した勉強方法 オンラインでのトレーニングを5日間&#43;1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）
+FOR610: Reverse Engineering Malware Training | Malware Tools &amp; Techniques | SANS Institute
+基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。
+一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。
+1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(Practical Malware Analysis、初めてのマルウェア解析)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。
+認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。
+試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。
+認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://socketo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "GREM(GIAC Reverse Engineering Malware Certification)に合格した",
+      "item": "https://socketo.github.io/posts/2023/11/02/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GREM(GIAC Reverse Engineering Malware Certification)に合格した",
+  "name": "GREM(GIAC Reverse Engineering Malware Certification)に合格した",
+  "description": "TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。\nGREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。\nPaul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。\nSecurity Certification Roadmap - Paul Jerimy Media\n実施した勉強方法 オンラインでのトレーニングを5日間+1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）\nFOR610: Reverse Engineering Malware Training | Malware Tools \u0026amp; Techniques | SANS Institute\n基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。\n一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。\n1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(Practical Malware Analysis、初めてのマルウェア解析)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。\n認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。\n試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。\n認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。",
+  "keywords": [
+    "malware analysis", "SANS", "GIAC"
+  ],
+  "articleBody": "TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。\nGREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。\nPaul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。\nSecurity Certification Roadmap - Paul Jerimy Media\n実施した勉強方法 オンラインでのトレーニングを5日間+1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）\nFOR610: Reverse Engineering Malware Training | Malware Tools \u0026 Techniques | SANS Institute\n基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。\n一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。\n1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(Practical Malware Analysis、初めてのマルウェア解析)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。\n認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。\n試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。\n認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。\nGIAC試験は問題をスキップする機能があるので、問題文の英語の解釈がすぐに出来ない場合やパッと分からない問題はスキップしていって最後にじっくり調べながら解答した。2回の模擬試験のおかげでCyberLiveの時間配分などある程度分かっていたので時間に余裕をもってすべて解答できた。\n結果は96%で無事合格した。\nまとめと感想 4年ぶりのGIAC受験ということもあり、とても緊張していたがひとまず合格できてよかった。\n4年前のGCFAはギリギリのスコアで合格したので知らなかったのだが、スコアが90%超えて合格するとGIAC Advisory Boardへの招待がされるとのこと。GIAC Advisory Boardは招待制のフォーラムで、GIAC自体の改善に関わる活動を行うらしくNDAに署名し参加してデジタルバッジを貰った。\n今回のGREM受験に際してテキストを読み込んだり、他のマルウェア解析に関する書籍等も読んだり手を動かしたおかげで、ずっと入門し続けていたマルウェア解析にようやく入門できた気がしている。これからもなんとかやっていきたい。\n",
+  "wordCount" : "83",
+  "inLanguage": "en",
+  "datePublished": "2023-11-02T18:42:49+09:00",
+  "dateModified": "2023-11-02T18:42:49+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://socketo.github.io/posts/2023/11/02/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "socketo.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://socketo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://socketo.github.io" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://socketo.github.io/archives" title="archives">
+                    <span><i class='fa fa-heart'></i>archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://socketo.github.io/about" title="about">
+                    <span><i class='fa fa-heart'></i>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      GREM(GIAC Reverse Engineering Malware Certification)に合格した
+    </h1>
+    <div class="post-meta">&lt;span title=&#39;2023-11-02 18:42:49 &#43;0900 JST&#39;&gt;November 2, 2023&lt;/span&gt;
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="tldr">TL;DR<a hidden class="anchor" aria-hidden="true" href="#tldr">#</a></h2>
+<p><a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/">GREM(GIAC Reverse Engineering Malware)</a> に96%のスコアで合格した。</p>
+
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="923f57a2-fadb-4135-9512-8f548502203b" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+<h2 id="gremとは">GREMとは<a hidden class="anchor" aria-hidden="true" href="#gremとは">#</a></h2>
+<p>GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。</p>
+<p>Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。</p>
+<p><a href="https://pauljerimy.com/security-certification-roadmap/">Security Certification Roadmap - Paul Jerimy Media</a></p>
+<h2 id="実施した勉強方法">実施した勉強方法<a hidden class="anchor" aria-hidden="true" href="#実施した勉強方法">#</a></h2>
+<p>オンラインでのトレーニングを5日間+1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）</p>
+<p><a href="https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/">FOR610: Reverse Engineering Malware Training | Malware Tools &amp; Techniques | SANS Institute</a></p>
+<p>基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。</p>
+<p>一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。</p>
+<p>1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(<a href="https://www.amazon.co.jp/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901">Practical Malware Analysis</a>、<a href="https://www.amazon.co.jp/dp/4873119294/">初めてのマルウェア解析</a>)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。</p>
+<h2 id="認定試験について">認定試験について<a hidden class="anchor" aria-hidden="true" href="#認定試験について">#</a></h2>
+<p>自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。</p>
+<ul>
+<li>試験時間 : 180分</li>
+<li>問題数 : 66問</li>
+<li>出題形式 :
+<ul>
+<li>Computer Based Testing(CBT)</li>
+<li>選択問題式</li>
+<li>CyberLiveにおける実技問題あり</li>
+</ul>
+</li>
+<li>合格ライン : 73%</li>
+<li>その他 : オープンブック形式で紙の資料の持ち込み可</li>
+</ul>
+<p>CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/A9J4UpLh5MY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="認定試験本番">認定試験本番<a hidden class="anchor" aria-hidden="true" href="#認定試験本番">#</a></h3>
+<p>オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師である<a href="https://www.sans.org/blog/4-cheat-sheets-for-malware-analysis/">Lenny Zeltser氏のマルウェア解析に関するチートシート</a>や、<a href="https://ghidra-sre.org/CheatSheet.html">Ghidraのチートシート</a>など持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。</p>
+<p>GIAC試験は問題をスキップする機能があるので、問題文の英語の解釈がすぐに出来ない場合やパッと分からない問題はスキップしていって最後にじっくり調べながら解答した。2回の模擬試験のおかげでCyberLiveの時間配分などある程度分かっていたので時間に余裕をもってすべて解答できた。</p>
+<p>結果は96%で無事合格した。</p>
+<p><img loading="lazy" src="./img/grem_score.png" alt=""  />
+</p>
+<h2 id="まとめと感想">まとめと感想<a hidden class="anchor" aria-hidden="true" href="#まとめと感想">#</a></h2>
+<p>4年ぶりのGIAC受験ということもあり、とても緊張していたがひとまず合格できてよかった。</p>
+<p>4年前のGCFAはギリギリのスコアで合格したので知らなかったのだが、スコアが90%超えて合格するとGIAC Advisory Boardへの招待がされるとのこと。GIAC Advisory Boardは招待制のフォーラムで、GIAC自体の改善に関わる活動を行うらしくNDAに署名し参加してデジタルバッジを貰った。</p>
+
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="65848a05-6375-433b-b555-3689395cb1bc" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+<p>今回のGREM受験に際してテキストを読み込んだり、他のマルウェア解析に関する書籍等も読んだり手を動かしたおかげで、ずっと入門し続けていたマルウェア解析にようやく入門できた気がしている。これからもなんとかやっていきたい。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://socketo.github.io/tags/malware-analysis/">malware analysis</a></li>
+      <li><a href="https://socketo.github.io/tags/sans/">SANS</a></li>
+      <li><a href="https://socketo.github.io/tags/giac/">GIAC</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://socketo.github.io">socketo.github.io</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
