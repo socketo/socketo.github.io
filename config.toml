@@ -10,6 +10,12 @@ title = "Hi, I'm scoketo"
 Content = 'Digital Forensics Analyst | Security Engineer;'
 
 [params]
+env = "production"
+ShowReadingTime = true
+ShowShareButtons = true
+ShowToc = true
+TocOpen = true
+
 socialIcons = [
     { name = "twitter", url = "https://twitter.com/sys_socket" },
     { name = "github", url = "https://github.com/socketo" },
