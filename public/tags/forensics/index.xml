@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Forensics on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/forensics/</link>
+    <link>http://localhost:1313/tags/forensics/</link>
     <description>Recent content in Forensics on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 11 Nov 2019 00:49:57 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Nov 2019 00:49:57 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GCFA(GIAC Certified Forensic Analyst)合格した</title>
-      <link>https://socketo.github.io/posts/2019/11/11/</link>
+      <link>http://localhost:1313/posts/2019/11/11/</link>
       <pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2019/11/11/</guid>
+      <guid>http://localhost:1313/posts/2019/11/11/</guid>
       <description>※ 移行前の元ブログ記事 : GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;
 GIAC Certified Forensic Analystというのに合格した報告です。
 以上です。</description>
@@ -20,10 +20,10 @@ GIAC Certified Forensic Analystというのに合格した報告です。
     
     <item>
       <title>Magnet User Summit CTF 2019 WriteUp [Mobile]</title>
-      <link>https://socketo.github.io/posts/2019/04/11/</link>
+      <link>http://localhost:1313/posts/2019/04/11/</link>
       <pubDate>Thu, 11 Apr 2019 22:26:59 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2019/04/11/</guid>
+      <guid>http://localhost:1313/posts/2019/04/11/</guid>
       <description>※ 移行前の元ブログ記事 : Magnet User Summit CTF 2019 WriteUp [Mobile] - #include &amp;lt;sys_socket.h&amp;gt;
 Magnet User Summit 2019 Magnet Forensicsというフォレンジック製品などをやっている企業のサミットが2019/04/02～2019/04/03に行われていました。
 https://magnetusersummit.com/
@@ -42,10 +42,10 @@ Mobile ケースファイル「AXIOM - Mar 28 2019 114941 Mobile/Case.</descript
     
     <item>
       <title>SECCON 2018 Online CTF Forensics問題 Write-up</title>
-      <link>https://socketo.github.io/posts/2018/10/28/</link>
+      <link>http://localhost:1313/posts/2018/10/28/</link>
       <pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/10/28/</guid>
+      <guid>http://localhost:1313/posts/2018/10/28/</guid>
       <description>※ 移行前の元ブログ記事 : SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに SECCON2018のオンライン大会のForensics問題のWrite-up
 フォレンジック問題はやるかと腰を上げてやるだけやった
@@ -58,10 +58,10 @@ $ ls -la .rw-r--r--@ 225 socketo 27 10 0:10 flag.zip .rwx---r-x@ 99 socketo 27 1
     
     <item>
       <title>Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp</title>
-      <link>https://socketo.github.io/posts/2018/09/16/</link>
+      <link>http://localhost:1313/posts/2018/09/16/</link>
       <pubDate>Sun, 16 Sep 2018 15:11:41 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/09/16/</guid>
+      <guid>http://localhost:1313/posts/2018/09/16/</guid>
       <description>※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに 以下の記事の続き．
 Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp
@@ -77,10 +77,10 @@ What is the name of the examiner who made the Forensic Image?</description>
     
     <item>
       <title>Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp</title>
-      <link>https://socketo.github.io/posts/2018/08/26/</link>
+      <link>http://localhost:1313/posts/2018/08/26/</link>
       <pubDate>Sun, 26 Aug 2018 03:08:15 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/08/26/</guid>
+      <guid>http://localhost:1313/posts/2018/08/26/</guid>
       <description>※ 移行前の元ブログ記事 : Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに インターネットを眺めていたら，Magnet Forensicsが開催してaいたDFIRのCTF「Defcon DFIR CTF 2018」が公開されていたのでやった話（全部は解けていない）
 The #Defcon #DFIR #CTF is now open to the public. https://t.co/IdOE23dMzh #infosec— David Cowen (@HECFBlog) 2018年8月13日
@@ -96,10 +96,10 @@ Image 1 : HRServer Image1.</description>
     
     <item>
       <title>Digital Forensic Challenge #2 - User Policy Violation Case Write up</title>
-      <link>https://socketo.github.io/posts/2018/02/19/</link>
+      <link>http://localhost:1313/posts/2018/02/19/</link>
       <pubDate>Mon, 19 Feb 2018 09:06:57 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/02/19/</guid>
+      <guid>http://localhost:1313/posts/2018/02/19/</guid>
       <description>※ 移行前の元ブログ記事 : Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &amp;lt;sys_socket.h&amp;gt;
 本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
 恐らく何かしら間違ってたり，足りなかったりします．多分． 誰か教えてください．
@@ -111,10 +111,10 @@ Case1はこちら Digital Forensic Challenge #1 - Web Server Case Write up - soc
     
     <item>
       <title>Digital Forensic Challenge #1 - Web Server Case Write up</title>
-      <link>https://socketo.github.io/posts/2018/02/05/</link>
+      <link>http://localhost:1313/posts/2018/02/05/</link>
       <pubDate>Mon, 05 Feb 2018 03:21:46 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/02/05/</guid>
+      <guid>http://localhost:1313/posts/2018/02/05/</guid>
       <description>※ 移行前の元ブログ記事 : Digital Forensic Challenge #1 - Web Server Case Write up - #include &amp;lt;sys_socket.h&amp;gt;
 本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
 はい．

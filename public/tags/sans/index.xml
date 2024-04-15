@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SANS on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/sans/</link>
+    <link>http://localhost:1313/tags/sans/</link>
     <description>Recent content in SANS on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 02 Nov 2023 18:42:49 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/sans/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2023 18:42:49 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/sans/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GREM(GIAC Reverse Engineering Malware Certification)に合格した</title>
-      <link>https://socketo.github.io/posts/2023/11/02/</link>
+      <link>http://localhost:1313/posts/2023/11/02/</link>
       <pubDate>Thu, 02 Nov 2023 18:42:49 +0900</pubDate>
       
-      <guid>https://socketo.github.io/posts/2023/11/02/</guid>
+      <guid>http://localhost:1313/posts/2023/11/02/</guid>
       <description>TL;DR GREM(GIAC Reverse Engineering Malware) に96%のスコアで合格した。
 GREMとは GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。
 Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。
@@ -25,6 +25,17 @@ FOR610: Reverse Engineering Malware Training | Malware Tools &amp;amp; Technique
 認定試験について 自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。
 試験時間 : 180分 問題数 : 66問 出題形式 : Computer Based Testing(CBT) 選択問題式 CyberLiveにおける実技問題あり 合格ライン : 73% その他 : オープンブック形式で紙の資料の持ち込み可 CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。
 認定試験本番 オープンブック形式で紙の資料の持ち込みが可能なので、トレーニング時のテキストと英和辞典、自分用に作成したノートのまとめとSANS FOR610の講師であるLenny Zeltser氏のマルウェア解析に関するチートシートや、Ghidraのチートシートなど持ち込めるものはすべて持ち込んだ状態で本番に挑んだ。</description>
+    </item>
+    
+    <item>
+      <title>GCFA(GIAC Certified Forensic Analyst)合格した</title>
+      <link>http://localhost:1313/posts/2019/11/11/</link>
+      <pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2019/11/11/</guid>
+      <description>※ 移行前の元ブログ記事 : GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;
+GIAC Certified Forensic Analystというのに合格した報告です。
+以上です。</description>
     </item>
     
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CTF on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/ctf/</link>
+    <link>http://localhost:1313/tags/ctf/</link>
     <description>Recent content in CTF on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BLE CTF WriteUp</title>
-      <link>https://socketo.github.io/posts/2019/02/21/</link>
+      <link>http://localhost:1313/posts/2019/02/21/</link>
       <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
+      <guid>http://localhost:1313/posts/2019/02/21/</guid>
       <description>※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
 hackgnar - Learning Bluetooth Hackery with BLE CTF
@@ -34,10 +34,10 @@ Espressif IoT Development Framework : https://github.</description>
     
     <item>
       <title>SECCON 2018 Online CTF Forensics問題 Write-up</title>
-      <link>https://socketo.github.io/posts/2018/10/28/</link>
+      <link>http://localhost:1313/posts/2018/10/28/</link>
       <pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2018/10/28/</guid>
+      <guid>http://localhost:1313/posts/2018/10/28/</guid>
       <description>※ 移行前の元ブログ記事 : SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに SECCON2018のオンライン大会のForensics問題のWrite-up
 フォレンジック問題はやるかと腰を上げてやるだけやった
@@ -50,10 +50,10 @@ $ ls -la .rw-r--r--@ 225 socketo 27 10 0:10 flag.zip .rwx---r-x@ 99 socketo 27 1
     
     <item>
       <title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/03/</link>
+      <link>http://localhost:1313/posts/2015/06/13/03/</link>
       <pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2015/06/13/03/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/03/</guid>
       <description>※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．
 CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
@@ -80,10 +80,10 @@ CTF for ビギナーズ2015 博多(Attack &amp;amp; Defense) 終了しました�
     
     <item>
       <title>TDU CTF 2014 Satellite in ConoHaに参加した話</title>
-      <link>https://socketo.github.io/posts/2015/03/31/</link>
+      <link>http://localhost:1313/posts/2015/03/31/</link>
       <pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate>
       
-      <guid>https://socketo.github.io/posts/2015/03/31/</guid>
+      <guid>http://localhost:1313/posts/2015/03/31/</guid>
       <description>※ 移行前の元ブログ記事 : TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 2015-03-29、TDU CTFに参加してきました。
 TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : http://connpass.com/event/11986/
