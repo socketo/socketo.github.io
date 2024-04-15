@@ -4,6 +4,21 @@ languageCode = 'ja'
 theme = 'PaperMod'
 author = 'socketo'
 
+# Sitemap configuration
+enableRobotsTXT = true
+[outputFormats.RobotsTXT]
+  baseName = "robots"
+
+[outputs]
+  home = ["HTML", "RSS", "RobotsTXT"]
+  section = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+  taxonomy = ["HTML"]
+  page = ["HTML"]
+  [outputs.RSS]
+    section = "blog"
+    output = true
+
 [params.homeInfoParams]
 enabled = true
 title = "Hi, I'm scoketo"
