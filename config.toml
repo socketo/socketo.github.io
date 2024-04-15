@@ -32,7 +32,7 @@ ShowToc = true
 TocOpen = true
 
 socialIcons = [
-    { name = "twitter", url = "https://twitter.com/sys_socket" },
+    { name = "x", url = "https://x.com/sys_socket" },
     { name = "github", url = "https://github.com/socketo" },
 ]
 
