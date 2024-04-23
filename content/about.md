@@ -7,8 +7,14 @@ draft: false
 このサイトは、基本的に個人的に気になった技術の情報を発信するものです。(予定)
 
 ## Profile
-- Name : socketo(そけと)
+- Name : Shigefumi Sakata
+- Nick Name : socketo(そけと)
 - Job : Security Engineer (Digital Forensics Analyst)
+
+## Qualification
+- GIAC Certified Forensic Analyst (GCFA)
+- GIAC Reverse Engineering Malware (GREM)
+- ITパスポート
 
 ## Links
 - Twitter : [@sys_socket](https://twitter.com/sys_socket)
