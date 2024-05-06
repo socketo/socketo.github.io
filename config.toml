@@ -31,6 +31,9 @@ ShowShareButtons = true
 ShowToc = true
 TocOpen = true
 
+[params.assets]
+favicon = "images/favicon.ico"
+
 socialIcons = [
     { name = "twitter", url = "https://twitter.com/sys_socket" },
     { name = "github", url = "https://github.com/socketo" },

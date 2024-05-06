@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bluetooth on socketo.github.io</title>
-    <link>http://localhost:1313/tags/bluetooth/</link>
+    <link>https://socketo.github.io/tags/bluetooth/</link>
     <description>Recent content in Bluetooth on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BLE CTF WriteUp</title>
-      <link>http://localhost:1313/posts/2019/02/21/</link>
+      <link>https://socketo.github.io/posts/2019/02/21/</link>
       <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2019/02/21/</guid>
+      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
       <description>※ 移行前の元ブログ記事 : BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;
 はじめに 昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された@hackgnar氏のBLE CTFをやってみるという話。
 hackgnar - Learning Bluetooth Hackery with BLE CTF

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Event on socketo.github.io</title>
-    <link>http://localhost:1313/tags/event/</link>
+    <link>https://socketo.github.io/tags/event/</link>
     <description>Recent content in Event on socketo.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 14 Aug 2016 19:38:43 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/event/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Aug 2016 19:38:43 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/event/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>セキュリティ・キャンプ全国大会2016に参加した話</title>
-      <link>http://localhost:1313/posts/2016/08/14/</link>
+      <link>https://socketo.github.io/posts/2016/08/14/</link>
       <pubDate>Sun, 14 Aug 2016 19:38:43 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2016/08/14/</guid>
+      <guid>https://socketo.github.io/posts/2016/08/14/</guid>
       <description>※ 移行前の元ブログ記事 : セキュリティ・キャンプ全国大会2016に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 セキュリティ・キャンプ全国大会2016：IPA 独立行政法人 情報処理推進機構 : https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html
 表題の通り，セキュリティ・キャンプ2016全国大会に参加していました． 8/9~8/13の4泊5日です． めちゃくちゃ濃い5日間ですごい楽しく過ごせて，関係者の皆様本当にありがとうございました． 行く前は4泊5日って長いなぁ生きて帰れるかなぁと思ってたんですが，振り返ると一瞬で終わった感じでした．
@@ -36,10 +36,10 @@ DAY2 CTF 2日目の夜はグループごとチームになってのCTFでした�
     
     <item>
       <title>SANS Netwars Tournament 2015に参加した話</title>
-      <link>http://localhost:1313/posts/2015/08/24/</link>
+      <link>https://socketo.github.io/posts/2015/08/24/</link>
       <pubDate>Mon, 24 Aug 2015 20:39:26 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2015/08/24/</guid>
+      <guid>https://socketo.github.io/posts/2015/08/24/</guid>
       <description>※ 移行前の元ブログ記事 : SANS Netwars Tournament 2015に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 http://www.nri-secure.co.jp/event/2015/netwars.html
 8/22,23と大手町サンケイプラザで開催されてたSANS Netwars Tournament 2015に参加してきた．
@@ -60,10 +60,10 @@ Lv2の時点でなかなか自分には厳しい感じになったりしてた�
     
     <item>
       <title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title>
-      <link>http://localhost:1313/posts/2015/06/13/03/</link>
+      <link>https://socketo.github.io/posts/2015/06/13/03/</link>
       <pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2015/06/13/03/</guid>
+      <guid>https://socketo.github.io/posts/2015/06/13/03/</guid>
       <description>※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．
 CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
@@ -90,10 +90,10 @@ CTF for ビギナーズ2015 博多(Attack &amp;amp; Defense) 終了しました�
     
     <item>
       <title>CpawLT #1に参加した話</title>
-      <link>http://localhost:1313/posts/2015/06/13/02/</link>
+      <link>https://socketo.github.io/posts/2015/06/13/02/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2015/06/13/02/</guid>
+      <guid>https://socketo.github.io/posts/2015/06/13/02/</guid>
       <description>2015-5-31，CpawLT #1に参加してきました．
 CpawLT #1 : ATND : https://atnd.org/events/65601
 前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．
@@ -122,10 +122,10 @@ Cpawのメンバーの方々には大変お世話になりました．</descript
     
     <item>
       <title>MINI Hardening Project #1.1 に参加した話</title>
-      <link>http://localhost:1313/posts/2015/06/13/01/</link>
+      <link>https://socketo.github.io/posts/2015/06/13/01/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2015/06/13/01/</guid>
+      <guid>https://socketo.github.io/posts/2015/06/13/01/</guid>
       <description>※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．
 MINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/
@@ -154,10 +154,10 @@ Hardening Project | Web Application Security Forum - WASForum
     
     <item>
       <title>TDU CTF 2014 Satellite in ConoHaに参加した話</title>
-      <link>http://localhost:1313/posts/2015/03/31/</link>
+      <link>https://socketo.github.io/posts/2015/03/31/</link>
       <pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/2015/03/31/</guid>
+      <guid>https://socketo.github.io/posts/2015/03/31/</guid>
       <description>※ 移行前の元ブログ記事 : TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;
 2015-03-29、TDU CTFに参加してきました。
 TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : http://connpass.com/event/11986/
