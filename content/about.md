@@ -19,6 +19,7 @@ draft: false
 ## Links
 - Twitter : [@sys_socket](https://twitter.com/sys_socket)
 - GitHub : https://github.com/socketo
+- LinkedIn : https://jp.linkedin.com/in/shigefumi-sakata-8a3978299
 - Blog : https://socketo.github.io/posts/
 - Hatena Blog (旧ブログ): ~~https://socketo.hatenablog.jp/~~
 - SpeakerDeck : https://speakerdeck.com/socketo
