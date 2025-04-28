@@ -122,5 +122,7 @@
     <loc>https://socketo.github.io/archives/</loc>
   </url><url>
     <loc>https://socketo.github.io/categories/</loc>
+  </url><url>
+    <loc>https://socketo.github.io/test/</loc>
   </url>
 </urlset>
