@@ -15,6 +15,7 @@ draft: false
 - GIAC Certified Forensic Analyst (GCFA)
 - GIAC Reverse Engineering Malware (GREM)
 - ITパスポート
+- 基本情報技術者試験(FE)
 
 ## Links
 - Twitter : [@sys_socket](https://twitter.com/sys_socket)
