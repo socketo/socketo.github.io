@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Forensics on socketo.github.io</title>
-    <link>http://localhost:1313/tags/forensics/</link>
+    <link>https://socketo.github.io/tags/forensics/</link>
     <description>Recent content in Forensics on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 11 Nov 2019 00:49:57 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://socketo.github.io/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GCFA(GIAC Certified Forensic Analyst)合格した</title>
-      <link>http://localhost:1313/posts/2019/11/11/</link>
+      <link>https://socketo.github.io/posts/2019/11/11/</link>
       <pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2019/11/11/</guid>
+      <guid>https://socketo.github.io/posts/2019/11/11/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2019/11/11/004957&#34;&gt;GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.giac.org/certification/certified-forensic-analyst-gcfa&#34;&gt;GIAC Certified Forensic Analyst&lt;/a&gt;というのに合格した報告です。&lt;/p&gt;
 &lt;p&gt;以上です。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Magnet User Summit CTF 2019 WriteUp [Mobile]</title>
-      <link>http://localhost:1313/posts/2019/04/11/</link>
+      <link>https://socketo.github.io/posts/2019/04/11/</link>
       <pubDate>Thu, 11 Apr 2019 22:26:59 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2019/04/11/</guid>
+      <guid>https://socketo.github.io/posts/2019/04/11/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2019/04/11/222659&#34;&gt;Magnet User Summit CTF 2019 WriteUp [Mobile] - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;magnet-user-summit-2019&#34;&gt;Magnet User Summit 2019&lt;/h2&gt;
 &lt;p&gt;Magnet Forensicsというフォレンジック製品などをやっている企業のサミットが2019/04/02～2019/04/03に行われていました。&lt;/p&gt;
@@ -47,9 +47,9 @@ AXIOMの使い方を学ぶ的な問題。&lt;/p&gt;
     </item>
     <item>
       <title>SECCON 2018 Online CTF Forensics問題 Write-up</title>
-      <link>http://localhost:1313/posts/2018/10/28/</link>
+      <link>https://socketo.github.io/posts/2018/10/28/</link>
       <pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2018/10/28/</guid>
+      <guid>https://socketo.github.io/posts/2018/10/28/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/10/28/154122&#34;&gt;SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;SECCON2018のオンライン大会のForensics問題のWrite-up&lt;/p&gt;
@@ -79,9 +79,9 @@ flag.zipは暗号化されたZIPファイル&lt;/p&gt;
     </item>
     <item>
       <title>Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp</title>
-      <link>http://localhost:1313/posts/2018/09/16/</link>
+      <link>https://socketo.github.io/posts/2018/09/16/</link>
       <pubDate>Sun, 16 Sep 2018 15:11:41 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2018/09/16/</guid>
+      <guid>https://socketo.github.io/posts/2018/09/16/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/09/16/151141&#34;&gt;Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;以下の記事の続き．&lt;/p&gt;
@@ -94,16 +94,16 @@ flag.zipは暗号化されたZIPファイル&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;What is the volume serial number of the only partition on the File Server Disk Image
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Volumeのシリアルナンバーを答える．&lt;/p&gt;
 &lt;p&gt;FTK Imagerで開いているイメージファイルのFile System Informationを見る．&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;img alt=&#34;f:id:socketo:20180916135827p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2018/09/16/20180916135827.png&#34; title=&#34;f:id:socketo:20180916135827p:plain&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;img alt=&#34;f:id:socketo:20180916135827p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2018/09/16/20180916135827.png&#34; title=&#34;f:id:socketo:20180916135827p:plain&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;FLAG:&lt;code&gt;C096-2465&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;file-server---basic-22&#34;&gt;File Server - Basic 2(2)&lt;/h3&gt;
 &lt;p&gt;問題文&lt;/p&gt;</description>
     </item>
     <item>
       <title>Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp</title>
-      <link>http://localhost:1313/posts/2018/08/26/</link>
+      <link>https://socketo.github.io/posts/2018/08/26/</link>
       <pubDate>Sun, 26 Aug 2018 03:08:15 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2018/08/26/</guid>
+      <guid>https://socketo.github.io/posts/2018/08/26/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/08/26/030815&#34;&gt;Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;インターネットを眺めていたら，Magnet Forensicsが開催してaいたDFIRのCTF「Defcon DFIR CTF 2018」が公開されていたのでやった話（全部は解けていない）&lt;/p&gt;
@@ -121,13 +121,13 @@ flag.zipは暗号化されたZIPファイル&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Image1.7z&lt;/code&gt;を展開すると，&lt;code&gt;HRServer_Disk0.e01&lt;/code&gt;と&lt;code&gt;HRServer_Disk0.txt&lt;/code&gt;が出てくる．
 &lt;code&gt;HRServer_Disk0.txt&lt;/code&gt;を見ると，X-waysでこのディスクイメージを取得したっぽいことが分かる．&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;HRServer_Disk.e01&lt;/code&gt;をFTK Imagerで開く．&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;img alt=&#34;f:id:socketo:20180826023119p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2018/08/26/20180826023119.png&#34; title=&#34;f:id:socketo:20180826023119p:plain&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;img alt=&#34;f:id:socketo:20180826023119p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2018/08/26/20180826023119.png&#34; title=&#34;f:id:socketo:20180826023119p:plain&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Digital Forensic Challenge #2 - User Policy Violation Case Write up</title>
-      <link>http://localhost:1313/posts/2018/02/19/</link>
+      <link>https://socketo.github.io/posts/2018/02/19/</link>
       <pubDate>Mon, 19 Feb 2018 09:06:57 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2018/02/19/</guid>
+      <guid>https://socketo.github.io/posts/2018/02/19/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/02/19/090657&#34;&gt;Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href=&#34;https://twitter.com/sys_socket&#34;&gt;@sys_socket&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;恐らく何かしら間違ってたり，足りなかったりします．多分．
@@ -168,9 +168,9 @@ flag.zipは暗号化されたZIPファイル&lt;/p&gt;
     </item>
     <item>
       <title>Digital Forensic Challenge #1 - Web Server Case Write up</title>
-      <link>http://localhost:1313/posts/2018/02/05/</link>
+      <link>https://socketo.github.io/posts/2018/02/05/</link>
       <pubDate>Mon, 05 Feb 2018 03:21:46 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2018/02/05/</guid>
+      <guid>https://socketo.github.io/posts/2018/02/05/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/02/05/032146&#34;&gt;Digital Forensic Challenge #1 - Web Server Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href=&#34;https://twitter.com/sys_socket&#34;&gt;@sys_socket&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;はい．&lt;/p&gt;

@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Others on socketo.github.io</title>
-    <link>http://localhost:1313/tags/others/</link>
+    <link>https://socketo.github.io/tags/others/</link>
     <description>Recent content in Others on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 09 Aug 2023 15:58:43 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/others/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://socketo.github.io/tags/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>はてなブログからブログを移行しました</title>
-      <link>http://localhost:1313/posts/2023/08/10/</link>
+      <link>https://socketo.github.io/posts/2023/08/10/</link>
       <pubDate>Wed, 09 Aug 2023 15:58:43 +0900</pubDate>
-      <guid>http://localhost:1313/posts/2023/08/10/</guid>
+      <guid>https://socketo.github.io/posts/2023/08/10/</guid>
       <description>&lt;p&gt;3ヶ月前くらいに、GitHub Pagesにブログを移行しようとして止まっていた手をようやく動かして、過去のブログにあった記事をすべてこっちに移行した。&lt;/p&gt;
 &lt;p&gt;旧ブログ : &lt;a href=&#34;https://socketo.hatenablog.jp/&#34;&gt;https://socketo.hatenablog.jp/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello Hugo</title>
-      <link>http://localhost:1313/posts/2023/04/25/</link>
+      <link>https://socketo.github.io/posts/2023/04/25/</link>
       <pubDate>Tue, 25 Apr 2023 22:00:26 +0900</pubDate>
-      <guid>http://localhost:1313/posts/2023/04/25/</guid>
+      <guid>https://socketo.github.io/posts/2023/04/25/</guid>
       <description>&lt;p&gt;いつの頃からか、自分のはてなブログ &lt;a href=&#34;https://socketo.hatenablog.jp/&#34;&gt;#include &amp;lt;sys/socket.h&amp;gt;&lt;/a&gt;の冒頭に「この広告は、90日以上更新していないブログに表示しています。」と表示がされるようになった。&lt;/p&gt;
 &lt;p&gt;3年以上、個人の技術ブログを書いていないのは如何なものかと思い重い腰を上げた次第である。&lt;/p&gt;
 &lt;h2 id=&#34;hugoのインストール&#34;&gt;Hugoのインストール&lt;/h2&gt;
@@ -40,11 +40,11 @@ $ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/Pa
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;テーマの導入まで完了をしているので、実際に動かして確認をする。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ hugo serve
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;起動し、 &lt;code&gt;localhost:1313&lt;/code&gt; にアクセスする。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/hello_hugo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/images/hello_hugo.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;記事の作成&#34;&gt;記事の作成&lt;/h2&gt;
 &lt;p&gt;この記事を作成する。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ hugo new posts/hello-hugo.md
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/hello_hugo_post.png&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/images/hello_hugo_post.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;任意の記事の内容を書く。&lt;/p&gt;
 &lt;h3 id=&#34;記事のビルド&#34;&gt;記事のビルド&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ hugo
@@ -53,14 +53,14 @@ $ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/Pa
     </item>
     <item>
       <title>PythonでSeleniumを使ってagqrの登録を自動化する</title>
-      <link>http://localhost:1313/posts/2016/04/10/</link>
+      <link>https://socketo.github.io/posts/2016/04/10/</link>
       <pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2016/04/10/</guid>
+      <guid>https://socketo.github.io/posts/2016/04/10/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2016/04/10/201909_1&#34;&gt;PythonでSeleniumを使ってagqrの登録を自動化する - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;JOQR 超!A&amp;amp;G+でよく声優さんのラジオを聴いたり見たりしています．&lt;br&gt;
 &lt;a href=&#34;http://www.agqr.jp/&#34;&gt;超！A&amp;amp;G | 文化放送&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．&lt;br&gt;
-&lt;img alt=&#34;f:id:sockets:20160410200116p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2016/04/10/20160410200116.png&#34; title=&#34;f:id:sockets:20160410200116p:plain&#34;&gt;&lt;/p&gt;
+&lt;img alt=&#34;f:id:sockets:20160410200116p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2016/04/10/20160410200116.png&#34; title=&#34;f:id:sockets:20160410200116p:plain&#34;&gt;&lt;/p&gt;
 &lt;p&gt;ここでは&amp;quot;初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。&amp;ldquo;と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．&lt;br&gt;
 目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．&lt;br&gt;
 そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．&lt;/p&gt;
@@ -72,9 +72,9 @@ xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便�
     </item>
     <item>
       <title>CpawLT #1に参加した話</title>
-      <link>http://localhost:1313/posts/2015/06/13/02/</link>
+      <link>https://socketo.github.io/posts/2015/06/13/02/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2015/06/13/02/</guid>
+      <guid>https://socketo.github.io/posts/2015/06/13/02/</guid>
       <description>&lt;p&gt;2015-5-31，CpawLT #1に参加してきました．&lt;/p&gt;
 &lt;p&gt;CpawLT #1 : ATND : &lt;a href=&#34;https://atnd.org/events/65601&#34;&gt;https://atnd.org/events/65601&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．&lt;/p&gt;
