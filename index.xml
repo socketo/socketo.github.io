@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>socketo.github.io</title><link>https://socketo.github.io/</link><description>Recent content on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Mon, 28 Apr 2025 19:14:19 +0900</lastBuildDate><atom:link href="https://socketo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>10年ぶりくらいに基本情報技術者試験(FE)を受験して合格した</title><link>https://socketo.github.io/posts/2025/04/28/</link><pubDate>Mon, 28 Apr 2025 19:14:19 +0900</pubDate><guid>https://socketo.github.io/posts/2025/04/28/</guid><description>&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>10年ぶりくらいに基本情報技術者試験を受けて合格した。&lt;/p>
+&lt;p>約10年前に受験した際は、春秋の年2回開催だったが今回はCBT形式でいつでも受験が可能だったため気軽に受けることができた。&lt;/p>
+&lt;h2 id="モチベーション">モチベーション&lt;/h2>
+&lt;p>今年2025年は自分のコンプレックスを解消していこう！というスローガンを掲げて、過去に辞めてしまった習慣や不合格だった試験などをやり直している。&lt;/p>
+&lt;p>多分大学生の2014年頃に基本情報を受験して普通に数点足らずに落ちてからずっとIPAの試験から遠ざかっていた。&lt;/p>
+&lt;p>そんな中YouTubeを見ていたら、以下の基本情報をRTAして合格する動画を発見した。&lt;/p>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/8Frg8QTJJ5o?si=bv8F4eQQaSmb1jeD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe>
+&lt;p>こういった参考にならない勉強方法めちゃくちゃ好きで真似はしないけどもモチベーションになる。&lt;/p>
+&lt;h2 id="勉強方法">勉強方法&lt;/h2>
+&lt;p>至って普通の勉強方法で、&lt;a href="https://amzn.asia/d/0W3nqmS">イメージ＆クレバー方式でよくわかる かやのき先生の基本情報技術者教室&lt;/a> を買って一通り読んだのち、過去問をひたすらに実施した。&lt;/p>
+&lt;p>過去問は&lt;a href="https://www.fe-siken.com/">基本情報試験ドットコム&lt;/a>の最近のものを選択して、間違えた問題をAnkiに登録して周回した。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/posts/2025/04/28/images/image01.png">&lt;/p>
+&lt;h2 id="まとめと感想">まとめと感想&lt;/h2>
+&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/posts/2025/04/28/images/image02.png">&lt;/p>
+&lt;p>A試験、B試験とも時間に結構余裕がある状態で終えて合格。&lt;/p>
+&lt;p>合格できて良かった。&lt;/p>
+&lt;p>今年の秋は応用情報技術者試験(AP)を受験したい。&lt;/p></description></item><item><title>GREM(GIAC Reverse Engineering Malware Certification)に合格した</title><link>https://socketo.github.io/posts/2023/11/02/</link><pubDate>Thu, 02 Nov 2023 18:42:49 +0900</pubDate><guid>https://socketo.github.io/posts/2023/11/02/</guid><description>&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;p>&lt;a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/">GREM(GIAC Reverse Engineering Malware)&lt;/a> に96%のスコアで合格した。&lt;/p>
+&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="923f57a2-fadb-4135-9512-8f548502203b" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
+&lt;h2 id="gremとは">GREMとは&lt;/h2>
+&lt;p>GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。&lt;/p>
+&lt;p>Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。&lt;/p>
+&lt;p>&lt;a href="https://pauljerimy.com/security-certification-roadmap/">Security Certification Roadmap - Paul Jerimy Media&lt;/a>&lt;/p>
+&lt;h2 id="実施した勉強方法">実施した勉強方法&lt;/h2>
+&lt;p>オンラインでのトレーニングを5日間+1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）&lt;/p>
+&lt;p>&lt;a href="https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/">FOR610: Reverse Engineering Malware Training | Malware Tools &amp;amp; Techniques | SANS Institute&lt;/a>&lt;/p>
+&lt;p>基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。&lt;/p>
+&lt;p>一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。&lt;/p>
+&lt;p>1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(&lt;a href="https://www.amazon.co.jp/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901">Practical Malware Analysis&lt;/a>、&lt;a href="https://www.amazon.co.jp/dp/4873119294/">初めてのマルウェア解析&lt;/a>)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。&lt;/p>
+&lt;h2 id="認定試験について">認定試験について&lt;/h2>
+&lt;p>自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。&lt;/p>
+&lt;ul>
+&lt;li>試験時間 : 180分&lt;/li>
+&lt;li>問題数 : 66問&lt;/li>
+&lt;li>出題形式 :
+&lt;ul>
+&lt;li>Computer Based Testing(CBT)&lt;/li>
+&lt;li>選択問題式&lt;/li>
+&lt;li>CyberLiveにおける実技問題あり&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>合格ライン : 73%&lt;/li>
+&lt;li>その他 : オープンブック形式で紙の資料の持ち込み可&lt;/li>
+&lt;/ul>
+&lt;p>CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。&lt;/p></description></item><item><title>はてなブログからブログを移行しました</title><link>https://socketo.github.io/posts/2023/08/10/</link><pubDate>Wed, 09 Aug 2023 15:58:43 +0900</pubDate><guid>https://socketo.github.io/posts/2023/08/10/</guid><description>&lt;p>3ヶ月前くらいに、GitHub Pagesにブログを移行しようとして止まっていた手をようやく動かして、過去のブログにあった記事をすべてこっちに移行した。&lt;/p>
+&lt;p>旧ブログ : &lt;a href="https://socketo.hatenablog.jp/">https://socketo.hatenablog.jp/&lt;/a>&lt;/p></description></item><item><title>About</title><link>https://socketo.github.io/about/</link><pubDate>Wed, 26 Apr 2023 12:18:51 +0900</pubDate><guid>https://socketo.github.io/about/</guid><description>&lt;p>このサイトは、基本的に個人的に気になった技術の情報を発信するものです。(予定)&lt;/p>
+&lt;h2 id="profile">Profile&lt;/h2>
+&lt;ul>
+&lt;li>Name : Shigefumi Sakata&lt;/li>
+&lt;li>Nick Name : socketo(そけと)&lt;/li>
+&lt;li>Job : Security Engineer (Digital Forensics Analyst)&lt;/li>
+&lt;/ul>
+&lt;h2 id="qualification">Qualification&lt;/h2>
+&lt;ul>
+&lt;li>GIAC Certified Forensic Analyst (GCFA)&lt;/li>
+&lt;li>GIAC Reverse Engineering Malware (GREM)&lt;/li>
+&lt;li>ITパスポート&lt;/li>
+&lt;/ul>
+&lt;h2 id="links">Links&lt;/h2>
+&lt;ul>
+&lt;li>Twitter : &lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>&lt;/li>
+&lt;li>GitHub : &lt;a href="https://github.com/socketo">https://github.com/socketo&lt;/a>&lt;/li>
+&lt;li>LinkedIn : &lt;a href="https://jp.linkedin.com/in/shigefumi-sakata-8a3978299">https://jp.linkedin.com/in/shigefumi-sakata-8a3978299&lt;/a>&lt;/li>
+&lt;li>Blog : &lt;a href="https://socketo.github.io/posts/">https://socketo.github.io/posts/&lt;/a>&lt;/li>
+&lt;li>Hatena Blog (旧ブログ): &lt;del>&lt;a href="https://socketo.hatenablog.jp/">https://socketo.hatenablog.jp/&lt;/a>&lt;/del>&lt;/li>
+&lt;li>SpeakerDeck : &lt;a href="https://speakerdeck.com/socketo">https://speakerdeck.com/socketo&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hello Hugo</title><link>https://socketo.github.io/posts/2023/04/25/</link><pubDate>Tue, 25 Apr 2023 22:00:26 +0900</pubDate><guid>https://socketo.github.io/posts/2023/04/25/</guid><description>&lt;p>いつの頃からか、自分のはてなブログ &lt;a href="https://socketo.hatenablog.jp/">#include &amp;lt;sys/socket.h&amp;gt;&lt;/a>の冒頭に「この広告は、90日以上更新していないブログに表示しています。」と表示がされるようになった。&lt;/p>
+&lt;p>3年以上、個人の技術ブログを書いていないのは如何なものかと思い重い腰を上げた次第である。&lt;/p>
+&lt;h2 id="hugoのインストール">Hugoのインストール&lt;/h2>
+&lt;p>Homebrewでhugoをインストールし、ブログを作成する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ brew install hugo
+$ hugo new site hugo_blog
+&lt;/code>&lt;/pre>&lt;p>&lt;code>hubo_blog&lt;/code>ディレクトリが作成されたので、テーマの追加。今回はシンプルで良さそうな&lt;a href="https://github.com/adityatelange/hugo-PaperMod">Hugo PaperMod&lt;/a>を使用する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ git init .
+$ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+&lt;/code>&lt;/pre>&lt;p>configにブログのbaseURLの修正やテーマの追加をする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-config.toml" data-lang="config.toml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">baseURL&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;https://socketo.github.io&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">title&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;socketo.github.io&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">languageCode&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;ja&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">theme&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;PaperMod&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">author&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;socketo&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">copyright&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;© Copyright socketo - All rights reserved.&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>テーマの導入まで完了をしているので、実際に動かして確認をする。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ hugo serve
+&lt;/code>&lt;/pre>&lt;p>起動し、 &lt;code>localhost:1313&lt;/code> にアクセスする。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/images/hello_hugo.png">&lt;/p>
+&lt;h2 id="記事の作成">記事の作成&lt;/h2>
+&lt;p>この記事を作成する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ hugo new posts/hello-hugo.md
+&lt;/code>&lt;/pre>&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/images/hello_hugo_post.png">&lt;/p>
+&lt;p>任意の記事の内容を書く。&lt;/p>
+&lt;h3 id="記事のビルド">記事のビルド&lt;/h3>
+&lt;pre tabindex="0">&lt;code>$ hugo
+&lt;/code>&lt;/pre>&lt;h2 id="さいごに">さいごに&lt;/h2>
+&lt;p>ブログを書いていきたい。&lt;/p></description></item><item><title>GCFA(GIAC Certified Forensic Analyst)合格した</title><link>https://socketo.github.io/posts/2019/11/11/</link><pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate><guid>https://socketo.github.io/posts/2019/11/11/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/11/11/004957">GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.giac.org/certification/certified-forensic-analyst-gcfa">GIAC Certified Forensic Analyst&lt;/a>というのに合格した報告です。&lt;/p>
+&lt;p>以上です。&lt;/p></description></item><item><title>Magnet User Summit CTF 2019 WriteUp [Mobile]</title><link>https://socketo.github.io/posts/2019/04/11/</link><pubDate>Thu, 11 Apr 2019 22:26:59 +0000</pubDate><guid>https://socketo.github.io/posts/2019/04/11/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/04/11/222659">Magnet User Summit CTF 2019 WriteUp [Mobile] - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="magnet-user-summit-2019">Magnet User Summit 2019&lt;/h2>
+&lt;p>Magnet Forensicsというフォレンジック製品などをやっている企業のサミットが2019/04/02～2019/04/03に行われていました。&lt;/p>
+&lt;p>&lt;a href="https://magnetusersummit.com/">https://magnetusersummit.com/&lt;/a>&lt;/p>
+&lt;p>Twitterで「#mus2019」で検索すると現地の様子がなんとなく分かりそう。発表スライドとかもあったりする。&lt;/p>
+&lt;p>&lt;a href="https://twitter.com/search?q=%23mus2019">https://twitter.com/search?q=%23mus2019&lt;/a>&lt;/p>
+&lt;p>今回も、以前のDFIR CTFのようにMagnet User Summit CTF 2019として開催されていたものが、公開されていたのでやっていきの記事です。
+AXIOMの使い方を学ぶ的な問題。&lt;/p>
+&lt;p>Hacking Exposed Computer Forensics Blog &lt;em>Daily Blog #657&lt;/em> MUS2019 DFIR CTF open to the public : &lt;a href="https://www.hecfblog.com/2019/04/daily-blog-657-mus2019-dfir-ctf-open-to.html">https://www.hecfblog.com/2019/04/daily-blog-657-mus2019-dfir-ctf-open-to.html&lt;/a>&lt;/p>
+&lt;p>Magnet AXIOMという有償のフォレンジックツールが2019/05/04までのトライアルのキーがついて使用することができてすごい。
+せっかくなので使ってみる感じで、頑張ってAXIOMだけでとりあえずやっていきます。&lt;/p>
+&lt;p>&lt;a href="https://www.magnetforensics.com/products/magnet-axiom/">https://www.magnetforensics.com/products/magnet-axiom/&lt;/a>&lt;/p>
+&lt;p>「Mobile」カテゴリはモバイルフォレンジック的な感じの問題で、Android端末のデータを取得したケースが与えられてそれについて質問していくという感じです。&lt;/p>
+&lt;p>やっていきましょう。&lt;/p>
+&lt;h2 id="axiomのインストール">AXIOMのインストール&lt;/h2>
+&lt;p>AXIOMは一応日本語対応はしていますが、設定する際に「日本語」ではなく、「English」にする方が良いです。
+(CSVなどのファイルに出力する際、カラムが結構厳しい日本語とかになってしまうので)&lt;/p>
+&lt;p>インストールしたら、ライセンスが聞かれるので、ファイル名「AXIOM 30-day Trial Key Install by May 4.txt」にキーが書いてあるのでそれをライセンスキー入力する。&lt;/p>
+&lt;h1 id="mobile">Mobile&lt;/h1>
+&lt;p>ケースファイル「AXIOM - Mar 28 2019 114941 Mobile/Case.mfdb」&lt;/p>
+&lt;h2 id="image-type-2pt">Image Type 2pt&lt;/h2>
+&lt;p>問題文&lt;/p></description></item><item><title>BLE CTF WriteUp</title><link>https://socketo.github.io/posts/2019/02/21/</link><pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate><guid>https://socketo.github.io/posts/2019/02/21/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/02/21/203347">BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h1 id="はじめに">はじめに&lt;/h1>
+&lt;p>昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href="https://twitter.com/hackgnar">@hackgnar&lt;/a>氏のBLE CTFをやってみるという話。&lt;/p>
+&lt;p>hackgnar - Learning Bluetooth Hackery with BLE CTF&lt;/p>
+&lt;p>&lt;a href="http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html">http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html&lt;/a>&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lx5MAOyu9N0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+&lt;/div>
+&lt;p>ble_ctf_ A Bluetooth low energy capture the flag : &lt;a href="https://github.com/hackgnar/ble_ctf">https://github.com/hackgnar/ble_ctf&lt;/a>&lt;/p>
+&lt;p>READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。&lt;/p>
+&lt;p>私の今回の環境は以下&lt;/p>
+&lt;p>ESP32-DevkitC V4
+エレコムのよく分からんBluetooth USBアダプタ&lt;/p>
+&lt;p>ESP32ビルド環境
+macOS Mojave version 10.14.3&lt;/p>
+&lt;p>端末(ThinkPad X220)
+Kali Linux&lt;/p></description></item><item><title>SECCON 2018 Online CTF Forensics問題 Write-up</title><link>https://socketo.github.io/posts/2018/10/28/</link><pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate><guid>https://socketo.github.io/posts/2018/10/28/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/10/28/154122">SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SECCON2018のオンライン大会のForensics問題のWrite-up&lt;/p>
+&lt;p>フォレンジック問題はやるかと腰を上げてやるだけやった&lt;/p>
+&lt;p>UnzipとHistory&lt;/p>
+&lt;h3 id="unzip">Unzip&lt;/h3>
+&lt;h4 id="問題文">問題文&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ Unzip flag.zip.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="write-up">Write-up&lt;/h4>
+&lt;p>ファイル名:&lt;code>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f&lt;/code>のZIPファイルが落ちてくる．&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ file unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f: Zip archive data, at least v1.0 to extract
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>普通にzipファイルなのでunzipする&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ unzip -d unzip unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Archive: unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>extracting: unzip/flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>inflating: unzip/makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>unzipするとflag.zipとmakefile.shが出てくる
+flag.zipは暗号化されたZIPファイル&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ ls -la
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rw-r--r--@ &lt;span style="color:#ae81ff">225&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rwx---r-x@ &lt;span style="color:#ae81ff">99&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>makefile.shの中身を見ると，zipパスワードに&lt;code>perl -e &amp;quot;print time()&amp;quot;&lt;/code>で出力されたunixtimeが設定されていることがわかる&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;SECCON{&amp;#39;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>cat key&lt;span style="color:#e6db74">`&lt;/span>&lt;span style="color:#e6db74">&amp;#39;}&amp;#39;&lt;/span> &amp;gt; flag.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zip -e --password&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>perl -e &lt;span style="color:#e6db74">&amp;#34;print time()&amp;#34;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span> flag.zip flag.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このzipファイルが作成された時の時間を調べる為にexiftoolで調べる&lt;/p></description></item><item><title>Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp</title><link>https://socketo.github.io/posts/2018/09/16/</link><pubDate>Sun, 16 Sep 2018 15:11:41 +0000</pubDate><guid>https://socketo.github.io/posts/2018/09/16/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/09/16/151141">Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>以下の記事の続き．&lt;/p>
+&lt;p>&lt;a href="https://socketo.hatenablog.jp/entry/2018/08/26/030815">Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp&lt;/a>&lt;/p>
+&lt;p>ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)&lt;/p>
+&lt;h2 id="file-server-basic">File Server Basic&lt;/h2>
+&lt;p>HR Serverの問題を解いているといつの間にか&lt;code>Next&lt;/code>という項目が増えて，&lt;code>Image2.7z&lt;/code>のパスワードが開示されるので，Imag2(File Server)をやっていくことができる&lt;/p>
+&lt;h3 id="file-server---basic-12">File Server - Basic 1(2)&lt;/h3>
+&lt;p>問題文&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>What is the volume serial number of the only partition on the File Server Disk Image
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Volumeのシリアルナンバーを答える．&lt;/p>
+&lt;p>FTK Imagerで開いているイメージファイルのFile System Informationを見る．&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;img alt="f:id:socketo:20180916135827p:plain" loading="lazy" src="https://socketo.github.io/posts/2018/09/16/20180916135827.png" title="f:id:socketo:20180916135827p:plain">&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>FLAG:&lt;code>C096-2465&lt;/code>&lt;/p>
+&lt;h3 id="file-server---basic-22">File Server - Basic 2(2)&lt;/h3>
+&lt;p>問題文&lt;/p></description></item><item><title>Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp</title><link>https://socketo.github.io/posts/2018/08/26/</link><pubDate>Sun, 26 Aug 2018 03:08:15 +0000</pubDate><guid>https://socketo.github.io/posts/2018/08/26/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/08/26/030815">Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>インターネットを眺めていたら，Magnet Forensicsが開催してaいたDFIRのCTF「Defcon DFIR CTF 2018」が公開されていたのでやった話（全部は解けていない）&lt;/p>
+&lt;blockquote>
+&lt;p>The &lt;a href="https://twitter.com/hashtag/Defcon?src=hash&amp;amp;ref_src=twsrc%5Etfw">#Defcon&lt;/a> &lt;a href="https://twitter.com/hashtag/DFIR?src=hash&amp;amp;ref_src=twsrc%5Etfw">#DFIR&lt;/a> &lt;a href="https://twitter.com/hashtag/CTF?src=hash&amp;amp;ref_src=twsrc%5Etfw">#CTF&lt;/a> is now open to the public. &lt;a href="https://t.co/IdOE23dMzh">https://t.co/IdOE23dMzh&lt;/a> &lt;a href="https://twitter.com/hashtag/infosec?src=hash&amp;amp;ref_src=twsrc%5Etfw">#infosec&lt;/a>— David Cowen (@HECFBlog) &lt;a href="https://twitter.com/HECFBlog/status/1029099210556284939?ref_src=twsrc%5Etfw">2018年8月13日&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Hacking Exposed Computer Forensics Blog &lt;em>Daily Blog #451&lt;/em> Defcon DFIR CTF 2018 Open to the Public : &lt;a href="http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html">http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html&lt;/a>&lt;/p>
+&lt;p>Defcon DFIR CTF 2018 : &lt;a href="https://defcon2018.ctfd.io/challenges">https://defcon2018.ctfd.io/challenges&lt;/a>&lt;/p>
+&lt;h2 id="対象イメージファイル">対象イメージファイル&lt;/h2>
+&lt;p>実際に調査するイメージファイルは以下のブログのDropboxのリンクからImage1，Image2，Image3と3つダウンロードできる．&lt;/p>
+&lt;p>&lt;a href="http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html">http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html&lt;/a>&lt;/p>
+&lt;p>Image1.7zのパスワードは書いてあるので，それを使う．&lt;/p>
+&lt;p>Image2.7z，Image3.7zのパスワードはCTFの問題を解いていくと分かる．&lt;/p>
+&lt;p>やっていったら長くなったので，Image2とImage3については今後書く予定です．&lt;/p>
+&lt;h2 id="image-1--hrserver">Image 1 : HRServer&lt;/h2>
+&lt;p>&lt;code>Image1.7z&lt;/code>を展開すると，&lt;code>HRServer_Disk0.e01&lt;/code>と&lt;code>HRServer_Disk0.txt&lt;/code>が出てくる．
+&lt;code>HRServer_Disk0.txt&lt;/code>を見ると，X-waysでこのディスクイメージを取得したっぽいことが分かる．&lt;/p>
+&lt;p>&lt;code>HRServer_Disk.e01&lt;/code>をFTK Imagerで開く．&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;img alt="f:id:socketo:20180826023119p:plain" loading="lazy" src="https://socketo.github.io/posts/2018/08/26/20180826023119.png" title="f:id:socketo:20180826023119p:plain">&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>Digital Forensic Challenge #2 - User Policy Violation Case Write up</title><link>https://socketo.github.io/posts/2018/02/19/</link><pubDate>Mon, 19 Feb 2018 09:06:57 +0000</pubDate><guid>https://socketo.github.io/posts/2018/02/19/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/02/19/090657">Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;p>恐らく何かしら間違ってたり，足りなかったりします．多分．
+誰か教えてください．&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>&lt;a href="https://www.ashemery.com/dfir.html">https://www.ashemery.com/dfir.html&lt;/a> のChallenge #2&lt;/p>
+&lt;p>Case1はこちら
+&lt;a href="http://socketo.hatenablog.jp/entry/2018/02/05/032146">Digital Forensic Challenge #1 - Web Server Case Write up - socketo.hatenablog.jp&lt;/a>&lt;/p>
+&lt;h2 id="問題文">問題文&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>This is another digital forensics image that was prepared to cover a full Windows Forensics course.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>System Image: here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Hashes: here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password = here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>You can use the image to learn the following:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>File Carving, Custom Carving, and Keyword Searching
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>File System Forensics - NTFS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Deep Windows Registry Forensics: System and User Hives
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SYSTEM
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SOFTWARE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SAM
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NTUSER.DAT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USRCLASS.DAT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Other Windows Files: LNK, Jump Lists, Libraries, etc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Application Compatibility Cache (ShimCache)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Windows Search (Search Charm)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Thumb Caches
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Prefetch Files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Recycle Bin(s)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USB Forensics
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Events Analysis
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Email Forensics: Web and Outlook
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Browser Forensics: Internet Explorer and Google Chrome
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Skype Forensics
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This image covers most if not all of the recent system artifacts that you might encounter. Let me know if you need any help or if you are an instructor and want the answers to each part of the case. I will only send the answers to verified instructors.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Due to lots of requests, I have decided to compile a manual or a book for the second image with Q&amp;amp;As to help you go through the challenge and solve every part of it. URLs and further explanations will be provided very soon. Stay tuned my friends and happy hunting ;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このイメージで以下のことが学べるらしい&lt;/p></description></item><item><title>Digital Forensic Challenge #1 - Web Server Case Write up</title><link>https://socketo.github.io/posts/2018/02/05/</link><pubDate>Mon, 05 Feb 2018 03:21:46 +0000</pubDate><guid>https://socketo.github.io/posts/2018/02/05/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/02/05/032146">Digital Forensic Challenge #1 - Web Server Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>&lt;a href="https://www.ashemery.com/dfir.html">https://www.ashemery.com/dfir.html&lt;/a> のChallenge #1&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;p>&lt;a href="https://betweentwodfirns.blogspot.jp/2017/03/ashemerycom-challenge-1-web-server-case.html">Between Two DFIRns: Ashemery.com: Challenge #1 - Web Server Case Write-up&lt;/a>&lt;/p>
+&lt;h2 id="問題文">問題文&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. The files can be found below:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1. System Image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. System Memory
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>3. Hashes:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4. Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>To successfully solve this challenge, a report with answers to the tasks below is required:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1. What type of attacks has been performed on the box?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. How many users has the attacker(s) added to the box, and how were they added?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>3. What leftovers (files, tools, info, etc) did the attacker(s) leave behind? (assume our team arrived in time and the attacker(s) couldn’t clean and cover their tracks)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4. What software has been installed on the box, and were they installed by the attacker(s) or not?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>5. Using memory forensics, can you identify the type of shellcode used?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>6. What is the timeline analysis for all events that happened on the box?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>7. What is your hypothesis for the case, and what is your approach in solving it?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>8. Is there anything else you would like to add?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>**Bonus Question:** what are the directories and files, that have been added by the attacker(s)? List all with proof.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>**Important Note:** do not use commercial tools for your own learning benefit.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>稼働していたWebサービスのシステムディスクのイメージと，システムのメモリから侵害の様子を調査する．&lt;/p></description></item><item><title>ハニーポットCowrieを設置した話</title><link>https://socketo.github.io/posts/2018/01/22/</link><pubDate>Mon, 22 Jan 2018 00:05:37 +0000</pubDate><guid>https://socketo.github.io/posts/2018/01/22/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/01/22/000537">ハニーポットCowrieを設置した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;h2 id="cowrieとは">Cowrieとは&lt;/h2>
+&lt;p>&lt;a href="https://github.com/micheloosterhof/cowrie">GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
+Cowrie is developed by Michel Oosterhof.&lt;/p>&lt;/blockquote>
+&lt;p>攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．&lt;/p>
+&lt;h2 id="導入">導入&lt;/h2>
+&lt;p>ここを見てやっていきます．
+&lt;a href="https://github.com/micheloosterhof/cowrie">cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub&lt;/a>&lt;/p>
+&lt;p>今回はUbuntu　16.04.3 LTSで構築していきます．&lt;/p>
+&lt;p>必要なパッケージのインストール&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています．
+Python3系はサポートされていません．&lt;/p></description></item><item><title>セキュリティ・キャンプ全国大会2016に参加した話</title><link>https://socketo.github.io/posts/2016/08/14/</link><pubDate>Sun, 14 Aug 2016 19:38:43 +0000</pubDate><guid>https://socketo.github.io/posts/2016/08/14/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2016/08/14/193843_1">セキュリティ・キャンプ全国大会2016に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>セキュリティ・キャンプ全国大会2016：IPA 独立行政法人 情報処理推進機構 : &lt;a href="https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html">https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html&lt;/a>&lt;/p>
+&lt;p>表題の通り，セキュリティ・キャンプ2016全国大会に参加していました．
+8/9~8/13の4泊5日です．
+めちゃくちゃ濃い5日間ですごい楽しく過ごせて，関係者の皆様本当にありがとうございました．
+行く前は4泊5日って長いなぁ生きて帰れるかなぁと思ってたんですが，振り返ると一瞬で終わった感じでした．&lt;/p>
+&lt;h2 id="受講した講義">受講した講義&lt;/h2>
+&lt;ul>
+&lt;li>1,2-F:作って学ぶ低レイヤーネットワーク&lt;/li>
+&lt;li>3-D:The OOM CTF&lt;/li>
+&lt;li>4-A:クラウドセキュリティ基礎&lt;/li>
+&lt;li>5-D:みんなでクールなROPガジェットを探そうぜ&lt;/li>
+&lt;li>6,7-F:なぜマルウェア解析は自動化できないのか&lt;/li>
+&lt;/ul>
+&lt;p>とりあえず普段とはしたことのないことをやりたいなぁと思い欲望の赴くままに受講する講義を決めたら，こんな感じになりました．
+講義内容の感想などは下で．&lt;/p>
+&lt;p>やたら長いポエムになりました．よろしければ．&lt;/p>
+&lt;hr>
+&lt;h2 id="0日目前日">&lt;strong>0日目（前日）&lt;/strong>&lt;/h2>
+&lt;p>&lt;a href="https://twitter.com/hashtag/%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%AD%E3%83%A3%E3%83%B3%E3%81%AE%E3%81%8A%E5%BE%97%E3%81%AA%E6%83%85%E5%A0%B1%E3%81%8C%E9%9B%86%E3%81%BE%E3%82%8B%E3%82%BF%E3%82%B0">#セキュキャンのお得な情報が集まるタグ hashtag on Twitter&lt;/a>&lt;/p>
+&lt;p>自宅で荷物などの準備をしながらわりと講義についてけるかなぁと心配していたんですが，このハッシュタグで過去のキャンパーの方の大喜利を見て笑っていました．&lt;/p>
+&lt;hr>
+&lt;h2 id="1日目">&lt;strong>1日目&lt;/strong>&lt;/h2>
+&lt;p>開会式の前などに微妙に時間があり，そこで参加者の方やチューターの方と名刺交換をしました．
+短時間で多くの人と会話をすることになるので，コミュ症の僕にはなかなか辛い感じになりましたが，皆さん優しく接してくれてとても嬉しかったです．
+1日目は全体講義とグループワークが主でした．
+ぼくらのグループ名は「このキャンプには問題がある！」と完全に元ネタである『この美術部には問題がある！』を知っているオタクではないと，運営への批判に思われるようなグループ名で参加しました．
+実際に，ぼくらのグループ名を見て関係者の方から話しかけられてアッという気持ちになったりなどもありました．&lt;/p>
+&lt;p>本題のグループワークでは以下の４つの題材から１つを選びそれについて発表するというものでした．&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>未来「10年後のIT社会のセキュリティのあるべき姿」&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>倫理「子供たちに正しくIT技術を身につけさせるために」&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>対策「小規模企業におけるセキュリティ対策」&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>回避「攻撃者に狙われないために何をすればいいか」&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>ぼくらのグループは倫理「子供たちに正しくIT技術を身につけさせるために」を選択しました．
+グループワークの課題の一つとして，参加者以外のチューター，講師，協賛企業の方々から10名以上ヒアリングをするというものも与えられました．
+またコミュ症としてはなかなか辛い課題だと思ったのですが，参加者以外の方に話しかけれるきっかけとなり，ヒアリング以外の話題もすることが出来たりしたので結果としては様々な方にヒアリングをして良かったと思いました．
+ぼくのヒアリングに応えてくれた方々，支離滅裂でまとまっていないようなぼくの話を最後まで聞いてくれて本当にありがとうございました．&lt;/p>
+&lt;p>この日の深夜アニメは『NEW GAME!』がTOKYO MXで0:30から放送でしたが普通に寝てて見れませんでした．&lt;/p>
+&lt;hr>
+&lt;h2 id="2日目">&lt;strong>2日目&lt;/strong>&lt;/h2>
+&lt;ul>
+&lt;li>1,2-F:作って学ぶ低レイヤーネットワーク&lt;/li>
+&lt;/ul>
+&lt;p>2日目から専門講義開始ということで，初日から集中講義を選択していたので8時間「作って学ぶ低レイヤーネットワーク」を受講しました．
+この講義は前半後半で分かれており，前半では坂井さんのパケットをバイナリエディタで直接読み書きしたりツールを使ってパケットを送受信したりしました．
+ネットワークに関する知識があまり無いぼくでしたが，実際に自分でバイナリエディタで書いたものを送信して実際に受信された時はとても嬉しかったです．
+ARPに関してはどんなものかくらいは知ってましたが，バイナリレベルで読んだり書いたりしたことが無かったのでとても新鮮でした．&lt;/p>
+&lt;p>後半では今岡さんのArduinoを使って自分でバイナリエディタで作成したパケットを10BASE-Tのフレームとして送出したりするものでした．
+電子工作をほぼやったことが無く，配線を間違えたりその他色々と間違えたりした時に同じ参加者の方やチューターさんに凄い助けて貰って本当にありがとうございました．
+講義資料の最後にArduinoを20MHz改造するのがありましたが，正直コレめちゃくちゃ難しそう（自分がやったらめちゃくちゃ破壊しそう）でした．&lt;/p>
+&lt;ul>
+&lt;li>DAY2 CTF&lt;/li>
+&lt;/ul>
+&lt;p>2日目の夜はグループごとチームになってのCTFでした．
+結果としてはチームでは300ptを獲得しました．100ptは入れることが出来ましたが，時間が無いのに色々な問題を試そうとしてみたりして結構時間をかけた結果全然解けないというアレになりました．つらいですね．
+1番はじめに得点をしたということで特別賞を貰いました．&lt;/p>
+&lt;p>この日の深夜アニメは『Fate/kaleid liner プリズマ☆イリヤ ドライ!!』がTOKYO MXで01:05から放送でしたが普通に寝てて見れませんでした．&lt;/p>
+&lt;hr>
+&lt;h2 id="3日目">&lt;strong>3日目&lt;/strong>&lt;/h2>
+&lt;p>3日目は3つの講義を受けました．&lt;/p></description></item><item><title>PythonでSeleniumを使ってagqrの登録を自動化する</title><link>https://socketo.github.io/posts/2016/04/10/</link><pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate><guid>https://socketo.github.io/posts/2016/04/10/</guid><description>&lt;p>※ 移行前の元ブログ記事 &lt;a href="https://socketo.hatenablog.jp/entry/2016/04/10/201909_1">PythonでSeleniumを使ってagqrの登録を自動化する - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>JOQR 超!A&amp;amp;G+でよく声優さんのラジオを聴いたり見たりしています．&lt;br>
+&lt;a href="http://www.agqr.jp/">超！A&amp;amp;G | 文化放送&lt;/a>&lt;/p>
+&lt;p>僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．&lt;br>
+&lt;img alt="f:id:sockets:20160410200116p:plain" loading="lazy" src="https://socketo.github.io/posts/2016/04/10/20160410200116.png" title="f:id:sockets:20160410200116p:plain">&lt;/p>
+&lt;p>ここでは&amp;quot;初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。&amp;ldquo;と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．&lt;br>
+目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．&lt;br>
+そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．&lt;/p>
+&lt;script src="https://gist.github.com/socketo/d56df9d963330228aebbe893945bb211.js?file=auto_agqr.py">&lt;/script>
+&lt;p>Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．&lt;br>
+radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．&lt;br>
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．&lt;/p></description></item><item><title>SANS Netwars Tournament 2015に参加した話</title><link>https://socketo.github.io/posts/2015/08/24/</link><pubDate>Mon, 24 Aug 2015 20:39:26 +0000</pubDate><guid>https://socketo.github.io/posts/2015/08/24/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/08/24/203926_1">SANS Netwars Tournament 2015に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="http://www.nri-secure.co.jp/event/2015/netwars.html">http://www.nri-secure.co.jp/event/2015/netwars.html&lt;/a>&lt;/p>
+&lt;p>8/22,23と大手町サンケイプラザで開催されてたSANS Netwars Tournament 2015に参加してきた．&lt;br>
+1日目のセキュリティトレーニングの内容や，2日目のCTFの問題は公開NGとのことで感想だけ．&lt;/p>
+&lt;p>2日とも開始時間が9:30で，大手町から遠い場に住んでいる私は早朝に起きて向かうという感じだった．&lt;br>
+夏休みに入って生活リズムが無茶苦茶になっている中，早寝早起きをするのがなかなかに険しかった．&lt;/p>
+&lt;p>1日目，プロの方が受けるようなトレーニングを無料で受けることが出来て本当に良かった．&lt;br>
+やはり自分の根底にある基礎的な知識不足が非常にマズイというのがよく分かったので精進していきたい．&lt;/p>
+&lt;p>2日目のCTFは案の定，スコアボードのトップに乗らないくらいに下の方をウロウロしてた．&lt;br>
+Lv2の時点でなかなか自分には厳しい感じになったりしてた．&lt;br>
+今までやったCTFとはちょっと違う感じだったが，こういうCTFの方が個人的に好きな気がした．&lt;/p>
+&lt;p>全て英語（同時翻訳アリ）だったので，英語苦手マンの私はテキスト読むのにもなかなか時間掛かったりしてた．&lt;br>
+今回，同時翻訳というのをはじめて身近で体験したのですが，あれ本当に凄いですね．感動した．&lt;br>
+某教授も仰ってた通りに英語も頑張って行きたい感じです．&lt;/p>
+&lt;p>とても有意義な2日間でした．&lt;br>
+また次回開催される事があるならば応募して是非とも参加したいです．&lt;/p></description></item><item><title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title><link>https://socketo.github.io/posts/2015/06/13/03/</link><pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate><guid>https://socketo.github.io/posts/2015/06/13/03/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/06/13/203408_1">CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．&lt;/p>
+&lt;p>CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: &lt;a href="https://attack-and-defense.doorkeeper.jp/events/24249">https://attack-and-defense.doorkeeper.jp/events/24249&lt;/a>&lt;/p>
+&lt;p>今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．&lt;/p>
+&lt;h1 id="競技">競技&lt;/h1>
+&lt;p>今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．&lt;br>
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．&lt;br>
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．&lt;/p>
+&lt;p>競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．&lt;br>
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．&lt;br>
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．&lt;br>
+みたいな感じだった．&lt;/p>
+&lt;p>はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．&lt;br>
+ちなみに今回私は&lt;a href="https://twitter.com/Ranats_rifle">@Ranats_rifle&lt;/a>とIchigoMilkなる可愛らしいチーム名で参加した．&lt;br>
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）&lt;/p>
+&lt;h1 id="結果">結果&lt;/h1>
+&lt;p>結果としては結論から言うと9位だった．&lt;/p>
+&lt;blockquote>
+&lt;p>CTF for ビギナーズ2015 博多(Attack &amp;amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 &lt;a href="https://twitter.com/hashtag/seccon?src=hash">#seccon&lt;/a> &lt;a href="https://twitter.com/hashtag/ctf4b?src=hash">#ctf4b&lt;/a> &lt;a href="https://twitter.com/hashtag/a_and_d?src=hash">#a_and_d&lt;/a> &lt;a href="http://t.co/JFiED8niDe">pic.twitter.com/JFiED8niDe&lt;/a>
+— SECCON CTF (@secconctf) &lt;a href="https://twitter.com/secconctf/status/607480338319695874">2015, 6月 7&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>一回攻め込まれてそのままズルズルとやってたら終了してた．&lt;br>
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．&lt;br>
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．&lt;/p>
+&lt;p>攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．&lt;br>
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．&lt;/p>
+&lt;h1 id="おまけ">おまけ&lt;/h1>
+&lt;p>本場の博多ラーメン美味しかった．（一緒に行った&lt;a href="https://twitter.com/Ranats_rifle">@Ranats_rifle&lt;/a>が替え玉合わせて4玉食べててすごかった&lt;/p></description></item><item><title>CpawLT #1に参加した話</title><link>https://socketo.github.io/posts/2015/06/13/02/</link><pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate><guid>https://socketo.github.io/posts/2015/06/13/02/</guid><description>&lt;p>2015-5-31，CpawLT #1に参加してきました．&lt;/p>
+&lt;p>CpawLT #1 : ATND : &lt;a href="https://atnd.org/events/65601">https://atnd.org/events/65601&lt;/a>&lt;/p>
+&lt;p>前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．&lt;/p>
+&lt;p>====&lt;/p>
+&lt;h1 id="cpawlt-とは">CpawLT #とは&lt;/h1>
+&lt;p>CpawというプログラミングサークルのLT大会らしいです．&lt;br>
+Cpawは”コポォ”と読むとか”シーパウ”と読むとか宗派があるらしいです．&lt;/p>
+&lt;p>今回参加した経緯といいますと，この会を主催している&lt;a href="http://twitter.com/porisuteru">@porisuteru&lt;/a> さんが誘ってくれてという感じです．&lt;/p>
+&lt;p>LTの内容はATNDに書いてある通り，なんでもOKという感じでしたがみなさんやはり技術系の話が多かったです．（自分のLTは技術系と言っていいのかわからない）&lt;/p>
+&lt;p>参加者はやう10人ほどという感じでゆる〜い感じでLT大会が始まっていきました．&lt;/p>
+&lt;h1 id="lt">LT&lt;/h1>
+&lt;p>LTは一人持ち時間約10分以内（？）くらいで時間もわりとあったのでLTでしがた時間を気にせずに話していきました．&lt;br>
+自分は外部の人間ですがLTをさせて頂くことになり，RaspberryPiの紹介と4DSystemsのLCDでハロー!!きんいろモザイクを見る話をしました．&lt;br>
+権利問題上，LTスライドは公開していいのかどうか怪しいのでこのまま供養します．&lt;/p>
+&lt;p>参加者のみなさんのLTの内容は技術的な話題が多く，数学史から技術書の話，Unityを使ったゲーム制作の話などなど…&lt;br>
+普段，自分が聞く機会がない内容の話ばかりで大変有意義なものだった．&lt;/p>
+&lt;h1 id="懇親会ここから異常">懇親会&amp;ndash;ここから異常&amp;ndash;&lt;/h1>
+&lt;p>懇親会は吉祥寺のムーの子孫で行われました．&lt;/p>
+&lt;blockquote>
+&lt;p>#CpawLT](&lt;a href="https://twitter.com/hashtag/CpawLT?src=hash">https://twitter.com/hashtag/CpawLT?src=hash&lt;/a>) (@ ムーの子孫 吉祥寺店 in [武蔵野市, 東京都) https://t.co/LGgcoOTd2P
+— そけと (@socket_x) &lt;a href="https://twitter.com/socket_x/status/604918894436995073">2015, 5月 31&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>メンバーを所属組織割合が均等になるようにテーブルを分けて着席したわけですが，一方のテーブルではもんじゃ焼きを作るアルゴリズムの話やら，一方のテーブルではそもそももんじゃ焼きの作り方を知らない人しかおらず…など開始早々異常でした．&lt;/p>
+&lt;p>まぁ，なんやかんや懇親会ともあって周りの方と楽しい会話をすることは出来ました．&lt;br>
+ぼくは早々にお腹がいっぱいになって後半は無限に水を飲み続けていました．&lt;br>
+なぞの闇っぽい物体が生成されたりしてましたが，美味しくいただけました．&lt;/p>
+&lt;blockquote>
+&lt;p>懇親会わず &lt;a href="https://twitter.com/hashtag/cpawLT?src=hash">#cpawLT&lt;/a> &lt;a href="http://t.co/k2aBarC1Gy">pic.twitter.com/k2aBarC1Gy&lt;/a>
+— ぱろっくlv 0.05 (@porisuteru) &lt;a href="https://twitter.com/porisuteru/status/604967527752400896">2015, 5月 31&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h1 id="感想">感想&lt;/h1>
+&lt;p>LTは様々なところで聞く側として参加してきたが，自分自身が登壇するというのは初めてだったので，（内容はともかく）良い経験となったし面白い話が聞けて良かった．&lt;br>
+近いうちに身内でのLT大会でもやるかと某氏と話していたので，その時に役立てればいいかなと．&lt;br>
+Cpawのメンバーの方々には大変お世話になりました．&lt;/p></description></item><item><title>MINI Hardening Project #1.1 に参加した話</title><link>https://socketo.github.io/posts/2015/06/13/01/</link><pubDate>Sat, 13 Jun 2015 20:33:33 +0000</pubDate><guid>https://socketo.github.io/posts/2015/06/13/01/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/06/13/203333_1">MINI Hardening Project #1.1 に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．&lt;/p>
+&lt;p>MINI Hardening Project #1.1 (2015/05/23 10:30〜) : &lt;a href="http://minihardening.connpass.com/event/13818/">http://minihardening.connpass.com/event/13818/&lt;/a>&lt;/p>
+&lt;p>2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．&lt;/p>
+&lt;p>====&lt;/p>
+&lt;p>最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．&lt;/p>
+&lt;h1 id="hardening-とは">Hardening #とは&lt;/h1>
+&lt;p>MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．&lt;/p>
+&lt;p>&lt;a href="http://wasforum.jp/hardening-project/">Hardening Project | Web Application Security Forum - WASForum&lt;/a>&lt;/p>
+&lt;p>&amp;ldquo;「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント&amp;quot;らしく，CTFとは違った競技とのこと．&lt;/p>
+&lt;p>競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．&lt;br>
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．&lt;br>
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．&lt;br>
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．&lt;br>
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()&lt;/p>
+&lt;h1 id="競技">競技&lt;/h1>
+&lt;p>はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．&lt;br>
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．&lt;/p>
+&lt;p>アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．&lt;/p>
+&lt;blockquote>
+&lt;p>優勝賞品の（ミニ）麻袋贈呈です！ &lt;a href="https://twitter.com/hashtag/minihardening?src=hash">#minihardening&lt;/a> &lt;a href="http://t.co/l6QfD4fzag">pic.twitter.com/l6QfD4fzag&lt;/a>
+— Minoru Kobayashi (@unkn0wnbit) &lt;a href="https://twitter.com/unkn0wnbit/status/602015177756643328">2015, 5月 23&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．&lt;/p>
+&lt;h1 id="感想">感想&lt;/h1>
+&lt;p>競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．&lt;br>
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．&lt;br>
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．&lt;/p>
+&lt;h1 id="おまけ">おまけ&lt;/h1>
+&lt;p>チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．&lt;br>
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．&lt;/p></description></item><item><title>TDU CTF 2014 Satellite in ConoHaに参加した話</title><link>https://socketo.github.io/posts/2015/03/31/</link><pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate><guid>https://socketo.github.io/posts/2015/03/31/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/03/31/002642_1">TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>2015-03-29、TDU CTFに参加してきました。&lt;/p>
+&lt;p>TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : &lt;a href="http://connpass.com/event/11986/">http://connpass.com/event/11986/&lt;/a>&lt;/p>
+&lt;p>CTF for Beginnersでの簡易CTF以外ではCTF初参加なのでビクビクしながら行きました。&lt;/p>
+&lt;p>本当の初心者だった自分は結局620pt取れました。&lt;/p>
+&lt;p>懇親会でどのようにして問題を解いたかなどを参加者の方々と話していくなかで、自分が手も足も出なかった問題に対してのアプローチの仕方などを知ることがとても楽しいものでした。&lt;/p>
+&lt;p>自分が解けた問題は少ないですがWriteupとか感想を。&lt;/p>
+&lt;h2 id="web">Web&lt;/h2>
+&lt;p>&lt;strong>Easy SQLi&lt;/strong>&lt;/p>
+&lt;p>とりあえず&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> &lt;span style="color:#a6e22e">OR&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">--&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>をしてみたけどダメで色々と試してたらダブルコーテーションなら何か反応があり、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">OR&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">--&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>を突っ込んだらフラグが出た。複数フラグがあったようでしたがそれ以上進むことが出来ずに断念。&lt;/p>
+&lt;h2 id="binary">binary&lt;/h2>
+&lt;p>&lt;strong>string_compare&lt;/strong>&lt;/p>
+&lt;p>実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。&lt;/p>
+&lt;p>&lt;img alt="f:id:sockets:20150330193248p:plain" loading="lazy" src="https://socketo.github.io/posts/2015/03/31/20150330193248.png" title="f:id:sockets:20150330193248p:plain">&lt;/p>
+&lt;p>多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit&lt;/p>
+&lt;p>競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->KosakaHonokaではINVALID KEY&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;img alt="f:id:sockets:20150330193908p:plain" loading="lazy" src="https://socketo.github.io/posts/2015/03/31/20150330193908.png" title="f:id:sockets:20150330193908p:plain">&lt;/p>
+&lt;p>&lt;strong>Trip Picture&lt;/strong>&lt;/p>
+&lt;p>20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした&lt;/p>
+&lt;p>&lt;strong>読めない文字1&lt;/strong>&lt;/p>
+&lt;p>文末に&amp;quot;==&amp;ldquo;がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に&amp;rdquo;==&amp;ldquo;がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。&lt;/p>
+&lt;h2 id="network">network&lt;/h2>
+&lt;p>&lt;strong>柚子胡椒 Vol.1&lt;/strong>&lt;/p></description></item></channel></rss>

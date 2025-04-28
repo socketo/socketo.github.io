@@ -1,0 +1,163 @@
+<!doctype html><html lang=en dir=auto><head><meta name=generator content="Hugo 0.147.0"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>socketo.github.io</title>
+<meta name=description content><meta name=author content><link rel=canonical href=https://socketo.github.io/><link crossorigin=anonymous href=/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF+13Dyqob6ASlTrTye8=" rel="preload stylesheet" as=style><link rel=icon href=https://socketo.github.io/images/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://socketo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://socketo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://socketo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://socketo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://socketo.github.io/index.xml><link rel=alternate type href=https://socketo.github.io/robots><link rel=alternate hreflang=en href=https://socketo.github.io/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://socketo.github.io/"><meta property="og:site_name" content="socketo.github.io"><meta property="og:title" content="socketo.github.io"><meta property="og:locale" content="ja"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="socketo.github.io"><meta name=twitter:description content><meta name=twitter:site content="@https://twitter.com/sys_socket"><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"socketo.github.io","url":"https://socketo.github.io/","description":"","logo":"https://socketo.github.io/images/favicon.ico","sameAs":[]}</script></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://socketo.github.io/ accesskey=h title="socketo.github.io (Alt + H)">socketo.github.io</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://socketo.github.io/archives title=archives><span><i class='fa fa-heart'></i>archives</span></a></li><li><a href=https://socketo.github.io/tags title=tags><span><i class='fa fa-heart'></i>tags</span></a></li><li><a href=https://socketo.github.io/about title=about><span><i class='fa fa-heart'></i>about</span></a></li></ul></nav></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Digital Forensic Challenge #2 - User Policy Violation Case Write up</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &lt;sys_socket.h>
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+恐らく何かしら間違ってたり，足りなかったりします．多分． 誰か教えてください．
+はい．
+https://www.ashemery.com/dfir.html のChallenge #2
+Case1はこちら Digital Forensic Challenge #1 - Web Server Case Write up - socketo.hatenablog.jp
+問題文 This is another digital forensics image that was prepared to cover a full Windows Forensics course. System Image: here Hashes: here Password = here You can use the image to learn the following: File Carving, Custom Carving, and Keyword Searching File System Forensics - NTFS Deep Windows Registry Forensics: System and User Hives SYSTEM SOFTWARE SAM NTUSER.DAT USRCLASS.DAT Other Windows Files: LNK, Jump Lists, Libraries, etc Application Compatibility Cache (ShimCache) Analyzing Windows Search (Search Charm) Analyzing Thumb Caches Analyzing Prefetch Files Analyzing Recycle Bin(s) USB Forensics Events Analysis Email Forensics: Web and Outlook Browser Forensics: Internet Explorer and Google Chrome Skype Forensics This image covers most if not all of the recent system artifacts that you might encounter. Let me know if you need any help or if you are an instructor and want the answers to each part of the case. I will only send the answers to verified instructors. Due to lots of requests, I have decided to compile a manual or a book for the second image with Q&amp;As to help you go through the challenge and solve every part of it. URLs and further explanations will be provided very soon. Stay tuned my friends and happy hunting ;) このイメージで以下のことが学べるらしい
+...</p></div><footer class=entry-footer><span title='2018-02-19 09:06:57 +0000 UTC'>February 19, 2018</span>&nbsp;·&nbsp;12 min</footer><a class=entry-link aria-label="post link to Digital Forensic Challenge #2 - User Policy Violation Case Write up" href=https://socketo.github.io/posts/2018/02/19/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Digital Forensic Challenge #1 - Web Server Case Write up</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : Digital Forensic Challenge #1 - Web Server Case Write up - #include &lt;sys_socket.h>
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+はい．
+https://www.ashemery.com/dfir.html のChallenge #1
+参考:
+Between Two DFIRns: Ashemery.com: Challenge #1 - Web Server Case Write-up
+問題文 A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. The files can be found below: 1. System Image 2. System Memory 3. Hashes: 4. Passwords To successfully solve this challenge, a report with answers to the tasks below is required: 1. What type of attacks has been performed on the box? 2. How many users has the attacker(s) added to the box, and how were they added? 3. What leftovers (files, tools, info, etc) did the attacker(s) leave behind? (assume our team arrived in time and the attacker(s) couldn’t clean and cover their tracks) 4. What software has been installed on the box, and were they installed by the attacker(s) or not? 5. Using memory forensics, can you identify the type of shellcode used? 6. What is the timeline analysis for all events that happened on the box? 7. What is your hypothesis for the case, and what is your approach in solving it? 8. Is there anything else you would like to add? **Bonus Question:** what are the directories and files, that have been added by the attacker(s)? List all with proof. **Important Note:** do not use commercial tools for your own learning benefit. 稼働していたWebサービスのシステムディスクのイメージと，システムのメモリから侵害の様子を調査する．
+...</p></div><footer class=entry-footer><span title='2018-02-05 03:21:46 +0000 UTC'>February 5, 2018</span>&nbsp;·&nbsp;11 min</footer><a class=entry-link aria-label="post link to Digital Forensic Challenge #1 - Web Server Case Write up" href=https://socketo.github.io/posts/2018/02/05/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>ハニーポットCowrieを設置した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include &lt;sys_socket.h>
+はい．
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+Cowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot
+Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.
+攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．
+導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
+今回はUbuntu　16.04.3 LTSで構築していきます．
+必要なパッケージのインストール
+$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています． Python3系はサポートされていません．
+...</p></div><footer class=entry-footer><span title='2018-01-22 00:05:37 +0000 UTC'>January 22, 2018</span>&nbsp;·&nbsp;2 min</footer><a class=entry-link aria-label="post link to ハニーポットCowrieを設置した話" href=https://socketo.github.io/posts/2018/01/22/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>セキュリティ・キャンプ全国大会2016に参加した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : セキュリティ・キャンプ全国大会2016に参加した話 - #include &lt;sys_socket.h>
+セキュリティ・キャンプ全国大会2016：IPA 独立行政法人 情報処理推進機構 : https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html
+表題の通り，セキュリティ・キャンプ2016全国大会に参加していました． 8/9~8/13の4泊5日です． めちゃくちゃ濃い5日間ですごい楽しく過ごせて，関係者の皆様本当にありがとうございました． 行く前は4泊5日って長いなぁ生きて帰れるかなぁと思ってたんですが，振り返ると一瞬で終わった感じでした．
+受講した講義 1,2-F:作って学ぶ低レイヤーネットワーク 3-D:The OOM CTF 4-A:クラウドセキュリティ基礎 5-D:みんなでクールなROPガジェットを探そうぜ 6,7-F:なぜマルウェア解析は自動化できないのか とりあえず普段とはしたことのないことをやりたいなぁと思い欲望の赴くままに受講する講義を決めたら，こんな感じになりました． 講義内容の感想などは下で．
+やたら長いポエムになりました．よろしければ．
+0日目（前日） #セキュキャンのお得な情報が集まるタグ hashtag on Twitter
+自宅で荷物などの準備をしながらわりと講義についてけるかなぁと心配していたんですが，このハッシュタグで過去のキャンパーの方の大喜利を見て笑っていました．
+1日目 開会式の前などに微妙に時間があり，そこで参加者の方やチューターの方と名刺交換をしました． 短時間で多くの人と会話をすることになるので，コミュ症の僕にはなかなか辛い感じになりましたが，皆さん優しく接してくれてとても嬉しかったです． 1日目は全体講義とグループワークが主でした． ぼくらのグループ名は「このキャンプには問題がある！」と完全に元ネタである『この美術部には問題がある！』を知っているオタクではないと，運営への批判に思われるようなグループ名で参加しました． 実際に，ぼくらのグループ名を見て関係者の方から話しかけられてアッという気持ちになったりなどもありました．
+本題のグループワークでは以下の４つの題材から１つを選びそれについて発表するというものでした．
+未来「10年後のIT社会のセキュリティのあるべき姿」
+倫理「子供たちに正しくIT技術を身につけさせるために」
+対策「小規模企業におけるセキュリティ対策」
+回避「攻撃者に狙われないために何をすればいいか」
+ぼくらのグループは倫理「子供たちに正しくIT技術を身につけさせるために」を選択しました． グループワークの課題の一つとして，参加者以外のチューター，講師，協賛企業の方々から10名以上ヒアリングをするというものも与えられました． またコミュ症としてはなかなか辛い課題だと思ったのですが，参加者以外の方に話しかけれるきっかけとなり，ヒアリング以外の話題もすることが出来たりしたので結果としては様々な方にヒアリングをして良かったと思いました． ぼくのヒアリングに応えてくれた方々，支離滅裂でまとまっていないようなぼくの話を最後まで聞いてくれて本当にありがとうございました．
+この日の深夜アニメは『NEW GAME!』がTOKYO MXで0:30から放送でしたが普通に寝てて見れませんでした．
+2日目 1,2-F:作って学ぶ低レイヤーネットワーク 2日目から専門講義開始ということで，初日から集中講義を選択していたので8時間「作って学ぶ低レイヤーネットワーク」を受講しました． この講義は前半後半で分かれており，前半では坂井さんのパケットをバイナリエディタで直接読み書きしたりツールを使ってパケットを送受信したりしました． ネットワークに関する知識があまり無いぼくでしたが，実際に自分でバイナリエディタで書いたものを送信して実際に受信された時はとても嬉しかったです． ARPに関してはどんなものかくらいは知ってましたが，バイナリレベルで読んだり書いたりしたことが無かったのでとても新鮮でした．
+後半では今岡さんのArduinoを使って自分でバイナリエディタで作成したパケットを10BASE-Tのフレームとして送出したりするものでした． 電子工作をほぼやったことが無く，配線を間違えたりその他色々と間違えたりした時に同じ参加者の方やチューターさんに凄い助けて貰って本当にありがとうございました． 講義資料の最後にArduinoを20MHz改造するのがありましたが，正直コレめちゃくちゃ難しそう（自分がやったらめちゃくちゃ破壊しそう）でした．
+DAY2 CTF 2日目の夜はグループごとチームになってのCTFでした． 結果としてはチームでは300ptを獲得しました．100ptは入れることが出来ましたが，時間が無いのに色々な問題を試そうとしてみたりして結構時間をかけた結果全然解けないというアレになりました．つらいですね． 1番はじめに得点をしたということで特別賞を貰いました．
+この日の深夜アニメは『Fate/kaleid liner プリズマ☆イリヤ ドライ!!』がTOKYO MXで01:05から放送でしたが普通に寝てて見れませんでした．
+3日目 3日目は3つの講義を受けました．
+...</p></div><footer class=entry-footer><span title='2016-08-14 19:38:43 +0000 UTC'>August 14, 2016</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to セキュリティ・キャンプ全国大会2016に参加した話" href=https://socketo.github.io/posts/2016/08/14/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>PythonでSeleniumを使ってagqrの登録を自動化する</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 PythonでSeleniumを使ってagqrの登録を自動化する - #include &lt;sys_socket.h>
+JOQR 超!A&amp;G+でよく声優さんのラジオを聴いたり見たりしています．
+超！A&amp;G | 文化放送
+僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．
+ここでは"初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。“と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．
+目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．
+そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．
+Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．
+radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．</p></div><footer class=entry-footer><span title='2016-04-10 20:19:09 +0000 UTC'>April 10, 2016</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to PythonでSeleniumを使ってagqrの登録を自動化する" href=https://socketo.github.io/posts/2016/04/10/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>SANS Netwars Tournament 2015に参加した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : SANS Netwars Tournament 2015に参加した話 - #include &lt;sys_socket.h>
+http://www.nri-secure.co.jp/event/2015/netwars.html
+8/22,23と大手町サンケイプラザで開催されてたSANS Netwars Tournament 2015に参加してきた．
+1日目のセキュリティトレーニングの内容や，2日目のCTFの問題は公開NGとのことで感想だけ．
+2日とも開始時間が9:30で，大手町から遠い場に住んでいる私は早朝に起きて向かうという感じだった．
+夏休みに入って生活リズムが無茶苦茶になっている中，早寝早起きをするのがなかなかに険しかった．
+1日目，プロの方が受けるようなトレーニングを無料で受けることが出来て本当に良かった．
+やはり自分の根底にある基礎的な知識不足が非常にマズイというのがよく分かったので精進していきたい．
+2日目のCTFは案の定，スコアボードのトップに乗らないくらいに下の方をウロウロしてた．
+Lv2の時点でなかなか自分には厳しい感じになったりしてた．
+今までやったCTFとはちょっと違う感じだったが，こういうCTFの方が個人的に好きな気がした．
+全て英語（同時翻訳アリ）だったので，英語苦手マンの私はテキスト読むのにもなかなか時間掛かったりしてた．
+今回，同時翻訳というのをはじめて身近で体験したのですが，あれ本当に凄いですね．感動した．
+某教授も仰ってた通りに英語も頑張って行きたい感じです．
+とても有意義な2日間でした．
+また次回開催される事があるならば応募して是非とも参加したいです．</p></div><footer class=entry-footer><span title='2015-08-24 20:39:26 +0000 UTC'>August 24, 2015</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to SANS Netwars Tournament 2015に参加した話" href=https://socketo.github.io/posts/2015/08/24/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>CTF for ビギナーズ2015 博多（Attack & Defense）に参加した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : CTF for ビギナーズ2015 博多（Attack & Defense）に参加した話 - #include &lt;sys_socket.h>
+2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack & Defense）に参加してきました．
+CTF for ビギナーズ2015 博多（Attack & Defense）: https://attack-and-defense.doorkeeper.jp/events/24249
+今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．
+競技 今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．
+競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．
+みたいな感じだった．
+はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．
+ちなみに今回私は@Ranats_rifleとIchigoMilkなる可愛らしいチーム名で参加した．
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）
+結果 結果としては結論から言うと9位だった．
+CTF for ビギナーズ2015 博多(Attack & Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 #seccon #ctf4b #a_and_d pic.twitter.com/JFiED8niDe — SECCON CTF (@secconctf) 2015, 6月 7
+一回攻め込まれてそのままズルズルとやってたら終了してた．
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
+攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった</p></div><footer class=entry-footer><span title='2015-06-13 20:34:08 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to CTF for ビギナーズ2015 博多（Attack & Defense）に参加した話" href=https://socketo.github.io/posts/2015/06/13/03/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>CpawLT #1に参加した話</h2></header><div class=entry-content><p>2015-5-31，CpawLT #1に参加してきました．
+CpawLT #1 : ATND : https://atnd.org/events/65601
+前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．
+====
+CpawLT #とは CpawというプログラミングサークルのLT大会らしいです．
+Cpawは”コポォ”と読むとか”シーパウ”と読むとか宗派があるらしいです．
+今回参加した経緯といいますと，この会を主催している@porisuteru さんが誘ってくれてという感じです．
+LTの内容はATNDに書いてある通り，なんでもOKという感じでしたがみなさんやはり技術系の話が多かったです．（自分のLTは技術系と言っていいのかわからない）
+参加者はやう10人ほどという感じでゆる〜い感じでLT大会が始まっていきました．
+LT LTは一人持ち時間約10分以内（？）くらいで時間もわりとあったのでLTでしがた時間を気にせずに話していきました．
+自分は外部の人間ですがLTをさせて頂くことになり，RaspberryPiの紹介と4DSystemsのLCDでハロー!!きんいろモザイクを見る話をしました．
+権利問題上，LTスライドは公開していいのかどうか怪しいのでこのまま供養します．
+参加者のみなさんのLTの内容は技術的な話題が多く，数学史から技術書の話，Unityを使ったゲーム制作の話などなど…
+普段，自分が聞く機会がない内容の話ばかりで大変有意義なものだった．
+懇親会–ここから異常– 懇親会は吉祥寺のムーの子孫で行われました．
+#CpawLT](https://twitter.com/hashtag/CpawLT?src=hash) (@ ムーの子孫 吉祥寺店 in [武蔵野市, 東京都) https://t.co/LGgcoOTd2P — そけと (@socket_x) 2015, 5月 31
+メンバーを所属組織割合が均等になるようにテーブルを分けて着席したわけですが，一方のテーブルではもんじゃ焼きを作るアルゴリズムの話やら，一方のテーブルではそもそももんじゃ焼きの作り方を知らない人しかおらず…など開始早々異常でした．
+まぁ，なんやかんや懇親会ともあって周りの方と楽しい会話をすることは出来ました．
+ぼくは早々にお腹がいっぱいになって後半は無限に水を飲み続けていました．
+なぞの闇っぽい物体が生成されたりしてましたが，美味しくいただけました．
+懇親会わず #cpawLT pic.twitter.com/k2aBarC1Gy — ぱろっくlv 0.05 (@porisuteru) 2015, 5月 31
+感想 LTは様々なところで聞く側として参加してきたが，自分自身が登壇するというのは初めてだったので，（内容はともかく）良い経験となったし面白い話が聞けて良かった．
+近いうちに身内でのLT大会でもやるかと某氏と話していたので，その時に役立てればいいかなと．
+Cpawのメンバーの方々には大変お世話になりました．</p></div><footer class=entry-footer><span title='2015-06-13 20:33:51 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to CpawLT #1に参加した話" href=https://socketo.github.io/posts/2015/06/13/02/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>MINI Hardening Project #1.1 に参加した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : MINI Hardening Project #1.1 に参加した話 - #include &lt;sys_socket.h>
+5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．
+MINI Hardening Project #1.1 (2015/05/23 10:30〜) : http://minihardening.connpass.com/event/13818/
+2015-5-23，IIJさんで開催されたMINI Hardening Project #1.1に参加してきました．
+====
+最寄駅の飯田橋についてIIJに行くまでにとりあえず迷子になった．
+Hardening #とは MINI Hardeningの存在はいつぞやの#ssmjpで某氏が教えてくれて，某氏も参加するとの話で参加した．その時に元祖の沖縄で開催しているHardeningの存在を知った．
+Hardening Project | Web Application Security Forum - WASForum
+“「守る技術」の価値を最大化することを目指す、全く新しいセキュリティ・イベント"らしく，CTFとは違った競技とのこと．
+競技は，与えられたサーバで運用しているサービスを継続しているかの稼働率（SLA）のポイントと，報告書（何に対応したのかの報告）でのポイントで競う．
+チーム戦で行うということで4人1組のチームが7(覚えてない）つで競技をした．
+与えられたサーバは，完全にアップデートをサボったLAMP環境だった．すごい見覚えがある．
+競技開始からわりとすぐに攻撃者が攻撃してきたり，わりと忙しい感じの競技だった．
+今回はMINIということで3時間という競技時間だったが本家は8時間耐久戦らしい()
+競技 はじめに断っておきますと，私は完全に役に立っておらず，Slackで対応していったものを眺めたりtail-f /var/logでログを眺めて怪しそうな通信を見てるだけだった．
+サーバの管理はちょっといじっただけの完全に初心者以下の人間だったので，役に立てるわけはなかったが，チームメンバが対応していっているのを見て勉強になるなあとログを眺めてた．
+アップデートを怠ったサーバならば，アップデートをすればいいのでは？と思い競技中にyumやapt-getを試みようとしたが，パッケージ管理のシステムがネットに接続できずにできなかった．だが，協議後にアップデートをして対応していたチームがいたり，前回の#1での報告から知ったことだが自分でパッケージファイルを持ってきて展開することは出来るみたいだった．
+優勝賞品の（ミニ）麻袋贈呈です！ #minihardening pic.twitter.com/l6QfD4fzag — Minoru Kobayashi (@unkn0wnbit) 2015, 5月 23
+結果としては，チームの方々の柔軟で迅速な対応のおかげで1位となった．完全に自分は役に立っていなかったので申し訳ないと思いながら差し入れのスイーツを食していた．
+感想 競技終了後に運営の方々の答え合わせがあり，新たな知識ばかりでとても勉強になった．
+今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．
+サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．
+おまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．</p></div><footer class=entry-footer><span title='2015-06-13 20:33:33 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to MINI Hardening Project #1.1 に参加した話" href=https://socketo.github.io/posts/2015/06/13/01/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>TDU CTF 2014 Satellite in ConoHaに参加した話</h2></header><div class=entry-content><p>※ 移行前の元ブログ記事 : TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &lt;sys_socket.h>
+2015-03-29、TDU CTFに参加してきました。
+TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : http://connpass.com/event/11986/
+CTF for Beginnersでの簡易CTF以外ではCTF初参加なのでビクビクしながら行きました。
+本当の初心者だった自分は結局620pt取れました。
+懇親会でどのようにして問題を解いたかなどを参加者の方々と話していくなかで、自分が手も足も出なかった問題に対してのアプローチの仕方などを知ることがとても楽しいものでした。
+自分が解けた問題は少ないですがWriteupとか感想を。
+Web Easy SQLi
+とりあえず
+' OR 1 = 1 -- をしてみたけどダメで色々と試してたらダブルコーテーションなら何か反応があり、
+" OR 1 = 1 -- を突っ込んだらフラグが出た。複数フラグがあったようでしたがそれ以上進むことが出来ずに断念。
+binary string_compare
+実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。
+多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit
+競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。
+とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。
+KosakaHonokaではINVALID KEY
+Trip Picture
+20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした
+読めない文字1
+文末に"==“がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に”==“がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。
+network 柚子胡椒 Vol.1
+...</p></div><footer class=entry-footer><span title='2015-03-31 00:26:42 +0000 UTC'>March 31, 2015</span>&nbsp;·&nbsp;1 min</footer><a class=entry-link aria-label="post link to TDU CTF 2014 Satellite in ConoHaに参加した話" href=https://socketo.github.io/posts/2015/03/31/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://socketo.github.io/>«&nbsp;Prev&nbsp;</a></nav></footer></main><footer class=footer><span>&copy; 2025 <a href=https://socketo.github.io/>socketo.github.io</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

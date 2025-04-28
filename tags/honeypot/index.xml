@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Honeypot on socketo.github.io</title><link>https://socketo.github.io/tags/honeypot/</link><description>Recent content in Honeypot on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Mon, 22 Jan 2018 00:05:37 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/honeypot/index.xml" rel="self" type="application/rss+xml"/><item><title>ハニーポットCowrieを設置した話</title><link>https://socketo.github.io/posts/2018/01/22/</link><pubDate>Mon, 22 Jan 2018 00:05:37 +0000</pubDate><guid>https://socketo.github.io/posts/2018/01/22/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/01/22/000537">ハニーポットCowrieを設置した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;h2 id="cowrieとは">Cowrieとは&lt;/h2>
+&lt;p>&lt;a href="https://github.com/micheloosterhof/cowrie">GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
+Cowrie is developed by Michel Oosterhof.&lt;/p>&lt;/blockquote>
+&lt;p>攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．&lt;/p>
+&lt;h2 id="導入">導入&lt;/h2>
+&lt;p>ここを見てやっていきます．
+&lt;a href="https://github.com/micheloosterhof/cowrie">cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub&lt;/a>&lt;/p>
+&lt;p>今回はUbuntu　16.04.3 LTSで構築していきます．&lt;/p>
+&lt;p>必要なパッケージのインストール&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています．
+Python3系はサポートされていません．&lt;/p></description></item></channel></rss>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Bluetooth on socketo.github.io</title><link>https://socketo.github.io/tags/bluetooth/</link><description>Recent content in Bluetooth on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml"/><item><title>BLE CTF WriteUp</title><link>https://socketo.github.io/posts/2019/02/21/</link><pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate><guid>https://socketo.github.io/posts/2019/02/21/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/02/21/203347">BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h1 id="はじめに">はじめに&lt;/h1>
+&lt;p>昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href="https://twitter.com/hackgnar">@hackgnar&lt;/a>氏のBLE CTFをやってみるという話。&lt;/p>
+&lt;p>hackgnar - Learning Bluetooth Hackery with BLE CTF&lt;/p>
+&lt;p>&lt;a href="http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html">http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html&lt;/a>&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lx5MAOyu9N0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+&lt;/div>
+&lt;p>ble_ctf_ A Bluetooth low energy capture the flag : &lt;a href="https://github.com/hackgnar/ble_ctf">https://github.com/hackgnar/ble_ctf&lt;/a>&lt;/p>
+&lt;p>READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。&lt;/p>
+&lt;p>私の今回の環境は以下&lt;/p>
+&lt;p>ESP32-DevkitC V4
+エレコムのよく分からんBluetooth USBアダプタ&lt;/p>
+&lt;p>ESP32ビルド環境
+macOS Mojave version 10.14.3&lt;/p>
+&lt;p>端末(ThinkPad X220)
+Kali Linux&lt;/p></description></item></channel></rss>

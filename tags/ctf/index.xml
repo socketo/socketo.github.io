@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CTF on socketo.github.io</title><link>https://socketo.github.io/tags/ctf/</link><description>Recent content in CTF on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title>BLE CTF WriteUp</title><link>https://socketo.github.io/posts/2019/02/21/</link><pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate><guid>https://socketo.github.io/posts/2019/02/21/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/02/21/203347">BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h1 id="はじめに">はじめに&lt;/h1>
+&lt;p>昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href="https://twitter.com/hackgnar">@hackgnar&lt;/a>氏のBLE CTFをやってみるという話。&lt;/p>
+&lt;p>hackgnar - Learning Bluetooth Hackery with BLE CTF&lt;/p>
+&lt;p>&lt;a href="http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html">http://www.hackgnar.com/2018/06/learning-bluetooth-hackery-with-ble-ctf.html&lt;/a>&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lx5MAOyu9N0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+&lt;/div>
+&lt;p>ble_ctf_ A Bluetooth low energy capture the flag : &lt;a href="https://github.com/hackgnar/ble_ctf">https://github.com/hackgnar/ble_ctf&lt;/a>&lt;/p>
+&lt;p>READMEに書かれているように、このCTFを実施するには、手元のコンピュータだけでなくESP32-DevkitとBluetoothドングルが必要になる。&lt;/p>
+&lt;p>私の今回の環境は以下&lt;/p>
+&lt;p>ESP32-DevkitC V4
+エレコムのよく分からんBluetooth USBアダプタ&lt;/p>
+&lt;p>ESP32ビルド環境
+macOS Mojave version 10.14.3&lt;/p>
+&lt;p>端末(ThinkPad X220)
+Kali Linux&lt;/p></description></item><item><title>SECCON 2018 Online CTF Forensics問題 Write-up</title><link>https://socketo.github.io/posts/2018/10/28/</link><pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate><guid>https://socketo.github.io/posts/2018/10/28/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/10/28/154122">SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SECCON2018のオンライン大会のForensics問題のWrite-up&lt;/p>
+&lt;p>フォレンジック問題はやるかと腰を上げてやるだけやった&lt;/p>
+&lt;p>UnzipとHistory&lt;/p>
+&lt;h3 id="unzip">Unzip&lt;/h3>
+&lt;h4 id="問題文">問題文&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ Unzip flag.zip.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="write-up">Write-up&lt;/h4>
+&lt;p>ファイル名:&lt;code>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f&lt;/code>のZIPファイルが落ちてくる．&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ file unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f: Zip archive data, at least v1.0 to extract
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>普通にzipファイルなのでunzipする&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ unzip -d unzip unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Archive: unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>extracting: unzip/flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>inflating: unzip/makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>unzipするとflag.zipとmakefile.shが出てくる
+flag.zipは暗号化されたZIPファイル&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ ls -la
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rw-r--r--@ &lt;span style="color:#ae81ff">225&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rwx---r-x@ &lt;span style="color:#ae81ff">99&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>makefile.shの中身を見ると，zipパスワードに&lt;code>perl -e &amp;quot;print time()&amp;quot;&lt;/code>で出力されたunixtimeが設定されていることがわかる&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;SECCON{&amp;#39;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>cat key&lt;span style="color:#e6db74">`&lt;/span>&lt;span style="color:#e6db74">&amp;#39;}&amp;#39;&lt;/span> &amp;gt; flag.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zip -e --password&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>perl -e &lt;span style="color:#e6db74">&amp;#34;print time()&amp;#34;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span> flag.zip flag.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このzipファイルが作成された時の時間を調べる為にexiftoolで調べる&lt;/p></description></item><item><title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title><link>https://socketo.github.io/posts/2015/06/13/03/</link><pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate><guid>https://socketo.github.io/posts/2015/06/13/03/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/06/13/203408_1">CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．&lt;/p>
+&lt;p>CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: &lt;a href="https://attack-and-defense.doorkeeper.jp/events/24249">https://attack-and-defense.doorkeeper.jp/events/24249&lt;/a>&lt;/p>
+&lt;p>今回のこのイベントで初めて福岡に行きました．博多の明太子や博多ラーメン，もつ鍋がとても美味しかったのでサイコーという感じ．&lt;/p>
+&lt;h1 id="競技">競技&lt;/h1>
+&lt;p>今回のCTFは名前の通り，Attack＆Defenseということで私が今までやってきたjeopardy型ではなく，本当にサーバーを介しての攻防戦だった．&lt;br>
+各チーム与えられたサーバ上で稼働しているシステムを保守しながら，相手チームに攻撃するとのこと．&lt;br>
+与えられるサーバの環境は全チーム同じ環境で，まずは自分の持っているサーバの脆弱性を探りその脆弱性を直しながら，他のチームが修正する前にそこを叩く．という感じでした．&lt;/p>
+&lt;p>競技のルールとしては，AttackポイントとDefenseポイントの合計で決定する．&lt;br>
+Defenseポイントは，与えられたサーバへの定期的なヘルスチェックのスキャンでサーバ上で稼働しているシステムが稼働しているかのSLAに応じた得点．&lt;br>
+Attackポイントは，今回与えられたサービスがネットショッピングのwebサイトだったため，敵のサーバで稼働しているサービスであるネットショッピングの顧客データの擬似個人情報ををスコアサーバに送信すると得点が得られる．&lt;br>
+みたいな感じだった．&lt;/p>
+&lt;p>はじめ2時間ほどは大抵のチームがSLAを保ちDefenseポイントが入り続けて順位は横ばい状態だった．後半になると，あるチームが攻撃に成功し，徐々に他のチームも得点していった．&lt;br>
+ちなみに今回私は&lt;a href="https://twitter.com/Ranats_rifle">@Ranats_rifle&lt;/a>とIchigoMilkなる可愛らしいチーム名で参加した．&lt;br>
+（競技終了後にTAKESAKOさんに「女の子が来るかと思ったこのチーム名」と言われた）&lt;/p>
+&lt;h1 id="結果">結果&lt;/h1>
+&lt;p>結果としては結論から言うと9位だった．&lt;/p>
+&lt;blockquote>
+&lt;p>CTF for ビギナーズ2015 博多(Attack &amp;amp; Defense) 終了しました。参加された方はお疲れ様でした。今回の優勝はPh//shh/binです。 &lt;a href="https://twitter.com/hashtag/seccon?src=hash">#seccon&lt;/a> &lt;a href="https://twitter.com/hashtag/ctf4b?src=hash">#ctf4b&lt;/a> &lt;a href="https://twitter.com/hashtag/a_and_d?src=hash">#a_and_d&lt;/a> &lt;a href="http://t.co/JFiED8niDe">pic.twitter.com/JFiED8niDe&lt;/a>
+— SECCON CTF (@secconctf) &lt;a href="https://twitter.com/secconctf/status/607480338319695874">2015, 6月 7&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>一回攻め込まれてそのままズルズルとやってたら終了してた．&lt;br>
+@Ranats_rifleに攻撃の方を任せっぱなしで自分はサーバの状態を眺めていたりしたけど，なんともAttackポイントを得られなかった．&lt;br>
+つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．&lt;/p>
+&lt;p>攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．&lt;br>
+攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．&lt;/p>
+&lt;h1 id="おまけ">おまけ&lt;/h1>
+&lt;p>本場の博多ラーメン美味しかった．（一緒に行った&lt;a href="https://twitter.com/Ranats_rifle">@Ranats_rifle&lt;/a>が替え玉合わせて4玉食べててすごかった&lt;/p></description></item><item><title>TDU CTF 2014 Satellite in ConoHaに参加した話</title><link>https://socketo.github.io/posts/2015/03/31/</link><pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate><guid>https://socketo.github.io/posts/2015/03/31/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2015/03/31/002642_1">TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>2015-03-29、TDU CTFに参加してきました。&lt;/p>
+&lt;p>TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : &lt;a href="http://connpass.com/event/11986/">http://connpass.com/event/11986/&lt;/a>&lt;/p>
+&lt;p>CTF for Beginnersでの簡易CTF以外ではCTF初参加なのでビクビクしながら行きました。&lt;/p>
+&lt;p>本当の初心者だった自分は結局620pt取れました。&lt;/p>
+&lt;p>懇親会でどのようにして問題を解いたかなどを参加者の方々と話していくなかで、自分が手も足も出なかった問題に対してのアプローチの仕方などを知ることがとても楽しいものでした。&lt;/p>
+&lt;p>自分が解けた問題は少ないですがWriteupとか感想を。&lt;/p>
+&lt;h2 id="web">Web&lt;/h2>
+&lt;p>&lt;strong>Easy SQLi&lt;/strong>&lt;/p>
+&lt;p>とりあえず&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> &lt;span style="color:#a6e22e">OR&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">--&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>をしてみたけどダメで色々と試してたらダブルコーテーションなら何か反応があり、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">OR&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">--&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>を突っ込んだらフラグが出た。複数フラグがあったようでしたがそれ以上進むことが出来ずに断念。&lt;/p>
+&lt;h2 id="binary">binary&lt;/h2>
+&lt;p>&lt;strong>string_compare&lt;/strong>&lt;/p>
+&lt;p>実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。&lt;/p>
+&lt;p>&lt;img alt="f:id:sockets:20150330193248p:plain" loading="lazy" src="https://socketo.github.io/posts/2015/03/31/20150330193248.png" title="f:id:sockets:20150330193248p:plain">&lt;/p>
+&lt;p>多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit&lt;/p>
+&lt;p>競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->KosakaHonokaではINVALID KEY&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;img alt="f:id:sockets:20150330193908p:plain" loading="lazy" src="https://socketo.github.io/posts/2015/03/31/20150330193908.png" title="f:id:sockets:20150330193908p:plain">&lt;/p>
+&lt;p>&lt;strong>Trip Picture&lt;/strong>&lt;/p>
+&lt;p>20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした&lt;/p>
+&lt;p>&lt;strong>読めない文字1&lt;/strong>&lt;/p>
+&lt;p>文末に&amp;quot;==&amp;ldquo;がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に&amp;rdquo;==&amp;ldquo;がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。&lt;/p>
+&lt;h2 id="network">network&lt;/h2>
+&lt;p>&lt;strong>柚子胡椒 Vol.1&lt;/strong>&lt;/p></description></item></channel></rss>

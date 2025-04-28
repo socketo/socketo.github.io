@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SANS on socketo.github.io</title><link>https://socketo.github.io/tags/sans/</link><description>Recent content in SANS on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Thu, 02 Nov 2023 18:42:49 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/sans/index.xml" rel="self" type="application/rss+xml"/><item><title>GREM(GIAC Reverse Engineering Malware Certification)に合格した</title><link>https://socketo.github.io/posts/2023/11/02/</link><pubDate>Thu, 02 Nov 2023 18:42:49 +0900</pubDate><guid>https://socketo.github.io/posts/2023/11/02/</guid><description>&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;p>&lt;a href="https://www.giac.org/certifications/reverse-engineering-malware-grem/">GREM(GIAC Reverse Engineering Malware)&lt;/a> に96%のスコアで合格した。&lt;/p>
+&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="923f57a2-fadb-4135-9512-8f548502203b" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
+&lt;h2 id="gremとは">GREMとは&lt;/h2>
+&lt;p>GIAC Reverse Engineering Malwareの略称で、SANS Instituteが提供するマルウェア解析の国際的な認定試験になる。&lt;/p>
+&lt;p>Paul Jerimy MediaのSecurity Certification Roadmapでは、Expertの部類に属していることになっている。&lt;/p>
+&lt;p>&lt;a href="https://pauljerimy.com/security-certification-roadmap/">Security Certification Roadmap - Paul Jerimy Media&lt;/a>&lt;/p>
+&lt;h2 id="実施した勉強方法">実施した勉強方法&lt;/h2>
+&lt;p>オンラインでのトレーニングを5日間+1日CTF(Malware Analysis Tournament)を受講。最終日のCTFでは3位でCoinは獲得できず（2位までがCoin獲得だった）&lt;/p>
+&lt;p>&lt;a href="https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/">FOR610: Reverse Engineering Malware Training | Malware Tools &amp;amp; Techniques | SANS Institute&lt;/a>&lt;/p>
+&lt;p>基本的には、他の受験記の方々と同じようにトレーニング後はひたすらテキストを読み込んで付箋でインデックスを作成しながら演習を繰り返し実施した。テキストはすべて英語で書かれていて読むのにとても時間がかかり、当初の予定では2週間くらいではすべて読み切れるだろうと思っていたが他業務など様々あり1ヶ月くらいかかってしまった。&lt;/p>
+&lt;p>一通りテキストの内容読み込みと演習を終えた状態で1度目の模擬試験を実施。1回目の模擬試験のスコアは79%で、合格ラインは一応超えていた(73%以上が合格ライン）が、あまりにも出来ていない分野があって少し心配気味だった。&lt;/p>
+&lt;p>1回目の模擬試験で点数が取れなかった分野をテキストで復習し、テキストだけでなく他のマルウェア解析に関する書籍(&lt;a href="https://www.amazon.co.jp/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901">Practical Malware Analysis&lt;/a>、&lt;a href="https://www.amazon.co.jp/dp/4873119294/">初めてのマルウェア解析&lt;/a>)を読んで知識を補完した後に2回目の模擬試験を実施した。2回目の模擬試験のスコアは86%で、1回目で点数が取れなかった苦手分野のスコアが伸びたので多分大丈夫だろうと思い本番試験を申し込んだ。&lt;/p>
+&lt;h2 id="認定試験について">認定試験について&lt;/h2>
+&lt;p>自分が実施した時(2023年10月)のGREMは以下のような概要で実施された。過去GREMを受けた方々の受験記を見ていると受験時期によって問題数や合格ラインが違うらしい。&lt;/p>
+&lt;ul>
+&lt;li>試験時間 : 180分&lt;/li>
+&lt;li>問題数 : 66問&lt;/li>
+&lt;li>出題形式 :
+&lt;ul>
+&lt;li>Computer Based Testing(CBT)&lt;/li>
+&lt;li>選択問題式&lt;/li>
+&lt;li>CyberLiveにおける実技問題あり&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>合格ライン : 73%&lt;/li>
+&lt;li>その他 : オープンブック形式で紙の資料の持ち込み可&lt;/li>
+&lt;/ul>
+&lt;p>CyberLiveの実技試験は、以下のGIAC Certifications公式のYouTube動画にあるようにVMを起動させて設問に答える形式になる。&lt;/p></description></item><item><title>GCFA(GIAC Certified Forensic Analyst)合格した</title><link>https://socketo.github.io/posts/2019/11/11/</link><pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate><guid>https://socketo.github.io/posts/2019/11/11/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/11/11/004957">GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.giac.org/certification/certified-forensic-analyst-gcfa">GIAC Certified Forensic Analyst&lt;/a>というのに合格した報告です。&lt;/p>
+&lt;p>以上です。&lt;/p></description></item></channel></rss>

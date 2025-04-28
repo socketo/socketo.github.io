@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Others on socketo.github.io</title><link>https://socketo.github.io/tags/others/</link><description>Recent content in Others on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Wed, 09 Aug 2023 15:58:43 +0900</lastBuildDate><atom:link href="https://socketo.github.io/tags/others/index.xml" rel="self" type="application/rss+xml"/><item><title>はてなブログからブログを移行しました</title><link>https://socketo.github.io/posts/2023/08/10/</link><pubDate>Wed, 09 Aug 2023 15:58:43 +0900</pubDate><guid>https://socketo.github.io/posts/2023/08/10/</guid><description>&lt;p>3ヶ月前くらいに、GitHub Pagesにブログを移行しようとして止まっていた手をようやく動かして、過去のブログにあった記事をすべてこっちに移行した。&lt;/p>
+&lt;p>旧ブログ : &lt;a href="https://socketo.hatenablog.jp/">https://socketo.hatenablog.jp/&lt;/a>&lt;/p></description></item><item><title>Hello Hugo</title><link>https://socketo.github.io/posts/2023/04/25/</link><pubDate>Tue, 25 Apr 2023 22:00:26 +0900</pubDate><guid>https://socketo.github.io/posts/2023/04/25/</guid><description>&lt;p>いつの頃からか、自分のはてなブログ &lt;a href="https://socketo.hatenablog.jp/">#include &amp;lt;sys/socket.h&amp;gt;&lt;/a>の冒頭に「この広告は、90日以上更新していないブログに表示しています。」と表示がされるようになった。&lt;/p>
+&lt;p>3年以上、個人の技術ブログを書いていないのは如何なものかと思い重い腰を上げた次第である。&lt;/p>
+&lt;h2 id="hugoのインストール">Hugoのインストール&lt;/h2>
+&lt;p>Homebrewでhugoをインストールし、ブログを作成する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ brew install hugo
+$ hugo new site hugo_blog
+&lt;/code>&lt;/pre>&lt;p>&lt;code>hubo_blog&lt;/code>ディレクトリが作成されたので、テーマの追加。今回はシンプルで良さそうな&lt;a href="https://github.com/adityatelange/hugo-PaperMod">Hugo PaperMod&lt;/a>を使用する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ git init .
+$ git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+&lt;/code>&lt;/pre>&lt;p>configにブログのbaseURLの修正やテーマの追加をする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-config.toml" data-lang="config.toml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">baseURL&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;https://socketo.github.io&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">title&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;socketo.github.io&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">languageCode&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;ja&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">theme&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;PaperMod&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">author&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;socketo&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">copyright&lt;/span> = &lt;span style="color:#e6db74">&amp;#39;© Copyright socketo - All rights reserved.&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>テーマの導入まで完了をしているので、実際に動かして確認をする。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ hugo serve
+&lt;/code>&lt;/pre>&lt;p>起動し、 &lt;code>localhost:1313&lt;/code> にアクセスする。&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/images/hello_hugo.png">&lt;/p>
+&lt;h2 id="記事の作成">記事の作成&lt;/h2>
+&lt;p>この記事を作成する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ hugo new posts/hello-hugo.md
+&lt;/code>&lt;/pre>&lt;p>&lt;img loading="lazy" src="https://socketo.github.io/images/hello_hugo_post.png">&lt;/p>
+&lt;p>任意の記事の内容を書く。&lt;/p>
+&lt;h3 id="記事のビルド">記事のビルド&lt;/h3>
+&lt;pre tabindex="0">&lt;code>$ hugo
+&lt;/code>&lt;/pre>&lt;h2 id="さいごに">さいごに&lt;/h2>
+&lt;p>ブログを書いていきたい。&lt;/p></description></item><item><title>PythonでSeleniumを使ってagqrの登録を自動化する</title><link>https://socketo.github.io/posts/2016/04/10/</link><pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate><guid>https://socketo.github.io/posts/2016/04/10/</guid><description>&lt;p>※ 移行前の元ブログ記事 &lt;a href="https://socketo.hatenablog.jp/entry/2016/04/10/201909_1">PythonでSeleniumを使ってagqrの登録を自動化する - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>JOQR 超!A&amp;amp;G+でよく声優さんのラジオを聴いたり見たりしています．&lt;br>
+&lt;a href="http://www.agqr.jp/">超！A&amp;amp;G | 文化放送&lt;/a>&lt;/p>
+&lt;p>僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．&lt;br>
+&lt;img alt="f:id:sockets:20160410200116p:plain" loading="lazy" src="https://socketo.github.io/posts/2016/04/10/20160410200116.png" title="f:id:sockets:20160410200116p:plain">&lt;/p>
+&lt;p>ここでは&amp;quot;初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。&amp;ldquo;と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．&lt;br>
+目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．&lt;br>
+そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．&lt;/p>
+&lt;script src="https://gist.github.com/socketo/d56df9d963330228aebbe893945bb211.js?file=auto_agqr.py">&lt;/script>
+&lt;p>Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．&lt;br>
+radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．&lt;br>
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．&lt;/p></description></item><item><title>CpawLT #1に参加した話</title><link>https://socketo.github.io/posts/2015/06/13/02/</link><pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate><guid>https://socketo.github.io/posts/2015/06/13/02/</guid><description>&lt;p>2015-5-31，CpawLT #1に参加してきました．&lt;/p>
+&lt;p>CpawLT #1 : ATND : &lt;a href="https://atnd.org/events/65601">https://atnd.org/events/65601&lt;/a>&lt;/p>
+&lt;p>前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．&lt;/p>
+&lt;p>====&lt;/p>
+&lt;h1 id="cpawlt-とは">CpawLT #とは&lt;/h1>
+&lt;p>CpawというプログラミングサークルのLT大会らしいです．&lt;br>
+Cpawは”コポォ”と読むとか”シーパウ”と読むとか宗派があるらしいです．&lt;/p>
+&lt;p>今回参加した経緯といいますと，この会を主催している&lt;a href="http://twitter.com/porisuteru">@porisuteru&lt;/a> さんが誘ってくれてという感じです．&lt;/p>
+&lt;p>LTの内容はATNDに書いてある通り，なんでもOKという感じでしたがみなさんやはり技術系の話が多かったです．（自分のLTは技術系と言っていいのかわからない）&lt;/p>
+&lt;p>参加者はやう10人ほどという感じでゆる〜い感じでLT大会が始まっていきました．&lt;/p>
+&lt;h1 id="lt">LT&lt;/h1>
+&lt;p>LTは一人持ち時間約10分以内（？）くらいで時間もわりとあったのでLTでしがた時間を気にせずに話していきました．&lt;br>
+自分は外部の人間ですがLTをさせて頂くことになり，RaspberryPiの紹介と4DSystemsのLCDでハロー!!きんいろモザイクを見る話をしました．&lt;br>
+権利問題上，LTスライドは公開していいのかどうか怪しいのでこのまま供養します．&lt;/p>
+&lt;p>参加者のみなさんのLTの内容は技術的な話題が多く，数学史から技術書の話，Unityを使ったゲーム制作の話などなど…&lt;br>
+普段，自分が聞く機会がない内容の話ばかりで大変有意義なものだった．&lt;/p>
+&lt;h1 id="懇親会ここから異常">懇親会&amp;ndash;ここから異常&amp;ndash;&lt;/h1>
+&lt;p>懇親会は吉祥寺のムーの子孫で行われました．&lt;/p>
+&lt;blockquote>
+&lt;p>#CpawLT](&lt;a href="https://twitter.com/hashtag/CpawLT?src=hash">https://twitter.com/hashtag/CpawLT?src=hash&lt;/a>) (@ ムーの子孫 吉祥寺店 in [武蔵野市, 東京都) https://t.co/LGgcoOTd2P
+— そけと (@socket_x) &lt;a href="https://twitter.com/socket_x/status/604918894436995073">2015, 5月 31&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>メンバーを所属組織割合が均等になるようにテーブルを分けて着席したわけですが，一方のテーブルではもんじゃ焼きを作るアルゴリズムの話やら，一方のテーブルではそもそももんじゃ焼きの作り方を知らない人しかおらず…など開始早々異常でした．&lt;/p>
+&lt;p>まぁ，なんやかんや懇親会ともあって周りの方と楽しい会話をすることは出来ました．&lt;br>
+ぼくは早々にお腹がいっぱいになって後半は無限に水を飲み続けていました．&lt;br>
+なぞの闇っぽい物体が生成されたりしてましたが，美味しくいただけました．&lt;/p>
+&lt;blockquote>
+&lt;p>懇親会わず &lt;a href="https://twitter.com/hashtag/cpawLT?src=hash">#cpawLT&lt;/a> &lt;a href="http://t.co/k2aBarC1Gy">pic.twitter.com/k2aBarC1Gy&lt;/a>
+— ぱろっくlv 0.05 (@porisuteru) &lt;a href="https://twitter.com/porisuteru/status/604967527752400896">2015, 5月 31&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h1 id="感想">感想&lt;/h1>
+&lt;p>LTは様々なところで聞く側として参加してきたが，自分自身が登壇するというのは初めてだったので，（内容はともかく）良い経験となったし面白い話が聞けて良かった．&lt;br>
+近いうちに身内でのLT大会でもやるかと某氏と話していたので，その時に役立てればいいかなと．&lt;br>
+Cpawのメンバーの方々には大変お世話になりました．&lt;/p></description></item></channel></rss>

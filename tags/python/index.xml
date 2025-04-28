@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Python on socketo.github.io</title><link>https://socketo.github.io/tags/python/</link><description>Recent content in Python on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Sun, 10 Apr 2016 20:19:09 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>PythonでSeleniumを使ってagqrの登録を自動化する</title><link>https://socketo.github.io/posts/2016/04/10/</link><pubDate>Sun, 10 Apr 2016 20:19:09 +0000</pubDate><guid>https://socketo.github.io/posts/2016/04/10/</guid><description>&lt;p>※ 移行前の元ブログ記事 &lt;a href="https://socketo.hatenablog.jp/entry/2016/04/10/201909_1">PythonでSeleniumを使ってagqrの登録を自動化する - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>JOQR 超!A&amp;amp;G+でよく声優さんのラジオを聴いたり見たりしています．&lt;br>
+&lt;a href="http://www.agqr.jp/">超！A&amp;amp;G | 文化放送&lt;/a>&lt;/p>
+&lt;p>僕は『洲崎西』と『西明日香のデリケートゾーン!』が好きで基本毎週視聴しているんですが，前々からこの超!A&amp;amp;G+で気になってたことがあって，プレイヤーの画面に行くとこのような登録画面が出て視聴するのが初めてじゃないのに登録を迫られることです．&lt;br>
+&lt;img alt="f:id:sockets:20160410200116p:plain" loading="lazy" src="https://socketo.github.io/posts/2016/04/10/20160410200116.png" title="f:id:sockets:20160410200116p:plain">&lt;/p>
+&lt;p>ここでは&amp;quot;初めて『超！Ａ＆Ｇ＋』ご利用になる際はユーザー登録が必要です。&amp;ldquo;と書いてあるが，初めてじゃなくても登録してから一定期間経つとこのページが現れて登録を迫られるっぽい．&lt;br>
+目的のラジオ開始時間ギリギリにagqrのページを開いてこの登録画面が出ると，ラジオをはじめから聞けないとかいう事故が何回か起こったりしてた．&lt;br>
+そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．&lt;/p>
+&lt;script src="https://gist.github.com/socketo/d56df9d963330228aebbe893945bb211.js?file=auto_agqr.py">&lt;/script>
+&lt;p>Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．&lt;br>
+radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．&lt;br>
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．&lt;/p></description></item></channel></rss>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Forensics on socketo.github.io</title><link>https://socketo.github.io/tags/forensics/</link><description>Recent content in Forensics on socketo.github.io</description><generator>Hugo -- 0.147.0</generator><language>ja</language><lastBuildDate>Mon, 11 Nov 2019 00:49:57 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/forensics/index.xml" rel="self" type="application/rss+xml"/><item><title>GCFA(GIAC Certified Forensic Analyst)合格した</title><link>https://socketo.github.io/posts/2019/11/11/</link><pubDate>Mon, 11 Nov 2019 00:49:57 +0000</pubDate><guid>https://socketo.github.io/posts/2019/11/11/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/11/11/004957">GCFA(GIAC Certified Forensic Analyst)合格した - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.giac.org/certification/certified-forensic-analyst-gcfa">GIAC Certified Forensic Analyst&lt;/a>というのに合格した報告です。&lt;/p>
+&lt;p>以上です。&lt;/p></description></item><item><title>Magnet User Summit CTF 2019 WriteUp [Mobile]</title><link>https://socketo.github.io/posts/2019/04/11/</link><pubDate>Thu, 11 Apr 2019 22:26:59 +0000</pubDate><guid>https://socketo.github.io/posts/2019/04/11/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2019/04/11/222659">Magnet User Summit CTF 2019 WriteUp [Mobile] - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="magnet-user-summit-2019">Magnet User Summit 2019&lt;/h2>
+&lt;p>Magnet Forensicsというフォレンジック製品などをやっている企業のサミットが2019/04/02～2019/04/03に行われていました。&lt;/p>
+&lt;p>&lt;a href="https://magnetusersummit.com/">https://magnetusersummit.com/&lt;/a>&lt;/p>
+&lt;p>Twitterで「#mus2019」で検索すると現地の様子がなんとなく分かりそう。発表スライドとかもあったりする。&lt;/p>
+&lt;p>&lt;a href="https://twitter.com/search?q=%23mus2019">https://twitter.com/search?q=%23mus2019&lt;/a>&lt;/p>
+&lt;p>今回も、以前のDFIR CTFのようにMagnet User Summit CTF 2019として開催されていたものが、公開されていたのでやっていきの記事です。
+AXIOMの使い方を学ぶ的な問題。&lt;/p>
+&lt;p>Hacking Exposed Computer Forensics Blog &lt;em>Daily Blog #657&lt;/em> MUS2019 DFIR CTF open to the public : &lt;a href="https://www.hecfblog.com/2019/04/daily-blog-657-mus2019-dfir-ctf-open-to.html">https://www.hecfblog.com/2019/04/daily-blog-657-mus2019-dfir-ctf-open-to.html&lt;/a>&lt;/p>
+&lt;p>Magnet AXIOMという有償のフォレンジックツールが2019/05/04までのトライアルのキーがついて使用することができてすごい。
+せっかくなので使ってみる感じで、頑張ってAXIOMだけでとりあえずやっていきます。&lt;/p>
+&lt;p>&lt;a href="https://www.magnetforensics.com/products/magnet-axiom/">https://www.magnetforensics.com/products/magnet-axiom/&lt;/a>&lt;/p>
+&lt;p>「Mobile」カテゴリはモバイルフォレンジック的な感じの問題で、Android端末のデータを取得したケースが与えられてそれについて質問していくという感じです。&lt;/p>
+&lt;p>やっていきましょう。&lt;/p>
+&lt;h2 id="axiomのインストール">AXIOMのインストール&lt;/h2>
+&lt;p>AXIOMは一応日本語対応はしていますが、設定する際に「日本語」ではなく、「English」にする方が良いです。
+(CSVなどのファイルに出力する際、カラムが結構厳しい日本語とかになってしまうので)&lt;/p>
+&lt;p>インストールしたら、ライセンスが聞かれるので、ファイル名「AXIOM 30-day Trial Key Install by May 4.txt」にキーが書いてあるのでそれをライセンスキー入力する。&lt;/p>
+&lt;h1 id="mobile">Mobile&lt;/h1>
+&lt;p>ケースファイル「AXIOM - Mar 28 2019 114941 Mobile/Case.mfdb」&lt;/p>
+&lt;h2 id="image-type-2pt">Image Type 2pt&lt;/h2>
+&lt;p>問題文&lt;/p></description></item><item><title>SECCON 2018 Online CTF Forensics問題 Write-up</title><link>https://socketo.github.io/posts/2018/10/28/</link><pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate><guid>https://socketo.github.io/posts/2018/10/28/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/10/28/154122">SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>SECCON2018のオンライン大会のForensics問題のWrite-up&lt;/p>
+&lt;p>フォレンジック問題はやるかと腰を上げてやるだけやった&lt;/p>
+&lt;p>UnzipとHistory&lt;/p>
+&lt;h3 id="unzip">Unzip&lt;/h3>
+&lt;h4 id="問題文">問題文&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ Unzip flag.zip.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="write-up">Write-up&lt;/h4>
+&lt;p>ファイル名:&lt;code>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f&lt;/code>のZIPファイルが落ちてくる．&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ file unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f: Zip archive data, at least v1.0 to extract
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>普通にzipファイルなのでunzipする&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ unzip -d unzip unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Archive: unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>extracting: unzip/flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>inflating: unzip/makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>unzipするとflag.zipとmakefile.shが出てくる
+flag.zipは暗号化されたZIPファイル&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ ls -la
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rw-r--r--@ &lt;span style="color:#ae81ff">225&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 flag.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.rwx---r-x@ &lt;span style="color:#ae81ff">99&lt;/span> socketo &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> 0:10 makefile.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>makefile.shの中身を見ると，zipパスワードに&lt;code>perl -e &amp;quot;print time()&amp;quot;&lt;/code>で出力されたunixtimeが設定されていることがわかる&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;SECCON{&amp;#39;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>cat key&lt;span style="color:#e6db74">`&lt;/span>&lt;span style="color:#e6db74">&amp;#39;}&amp;#39;&lt;/span> &amp;gt; flag.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zip -e --password&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>perl -e &lt;span style="color:#e6db74">&amp;#34;print time()&amp;#34;&lt;/span>&lt;span style="color:#e6db74">`&lt;/span> flag.zip flag.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このzipファイルが作成された時の時間を調べる為にexiftoolで調べる&lt;/p></description></item><item><title>Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp</title><link>https://socketo.github.io/posts/2018/09/16/</link><pubDate>Sun, 16 Sep 2018 15:11:41 +0000</pubDate><guid>https://socketo.github.io/posts/2018/09/16/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/09/16/151141">Defcon DFIR CTF 2018 # Image2 - FileServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>以下の記事の続き．&lt;/p>
+&lt;p>&lt;a href="https://socketo.hatenablog.jp/entry/2018/08/26/030815">Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp&lt;/a>&lt;/p>
+&lt;p>ディスクイメージの容量が大きくて削除したいので供養(すべて解けていないので誰か教えてください状態)&lt;/p>
+&lt;h2 id="file-server-basic">File Server Basic&lt;/h2>
+&lt;p>HR Serverの問題を解いているといつの間にか&lt;code>Next&lt;/code>という項目が増えて，&lt;code>Image2.7z&lt;/code>のパスワードが開示されるので，Imag2(File Server)をやっていくことができる&lt;/p>
+&lt;h3 id="file-server---basic-12">File Server - Basic 1(2)&lt;/h3>
+&lt;p>問題文&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>What is the volume serial number of the only partition on the File Server Disk Image
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Volumeのシリアルナンバーを答える．&lt;/p>
+&lt;p>FTK Imagerで開いているイメージファイルのFile System Informationを見る．&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;img alt="f:id:socketo:20180916135827p:plain" loading="lazy" src="https://socketo.github.io/posts/2018/09/16/20180916135827.png" title="f:id:socketo:20180916135827p:plain">&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>FLAG:&lt;code>C096-2465&lt;/code>&lt;/p>
+&lt;h3 id="file-server---basic-22">File Server - Basic 2(2)&lt;/h3>
+&lt;p>問題文&lt;/p></description></item><item><title>Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp</title><link>https://socketo.github.io/posts/2018/08/26/</link><pubDate>Sun, 26 Aug 2018 03:08:15 +0000</pubDate><guid>https://socketo.github.io/posts/2018/08/26/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/08/26/030815">Defcon DFIR CTF 2018 # Image1 - HRServer WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>インターネットを眺めていたら，Magnet Forensicsが開催してaいたDFIRのCTF「Defcon DFIR CTF 2018」が公開されていたのでやった話（全部は解けていない）&lt;/p>
+&lt;blockquote>
+&lt;p>The &lt;a href="https://twitter.com/hashtag/Defcon?src=hash&amp;amp;ref_src=twsrc%5Etfw">#Defcon&lt;/a> &lt;a href="https://twitter.com/hashtag/DFIR?src=hash&amp;amp;ref_src=twsrc%5Etfw">#DFIR&lt;/a> &lt;a href="https://twitter.com/hashtag/CTF?src=hash&amp;amp;ref_src=twsrc%5Etfw">#CTF&lt;/a> is now open to the public. &lt;a href="https://t.co/IdOE23dMzh">https://t.co/IdOE23dMzh&lt;/a> &lt;a href="https://twitter.com/hashtag/infosec?src=hash&amp;amp;ref_src=twsrc%5Etfw">#infosec&lt;/a>— David Cowen (@HECFBlog) &lt;a href="https://twitter.com/HECFBlog/status/1029099210556284939?ref_src=twsrc%5Etfw">2018年8月13日&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Hacking Exposed Computer Forensics Blog &lt;em>Daily Blog #451&lt;/em> Defcon DFIR CTF 2018 Open to the Public : &lt;a href="http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html">http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html&lt;/a>&lt;/p>
+&lt;p>Defcon DFIR CTF 2018 : &lt;a href="https://defcon2018.ctfd.io/challenges">https://defcon2018.ctfd.io/challenges&lt;/a>&lt;/p>
+&lt;h2 id="対象イメージファイル">対象イメージファイル&lt;/h2>
+&lt;p>実際に調査するイメージファイルは以下のブログのDropboxのリンクからImage1，Image2，Image3と3つダウンロードできる．&lt;/p>
+&lt;p>&lt;a href="http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html">http://www.hecfblog.com/2018/08/daily-blog-451-defcon-dfir-ctf-2018.html&lt;/a>&lt;/p>
+&lt;p>Image1.7zのパスワードは書いてあるので，それを使う．&lt;/p>
+&lt;p>Image2.7z，Image3.7zのパスワードはCTFの問題を解いていくと分かる．&lt;/p>
+&lt;p>やっていったら長くなったので，Image2とImage3については今後書く予定です．&lt;/p>
+&lt;h2 id="image-1--hrserver">Image 1 : HRServer&lt;/h2>
+&lt;p>&lt;code>Image1.7z&lt;/code>を展開すると，&lt;code>HRServer_Disk0.e01&lt;/code>と&lt;code>HRServer_Disk0.txt&lt;/code>が出てくる．
+&lt;code>HRServer_Disk0.txt&lt;/code>を見ると，X-waysでこのディスクイメージを取得したっぽいことが分かる．&lt;/p>
+&lt;p>&lt;code>HRServer_Disk.e01&lt;/code>をFTK Imagerで開く．&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;img alt="f:id:socketo:20180826023119p:plain" loading="lazy" src="https://socketo.github.io/posts/2018/08/26/20180826023119.png" title="f:id:socketo:20180826023119p:plain">&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>Digital Forensic Challenge #2 - User Policy Violation Case Write up</title><link>https://socketo.github.io/posts/2018/02/19/</link><pubDate>Mon, 19 Feb 2018 09:06:57 +0000</pubDate><guid>https://socketo.github.io/posts/2018/02/19/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/02/19/090657">Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;p>恐らく何かしら間違ってたり，足りなかったりします．多分．
+誰か教えてください．&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>&lt;a href="https://www.ashemery.com/dfir.html">https://www.ashemery.com/dfir.html&lt;/a> のChallenge #2&lt;/p>
+&lt;p>Case1はこちら
+&lt;a href="http://socketo.hatenablog.jp/entry/2018/02/05/032146">Digital Forensic Challenge #1 - Web Server Case Write up - socketo.hatenablog.jp&lt;/a>&lt;/p>
+&lt;h2 id="問題文">問題文&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>This is another digital forensics image that was prepared to cover a full Windows Forensics course.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>System Image: here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Hashes: here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password = here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>You can use the image to learn the following:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>File Carving, Custom Carving, and Keyword Searching
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>File System Forensics - NTFS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Deep Windows Registry Forensics: System and User Hives
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SYSTEM
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SOFTWARE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SAM
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NTUSER.DAT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USRCLASS.DAT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Other Windows Files: LNK, Jump Lists, Libraries, etc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Application Compatibility Cache (ShimCache)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Windows Search (Search Charm)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Thumb Caches
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Prefetch Files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Analyzing Recycle Bin(s)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USB Forensics
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Events Analysis
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Email Forensics: Web and Outlook
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Browser Forensics: Internet Explorer and Google Chrome
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Skype Forensics
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This image covers most if not all of the recent system artifacts that you might encounter. Let me know if you need any help or if you are an instructor and want the answers to each part of the case. I will only send the answers to verified instructors.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Due to lots of requests, I have decided to compile a manual or a book for the second image with Q&amp;amp;As to help you go through the challenge and solve every part of it. URLs and further explanations will be provided very soon. Stay tuned my friends and happy hunting ;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このイメージで以下のことが学べるらしい&lt;/p></description></item><item><title>Digital Forensic Challenge #1 - Web Server Case Write up</title><link>https://socketo.github.io/posts/2018/02/05/</link><pubDate>Mon, 05 Feb 2018 03:21:46 +0000</pubDate><guid>https://socketo.github.io/posts/2018/02/05/</guid><description>&lt;p>※ 移行前の元ブログ記事 : &lt;a href="https://socketo.hatenablog.jp/entry/2018/02/05/032146">Digital Forensic Challenge #1 - Web Server Case Write up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a>&lt;/p>
+&lt;p>本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href="https://twitter.com/sys_socket">@sys_socket&lt;/a>)&lt;/p>
+&lt;p>はい．&lt;/p>
+&lt;p>&lt;a href="https://www.ashemery.com/dfir.html">https://www.ashemery.com/dfir.html&lt;/a> のChallenge #1&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;p>&lt;a href="https://betweentwodfirns.blogspot.jp/2017/03/ashemerycom-challenge-1-web-server-case.html">Between Two DFIRns: Ashemery.com: Challenge #1 - Web Server Case Write-up&lt;/a>&lt;/p>
+&lt;h2 id="問題文">問題文&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. The files can be found below:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1. System Image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. System Memory
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>3. Hashes:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4. Passwords
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>To successfully solve this challenge, a report with answers to the tasks below is required:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>1. What type of attacks has been performed on the box?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2. How many users has the attacker(s) added to the box, and how were they added?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>3. What leftovers (files, tools, info, etc) did the attacker(s) leave behind? (assume our team arrived in time and the attacker(s) couldn’t clean and cover their tracks)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4. What software has been installed on the box, and were they installed by the attacker(s) or not?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>5. Using memory forensics, can you identify the type of shellcode used?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>6. What is the timeline analysis for all events that happened on the box?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>7. What is your hypothesis for the case, and what is your approach in solving it?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>8. Is there anything else you would like to add?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>**Bonus Question:** what are the directories and files, that have been added by the attacker(s)? List all with proof.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>**Important Note:** do not use commercial tools for your own learning benefit.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>稼働していたWebサービスのシステムディスクのイメージと，システムのメモリから侵害の様子を調査する．&lt;/p></description></item></channel></rss>
