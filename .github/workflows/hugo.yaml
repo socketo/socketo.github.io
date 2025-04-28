@@ -23,7 +23,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.147.0
+      HUGO_VERSION: 0.146.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -50,6 +50,10 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Check public directory
+        run: |
+          echo "Checking public directory contents..."
+          ls -l ./public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.7
         with:
