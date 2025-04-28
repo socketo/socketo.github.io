@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Security on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/security/</link>
+    <link>http://localhost:1313/tags/security/</link>
     <description>Recent content in Security on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate>
-    <atom:link href="https://socketo.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BLE CTF WriteUp</title>
-      <link>https://socketo.github.io/posts/2019/02/21/</link>
+      <link>http://localhost:1313/posts/2019/02/21/</link>
       <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
+      <guid>http://localhost:1313/posts/2019/02/21/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2019/02/21/203347&#34;&gt;BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;
 &lt;p&gt;昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href=&#34;https://twitter.com/hackgnar&#34;&gt;@hackgnar&lt;/a&gt;氏のBLE CTFをやってみるという話。&lt;/p&gt;
@@ -34,9 +34,9 @@ Kali Linux&lt;/p&gt;</description>
     </item>
     <item>
       <title>ハニーポットCowrieを設置した話</title>
-      <link>https://socketo.github.io/posts/2018/01/22/</link>
+      <link>http://localhost:1313/posts/2018/01/22/</link>
       <pubDate>Mon, 22 Jan 2018 00:05:37 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2018/01/22/</guid>
+      <guid>http://localhost:1313/posts/2018/01/22/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/01/22/000537&#34;&gt;ハニーポットCowrieを設置した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;はい．&lt;/p&gt;
 &lt;p&gt;本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href=&#34;https://twitter.com/sys_socket&#34;&gt;@sys_socket&lt;/a&gt;)&lt;/p&gt;
@@ -57,9 +57,9 @@ Python3系はサポートされていません．&lt;/p&gt;</description>
     </item>
     <item>
       <title>セキュリティ・キャンプ全国大会2016に参加した話</title>
-      <link>https://socketo.github.io/posts/2016/08/14/</link>
+      <link>http://localhost:1313/posts/2016/08/14/</link>
       <pubDate>Sun, 14 Aug 2016 19:38:43 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2016/08/14/</guid>
+      <guid>http://localhost:1313/posts/2016/08/14/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2016/08/14/193843_1&#34;&gt;セキュリティ・キャンプ全国大会2016に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;セキュリティ・キャンプ全国大会2016：IPA 独立行政法人 情報処理推進機構 : &lt;a href=&#34;https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html&#34;&gt;https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;表題の通り，セキュリティ・キャンプ2016全国大会に参加していました．
@@ -133,9 +133,9 @@ ARPに関してはどんなものかくらいは知ってましたが，バイ�
     </item>
     <item>
       <title>SANS Netwars Tournament 2015に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/08/24/</link>
+      <link>http://localhost:1313/posts/2015/08/24/</link>
       <pubDate>Mon, 24 Aug 2015 20:39:26 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/08/24/</guid>
+      <guid>http://localhost:1313/posts/2015/08/24/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/08/24/203926_1&#34;&gt;SANS Netwars Tournament 2015に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.nri-secure.co.jp/event/2015/netwars.html&#34;&gt;http://www.nri-secure.co.jp/event/2015/netwars.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;8/22,23と大手町サンケイプラザで開催されてたSANS Netwars Tournament 2015に参加してきた．&lt;br&gt;
@@ -155,9 +155,9 @@ Lv2の時点でなかなか自分には厳しい感じになったりしてた�
     </item>
     <item>
       <title>MINI Hardening Project #1.1 に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/01/</link>
+      <link>http://localhost:1313/posts/2015/06/13/01/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:33 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/06/13/01/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/01/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/06/13/203333_1&#34;&gt;MINI Hardening Project #1.1 に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．&lt;/p&gt;
 &lt;p&gt;MINI Hardening Project #1.1 (2015/05/23 10:30〜) : &lt;a href=&#34;http://minihardening.connpass.com/event/13818/&#34;&gt;http://minihardening.connpass.com/event/13818/&lt;/a&gt;&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Event on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/event/</link>
+    <link>http://localhost:1313/tags/event/</link>
     <description>Recent content in Event on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 14 Aug 2016 19:38:43 +0000</lastBuildDate>
-    <atom:link href="https://socketo.github.io/tags/event/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/event/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>セキュリティ・キャンプ全国大会2016に参加した話</title>
-      <link>https://socketo.github.io/posts/2016/08/14/</link>
+      <link>http://localhost:1313/posts/2016/08/14/</link>
       <pubDate>Sun, 14 Aug 2016 19:38:43 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2016/08/14/</guid>
+      <guid>http://localhost:1313/posts/2016/08/14/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2016/08/14/193843_1&#34;&gt;セキュリティ・キャンプ全国大会2016に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;セキュリティ・キャンプ全国大会2016：IPA 独立行政法人 情報処理推進機構 : &lt;a href=&#34;https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html&#34;&gt;https://www.ipa.go.jp/jinzai/camp/2016/zenkoku2016.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;表題の通り，セキュリティ・キャンプ2016全国大会に参加していました．
@@ -86,9 +86,9 @@ ARPに関してはどんなものかくらいは知ってましたが，バイ�
     </item>
     <item>
       <title>SANS Netwars Tournament 2015に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/08/24/</link>
+      <link>http://localhost:1313/posts/2015/08/24/</link>
       <pubDate>Mon, 24 Aug 2015 20:39:26 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/08/24/</guid>
+      <guid>http://localhost:1313/posts/2015/08/24/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/08/24/203926_1&#34;&gt;SANS Netwars Tournament 2015に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.nri-secure.co.jp/event/2015/netwars.html&#34;&gt;http://www.nri-secure.co.jp/event/2015/netwars.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;8/22,23と大手町サンケイプラザで開催されてたSANS Netwars Tournament 2015に参加してきた．&lt;br&gt;
@@ -108,9 +108,9 @@ Lv2の時点でなかなか自分には厳しい感じになったりしてた�
     </item>
     <item>
       <title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/03/</link>
+      <link>http://localhost:1313/posts/2015/06/13/03/</link>
       <pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/06/13/03/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/03/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/06/13/203408_1&#34;&gt;CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．&lt;/p&gt;
 &lt;p&gt;CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: &lt;a href=&#34;https://attack-and-defense.doorkeeper.jp/events/24249&#34;&gt;https://attack-and-defense.doorkeeper.jp/events/24249&lt;/a&gt;&lt;/p&gt;
@@ -141,9 +141,9 @@ Attackポイントは，今回与えられたサービスがネットショッ�
     </item>
     <item>
       <title>CpawLT #1に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/02/</link>
+      <link>http://localhost:1313/posts/2015/06/13/02/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:51 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/06/13/02/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/02/</guid>
       <description>&lt;p&gt;2015-5-31，CpawLT #1に参加してきました．&lt;/p&gt;
 &lt;p&gt;CpawLT #1 : ATND : &lt;a href=&#34;https://atnd.org/events/65601&#34;&gt;https://atnd.org/events/65601&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前日にアキバでCTFerな方々と遊んだり，午後からedomaesecに参加したりして連日都内となっておりました．&lt;/p&gt;
@@ -179,9 +179,9 @@ Cpawのメンバーの方々には大変お世話になりました．&lt;/p&gt;
     </item>
     <item>
       <title>MINI Hardening Project #1.1 に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/01/</link>
+      <link>http://localhost:1313/posts/2015/06/13/01/</link>
       <pubDate>Sat, 13 Jun 2015 20:33:33 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/06/13/01/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/01/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/06/13/203333_1&#34;&gt;MINI Hardening Project #1.1 に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5月は毎週末にIT関連のイベントに参加してたが，全然まとめていなかったのでこのタイミングでまとめ．&lt;/p&gt;
 &lt;p&gt;MINI Hardening Project #1.1 (2015/05/23 10:30〜) : &lt;a href=&#34;http://minihardening.connpass.com/event/13818/&#34;&gt;http://minihardening.connpass.com/event/13818/&lt;/a&gt;&lt;/p&gt;
@@ -215,9 +215,9 @@ Cpawのメンバーの方々には大変お世話になりました．&lt;/p&gt;
     </item>
     <item>
       <title>TDU CTF 2014 Satellite in ConoHaに参加した話</title>
-      <link>https://socketo.github.io/posts/2015/03/31/</link>
+      <link>http://localhost:1313/posts/2015/03/31/</link>
       <pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/03/31/</guid>
+      <guid>http://localhost:1313/posts/2015/03/31/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/03/31/002642_1&#34;&gt;TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2015-03-29、TDU CTFに参加してきました。&lt;/p&gt;
 &lt;p&gt;TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : &lt;a href=&#34;http://connpass.com/event/11986/&#34;&gt;http://connpass.com/event/11986/&lt;/a&gt;&lt;/p&gt;
@@ -235,12 +235,12 @@ Cpawのメンバーの方々には大変お世話になりました．&lt;/p&gt;
 &lt;h2 id=&#34;binary&#34;&gt;binary&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;string_compare&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193248p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2015/03/31/20150330193248.png&#34; title=&#34;f:id:sockets:20150330193248p:plain&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193248p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2015/03/31/20150330193248.png&#34; title=&#34;f:id:sockets:20150330193248p:plain&#34;&gt;&lt;/p&gt;
 &lt;p&gt;多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit&lt;/p&gt;
 &lt;p&gt;競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;KosakaHonokaではINVALID KEY&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193908p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2015/03/31/20150330193908.png&#34; title=&#34;f:id:sockets:20150330193908p:plain&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193908p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2015/03/31/20150330193908.png&#34; title=&#34;f:id:sockets:20150330193908p:plain&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Trip Picture&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;読めない文字1&lt;/strong&gt;&lt;/p&gt;

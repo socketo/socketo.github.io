@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bluetooth on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/bluetooth/</link>
+    <link>http://localhost:1313/tags/bluetooth/</link>
     <description>Recent content in Bluetooth on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate>
-    <atom:link href="https://socketo.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BLE CTF WriteUp</title>
-      <link>https://socketo.github.io/posts/2019/02/21/</link>
+      <link>http://localhost:1313/posts/2019/02/21/</link>
       <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
+      <guid>http://localhost:1313/posts/2019/02/21/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2019/02/21/203347&#34;&gt;BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;
 &lt;p&gt;昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href=&#34;https://twitter.com/hackgnar&#34;&gt;@hackgnar&lt;/a&gt;氏のBLE CTFをやってみるという話。&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CTF on socketo.github.io</title>
-    <link>https://socketo.github.io/tags/ctf/</link>
+    <link>http://localhost:1313/tags/ctf/</link>
     <description>Recent content in CTF on socketo.github.io</description>
     <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 21 Feb 2019 20:33:47 +0000</lastBuildDate>
-    <atom:link href="https://socketo.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BLE CTF WriteUp</title>
-      <link>https://socketo.github.io/posts/2019/02/21/</link>
+      <link>http://localhost:1313/posts/2019/02/21/</link>
       <pubDate>Thu, 21 Feb 2019 20:33:47 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2019/02/21/</guid>
+      <guid>http://localhost:1313/posts/2019/02/21/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2019/02/21/203347&#34;&gt;BLE CTF WriteUp - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;
 &lt;p&gt;昨年2018年のDEF CON 26 WIRELESS VILLAGEで発表された&lt;a href=&#34;https://twitter.com/hackgnar&#34;&gt;@hackgnar&lt;/a&gt;氏のBLE CTFをやってみるという話。&lt;/p&gt;
@@ -34,9 +34,9 @@ Kali Linux&lt;/p&gt;</description>
     </item>
     <item>
       <title>SECCON 2018 Online CTF Forensics問題 Write-up</title>
-      <link>https://socketo.github.io/posts/2018/10/28/</link>
+      <link>http://localhost:1313/posts/2018/10/28/</link>
       <pubDate>Sun, 28 Oct 2018 15:41:22 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2018/10/28/</guid>
+      <guid>http://localhost:1313/posts/2018/10/28/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/10/28/154122&#34;&gt;SECCON 2018 Online CTF Forensics問題 Write-up - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;SECCON2018のオンライン大会のForensics問題のWrite-up&lt;/p&gt;
@@ -66,9 +66,9 @@ flag.zipは暗号化されたZIPファイル&lt;/p&gt;
     </item>
     <item>
       <title>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話</title>
-      <link>https://socketo.github.io/posts/2015/06/13/03/</link>
+      <link>http://localhost:1313/posts/2015/06/13/03/</link>
       <pubDate>Sat, 13 Jun 2015 20:34:08 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/06/13/03/</guid>
+      <guid>http://localhost:1313/posts/2015/06/13/03/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/06/13/203408_1&#34;&gt;CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2015-06-07，富士通株式会社 九州支社で開催されたCTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）に参加してきました．&lt;/p&gt;
 &lt;p&gt;CTF for ビギナーズ2015 博多（Attack &amp;amp; Defense）: &lt;a href=&#34;https://attack-and-defense.doorkeeper.jp/events/24249&#34;&gt;https://attack-and-defense.doorkeeper.jp/events/24249&lt;/a&gt;&lt;/p&gt;
@@ -99,9 +99,9 @@ Attackポイントは，今回与えられたサービスがネットショッ�
     </item>
     <item>
       <title>TDU CTF 2014 Satellite in ConoHaに参加した話</title>
-      <link>https://socketo.github.io/posts/2015/03/31/</link>
+      <link>http://localhost:1313/posts/2015/03/31/</link>
       <pubDate>Tue, 31 Mar 2015 00:26:42 +0000</pubDate>
-      <guid>https://socketo.github.io/posts/2015/03/31/</guid>
+      <guid>http://localhost:1313/posts/2015/03/31/</guid>
       <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2015/03/31/002642_1&#34;&gt;TDU CTF 2014 Satellite in ConoHaに参加した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2015-03-29、TDU CTFに参加してきました。&lt;/p&gt;
 &lt;p&gt;TDU CTF 2014 Satellite in ConoHa (2015/03/29 12:00〜) : &lt;a href=&#34;http://connpass.com/event/11986/&#34;&gt;http://connpass.com/event/11986/&lt;/a&gt;&lt;/p&gt;
@@ -119,12 +119,12 @@ Attackポイントは，今回与えられたサービスがネットショッ�
 &lt;h2 id=&#34;binary&#34;&gt;binary&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;string_compare&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;実行ファイルstring_compare.exeをとりあえずstringsしたらMinamiKotoriとかTDU{%s_is_very_cutie}といったフラグのフォーマットっぽいのが出てきたけど、IDAに食わせた。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193248p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2015/03/31/20150330193248.png&#34; title=&#34;f:id:sockets:20150330193248p:plain&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193248p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2015/03/31/20150330193248.png&#34; title=&#34;f:id:sockets:20150330193248p:plain&#34;&gt;&lt;/p&gt;
 &lt;p&gt;多分TDU{%s_is_very_cutie}の%s部分にMinamiKotoriを入れれば良さそうな感じだったのでTDU{MinamiKotori_is_very_cutie}をsubmit&lt;/p&gt;
 &lt;p&gt;競技終了後に中身をちゃんと見てみたら、入力をとって「MinamiKotori」だったらFlagを出して、それ以外だったら「INVALID KEY」が返されるとのこと。&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;とりあえず私はラブライブ！では穂乃果ちゃんが好きなのでKosakaHonokaと入力するだけしておく。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;KosakaHonokaではINVALID KEY&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193908p:plain&#34; loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2015/03/31/20150330193908.png&#34; title=&#34;f:id:sockets:20150330193908p:plain&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;f:id:sockets:20150330193908p:plain&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2015/03/31/20150330193908.png&#34; title=&#34;f:id:sockets:20150330193908p:plain&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Trip Picture&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;20150223_Kyoto.jpg（ことりちゃん率の高いラバスト画像）が与えられたのでとりあえずstringsコマンドしたらFlagっぽいのが出たのでsubmitした&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;読めない文字1&lt;/strong&gt;&lt;/p&gt;
