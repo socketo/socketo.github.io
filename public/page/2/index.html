@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.124.1"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.147.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://socketo.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://socketo.github.io/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
@@ -39,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,14 +58,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="socketo.github.io" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://socketo.github.io/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="socketo.github.io"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://socketo.github.io/">
+  <meta property="og:site_name" content="socketo.github.io">
+  <meta property="og:title" content="socketo.github.io">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="socketo.github.io">
+<meta name="twitter:description" content="">
+      <meta name="twitter:site" content="@https://twitter.com/sys_socket">
 
 <script type="application/ld+json">
 {
@@ -74,7 +75,7 @@
   "name": "socketo.github.io",
   "url": "https://socketo.github.io/",
   "description": "",
-  "thumbnailUrl": "https://socketo.github.io/images/favicon.ico",
+  "logo": "https://socketo.github.io/images/favicon.ico",
   "sameAs": [
       
   ]
@@ -99,7 +100,7 @@
         <div class="logo">
             <a href="https://socketo.github.io/" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -119,8 +120,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -146,7 +145,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Digital Forensic Challenge #1 - Web Server Case Write up
+    <h2 class="entry-hint-parent">Digital Forensic Challenge #2 - User Policy Violation Case Write up
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※ 移行前の元ブログ記事 : Digital Forensic Challenge #2 - User Policy Violation Case Write up - #include &lt;sys_socket.h&gt;
+本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
+恐らく何かしら間違ってたり，足りなかったりします．多分． 誰か教えてください．
+はい．
+https://www.ashemery.com/dfir.html のChallenge #2
+Case1はこちら Digital Forensic Challenge #1 - Web Server Case Write up - socketo.hatenablog.jp
+問題文 This is another digital forensics image that was prepared to cover a full Windows Forensics course. System Image: here Hashes: here Password = here You can use the image to learn the following: File Carving, Custom Carving, and Keyword Searching File System Forensics - NTFS Deep Windows Registry Forensics: System and User Hives SYSTEM SOFTWARE SAM NTUSER.DAT USRCLASS.DAT Other Windows Files: LNK, Jump Lists, Libraries, etc Application Compatibility Cache (ShimCache) Analyzing Windows Search (Search Charm) Analyzing Thumb Caches Analyzing Prefetch Files Analyzing Recycle Bin(s) USB Forensics Events Analysis Email Forensics: Web and Outlook Browser Forensics: Internet Explorer and Google Chrome Skype Forensics This image covers most if not all of the recent system artifacts that you might encounter. Let me know if you need any help or if you are an instructor and want the answers to each part of the case. I will only send the answers to verified instructors. Due to lots of requests, I have decided to compile a manual or a book for the second image with Q&amp;As to help you go through the challenge and solve every part of it. URLs and further explanations will be provided very soon. Stay tuned my friends and happy hunting ;) このイメージで以下のことが学べるらしい
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-19 09:06:57 +0000 UTC'>February 19, 2018</span>&nbsp;·&nbsp;12 min</footer>
+  <a class="entry-link" aria-label="post link to Digital Forensic Challenge #2 - User Policy Violation Case Write up" href="https://socketo.github.io/posts/2018/02/19/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Digital Forensic Challenge #1 - Web Server Case Write up
     </h2>
   </header>
   <div class="entry-content">
@@ -156,15 +174,16 @@
 https://www.ashemery.com/dfir.html のChallenge #1
 参考:
 Between Two DFIRns: Ashemery.com: Challenge #1 - Web Server Case Write-up
-問題文 A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. The files can be found below: 1....</p>
+問題文 A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. The files can be found below: 1. System Image 2. System Memory 3. Hashes: 4. Passwords To successfully solve this challenge, a report with answers to the tasks below is required: 1. What type of attacks has been performed on the box? 2. How many users has the attacker(s) added to the box, and how were they added? 3. What leftovers (files, tools, info, etc) did the attacker(s) leave behind? (assume our team arrived in time and the attacker(s) couldn’t clean and cover their tracks) 4. What software has been installed on the box, and were they installed by the attacker(s) or not? 5. Using memory forensics, can you identify the type of shellcode used? 6. What is the timeline analysis for all events that happened on the box? 7. What is your hypothesis for the case, and what is your approach in solving it? 8. Is there anything else you would like to add? **Bonus Question:** what are the directories and files, that have been added by the attacker(s)? List all with proof. **Important Note:** do not use commercial tools for your own learning benefit. 稼働していたWebサービスのシステムディスクのイメージと，システムのメモリから侵害の様子を調査する．
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2018-02-05 03:21:46 &#43;0000 UTC&#39;&gt;February 5, 2018&lt;/span&gt;&amp;nbsp;·&amp;nbsp;11 min</footer>
+  <footer class="entry-footer"><span title='2018-02-05 03:21:46 +0000 UTC'>February 5, 2018</span>&nbsp;·&nbsp;11 min</footer>
   <a class="entry-link" aria-label="post link to Digital Forensic Challenge #1 - Web Server Case Write up" href="https://socketo.github.io/posts/2018/02/05/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>ハニーポットCowrieを設置した話
+    <h2 class="entry-hint-parent">ハニーポットCowrieを設置した話
     </h2>
   </header>
   <div class="entry-content">
@@ -177,15 +196,16 @@ Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute for
 導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
 今回はUbuntu　16.04.3 LTSで構築していきます．
 必要なパッケージのインストール
-$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2....</p>
+$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています． Python3系はサポートされていません．
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2018-01-22 00:05:37 &#43;0000 UTC&#39;&gt;January 22, 2018&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min</footer>
+  <footer class="entry-footer"><span title='2018-01-22 00:05:37 +0000 UTC'>January 22, 2018</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to ハニーポットCowrieを設置した話" href="https://socketo.github.io/posts/2018/01/22/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>セキュリティ・キャンプ全国大会2016に参加した話
+    <h2 class="entry-hint-parent">セキュリティ・キャンプ全国大会2016に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -207,15 +227,17 @@ $ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential l
 2日目 1,2-F:作って学ぶ低レイヤーネットワーク 2日目から専門講義開始ということで，初日から集中講義を選択していたので8時間「作って学ぶ低レイヤーネットワーク」を受講しました． この講義は前半後半で分かれており，前半では坂井さんのパケットをバイナリエディタで直接読み書きしたりツールを使ってパケットを送受信したりしました． ネットワークに関する知識があまり無いぼくでしたが，実際に自分でバイナリエディタで書いたものを送信して実際に受信された時はとても嬉しかったです． ARPに関してはどんなものかくらいは知ってましたが，バイナリレベルで読んだり書いたりしたことが無かったのでとても新鮮でした．
 後半では今岡さんのArduinoを使って自分でバイナリエディタで作成したパケットを10BASE-Tのフレームとして送出したりするものでした． 電子工作をほぼやったことが無く，配線を間違えたりその他色々と間違えたりした時に同じ参加者の方やチューターさんに凄い助けて貰って本当にありがとうございました． 講義資料の最後にArduinoを20MHz改造するのがありましたが，正直コレめちゃくちゃ難しそう（自分がやったらめちゃくちゃ破壊しそう）でした．
 DAY2 CTF 2日目の夜はグループごとチームになってのCTFでした． 結果としてはチームでは300ptを獲得しました．100ptは入れることが出来ましたが，時間が無いのに色々な問題を試そうとしてみたりして結構時間をかけた結果全然解けないというアレになりました．つらいですね． 1番はじめに得点をしたということで特別賞を貰いました．
-この日の深夜アニメは『Fate/kaleid liner プリズマ☆イリヤ ドライ!!』がTOKYO MXで01:05から放送でしたが普通に寝てて見れませんでした．...</p>
+この日の深夜アニメは『Fate/kaleid liner プリズマ☆イリヤ ドライ!!』がTOKYO MXで01:05から放送でしたが普通に寝てて見れませんでした．
+3日目 3日目は3つの講義を受けました．
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2016-08-14 19:38:43 &#43;0000 UTC&#39;&gt;August 14, 2016&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2016-08-14 19:38:43 +0000 UTC'>August 14, 2016</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to セキュリティ・キャンプ全国大会2016に参加した話" href="https://socketo.github.io/posts/2016/08/14/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>PythonでSeleniumを使ってagqrの登録を自動化する
+    <h2 class="entry-hint-parent">PythonでSeleniumを使ってagqrの登録を自動化する
     </h2>
   </header>
   <div class="entry-content">
@@ -228,15 +250,16 @@ JOQR 超!A&amp;G&#43;でよく声優さんのラジオを聴いたり見たり�
 そこでSeleniumを使って自動化して起動出来れば数秒は早く出来るんじゃないかということで適当に書いた．
 Seleniumは前にOSCかどこかで聞いて何か遊びで使えないかなぁと思っていたので遊びで使えて満足．
 radio buttonとかのチェックとか登録のボタンのsubmitがnameもidも振られていなかったりしてよくわからなかったけど，xpathで指定したらそのまま扱えたのでよかった．
-xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．</p>
+xpathを利用する際に，FireFoxのアドオンのFireBugとFirePathが便利だった．
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2016-04-10 20:19:09 &#43;0000 UTC&#39;&gt;April 10, 2016&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2016-04-10 20:19:09 +0000 UTC'>April 10, 2016</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to PythonでSeleniumを使ってagqrの登録を自動化する" href="https://socketo.github.io/posts/2016/04/10/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>SANS Netwars Tournament 2015に参加した話
+    <h2 class="entry-hint-parent">SANS Netwars Tournament 2015に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -255,15 +278,16 @@ Lv2の時点でなかなか自分には厳しい感じになったりしてた�
 今回，同時翻訳というのをはじめて身近で体験したのですが，あれ本当に凄いですね．感動した．
 某教授も仰ってた通りに英語も頑張って行きたい感じです．
 とても有意義な2日間でした．
-また次回開催される事があるならば応募して是非とも参加したいです．</p>
+また次回開催される事があるならば応募して是非とも参加したいです．
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-08-24 20:39:26 &#43;0000 UTC&#39;&gt;August 24, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2015-08-24 20:39:26 +0000 UTC'>August 24, 2015</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to SANS Netwars Tournament 2015に参加した話" href="https://socketo.github.io/posts/2015/08/24/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
+    <h2 class="entry-hint-parent">CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -288,15 +312,16 @@ CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。�
 つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
 攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
 攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
-おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった</p>
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-06-13 20:34:08 &#43;0000 UTC&#39;&gt;June 13, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話" href="https://socketo.github.io/posts/2015/06/13/03/"></a>
+  <footer class="entry-footer"><span title='2015-06-13 20:34:08 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to CTF for ビギナーズ2015 博多（Attack & Defense）に参加した話" href="https://socketo.github.io/posts/2015/06/13/03/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CpawLT #1に参加した話
+    <h2 class="entry-hint-parent">CpawLT #1に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -323,15 +348,16 @@ LT LTは一人持ち時間約10分以内（？）くらいで時間もわりと�
 懇親会わず #cpawLT pic.twitter.com/k2aBarC1Gy — ぱろっくlv 0.05 (@porisuteru) 2015, 5月 31
 感想 LTは様々なところで聞く側として参加してきたが，自分自身が登壇するというのは初めてだったので，（内容はともかく）良い経験となったし面白い話が聞けて良かった．
 近いうちに身内でのLT大会でもやるかと某氏と話していたので，その時に役立てればいいかなと．
-Cpawのメンバーの方々には大変お世話になりました．</p>
+Cpawのメンバーの方々には大変お世話になりました．
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-06-13 20:33:51 &#43;0000 UTC&#39;&gt;June 13, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2015-06-13 20:33:51 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to CpawLT #1に参加した話" href="https://socketo.github.io/posts/2015/06/13/02/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>MINI Hardening Project #1.1 に参加した話
+    <h2 class="entry-hint-parent">MINI Hardening Project #1.1 に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -358,15 +384,16 @@ Hardening Project | Web Application Security Forum - WASForum
 今までCTFを初心者なりにちょっと参加してきた身としては，攻撃されるというのが新鮮ではあった．
 サーバの管理をしよう（してる）とする身として基礎的な知識がこれほど無いのかと思い知らされた．周りがプロばかりだと怯んでいたが，結果的に得られるものが多くて良かった．
 おまけ チームメンバの方が持ってきたエナジードリンクシリーズが見たことないエナジードリンクばかりだった．
-世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．</p>
+世の中には自分の知らないエナジードリンクや，エナジードリンクを使用した料理があるのだと知った．世界は広い．
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-06-13 20:33:33 &#43;0000 UTC&#39;&gt;June 13, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2015-06-13 20:33:33 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to MINI Hardening Project #1.1 に参加した話" href="https://socketo.github.io/posts/2015/06/13/01/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>TDU CTF 2014 Satellite in ConoHaに参加した話
+    <h2 class="entry-hint-parent">TDU CTF 2014 Satellite in ConoHaに参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -392,11 +419,9 @@ Trip Picture
 読めない文字1
 文末に&#34;==“がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に”==“がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。
 network 柚子胡椒 Vol.1
-Bluetoothの通信をキャプチャしたっぽいpcapが与えられたのでWiresharkで開いて内容を見てたらFlagがあったのでそれをsubmitした
-crypt 我が同胞に告ぐ
-文字列&#34;avia hhlam li as li ii llaem xiwe hhiso lllasom&#34;が与えられ、最初はシーザー暗号かと思いPythonで一文字ずつズラして表示したりしたけどそれっぽいものにはならくて諦めかけていたが、問題の作成者のnomukenさんが「この問題は宗教的な戦争が～…」との発言をしていたので、Vim/Emacsの宗教戦争かとのことでVimを起動してその文字列をスペースがあたる部分をEscで入力すると...</p>
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-03-31 00:26:42 &#43;0000 UTC&#39;&gt;March 31, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2015-03-31 00:26:42 +0000 UTC'>March 31, 2015</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to TDU CTF 2014 Satellite in ConoHaに参加した話" href="https://socketo.github.io/posts/2015/03/31/"></a>
 </article>
 <footer class="page-footer">
@@ -409,7 +434,8 @@ crypt 我が同胞に告ぐ
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://socketo.github.io/">socketo.github.io</a></span>
+        <span>&copy; 2025 <a href="https://socketo.github.io/">socketo.github.io</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

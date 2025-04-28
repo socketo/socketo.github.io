@@ -4,26 +4,32 @@
     <title>Honeypot on socketo.github.io</title>
     <link>https://socketo.github.io/tags/honeypot/</link>
     <description>Recent content in Honeypot on socketo.github.io</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 22 Jan 2018 00:05:37 +0000</lastBuildDate><atom:link href="https://socketo.github.io/tags/honeypot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jan 2018 00:05:37 +0000</lastBuildDate>
+    <atom:link href="https://socketo.github.io/tags/honeypot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ハニーポットCowrieを設置した話</title>
       <link>https://socketo.github.io/posts/2018/01/22/</link>
       <pubDate>Mon, 22 Jan 2018 00:05:37 +0000</pubDate>
-      
       <guid>https://socketo.github.io/posts/2018/01/22/</guid>
-      <description>※ 移行前の元ブログ記事 : ハニーポットCowrieを設置した話 - #include &amp;lt;sys_socket.h&amp;gt;
-はい．
-本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:@sys_socket)
-Cowrieとは GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot
-Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is developed by Michel Oosterhof.
-攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．
-導入 ここを見てやっていきます． cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub
-今回はUbuntu　16.04.3 LTSで構築していきます．
-必要なパッケージのインストール
-$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.</description>
+      <description>&lt;p&gt;※ 移行前の元ブログ記事 : &lt;a href=&#34;https://socketo.hatenablog.jp/entry/2018/01/22/000537&#34;&gt;ハニーポットCowrieを設置した話 - #include &amp;lt;sys_socket.h&amp;gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;はい．&lt;/p&gt;
+&lt;p&gt;本投稿の内容に間違いや問題などありましたら，Twitter経由などでやんわり優しめに教えて頂ければ幸いです．(Twitter:&lt;a href=&#34;https://twitter.com/sys_socket&#34;&gt;@sys_socket&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;cowrieとは&#34;&gt;Cowrieとは&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/micheloosterhof/cowrie&#34;&gt;GitHub - micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
+Cowrie is developed by Michel Oosterhof.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;攻撃者のブルートフォース攻撃とシェルの対話を記録するように設計された対話型SSH/Telnetのハニーポットです．&lt;/p&gt;
+&lt;h2 id=&#34;導入&#34;&gt;導入&lt;/h2&gt;
+&lt;p&gt;ここを見てやっていきます．
+&lt;a href=&#34;https://github.com/micheloosterhof/cowrie&#34;&gt;cowrie/INSTALL.md at master · micheloosterhof/cowrie · GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;今回はUbuntu　16.04.3 LTSで構築していきます．&lt;/p&gt;
+&lt;p&gt;必要なパッケージのインストール&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install git python-virtualenv libssl-dev libffi-dev build-essential libpython-dev python2.7-minimal authbind
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールするパッケージで分かるのですが，Cowrieではpython-virtualenv上でPython2.7系を使用しています．
+Python3系はサポートされていません．&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://socketo.github.io/tags/ctf/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://socketo.github.io/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://socketo.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://socketo.github.io/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,14 +56,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="CTF" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://socketo.github.io/tags/ctf/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CTF"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://socketo.github.io/tags/ctf/">
+  <meta property="og:site_name" content="socketo.github.io">
+  <meta property="og:title" content="CTF">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTF">
+<meta name="twitter:description" content="">
+      <meta name="twitter:site" content="@https://twitter.com/sys_socket">
 
 </head>
 
@@ -84,7 +85,7 @@
         <div class="logo">
             <a href="https://socketo.github.io/" accesskey="h" title="socketo.github.io (Alt + H)">socketo.github.io</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -104,8 +105,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -136,7 +135,7 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>BLE CTF WriteUp
+    <h2 class="entry-hint-parent">BLE CTF WriteUp
     </h2>
   </header>
   <div class="entry-content">
@@ -150,21 +149,15 @@ READMEに書かれているように、このCTFを実施するには、手元�
 ESP32-DevkitC V4 エレコムのよく分からんBluetooth USBアダプタ
 ESP32ビルド環境 macOS Mojave version 10.14.3
 端末(ThinkPad X220) Kali Linux
-環境構築 ESP32-DevKitC V4を使う。aliexpressとかだと$7前後で購入出来る。安い。
-国内だと秋月やマルツなどで売ってる。
-ＥＳＰ３２－ＤｅｖＫｉｔＣ　ＥＳＰ－ＷＲＯＯＭ－３２開発ボード http://akizukidenshi.com/catalog/g/gM-11819/
-Wi-Fi&#43;BLE無線モジュールESP-WROOM-32搭載開発ボード【ESP32-DEVKITC】 https://www.marutsu.co.jp/pc/i/952928/
-ESP32の環境構築 [ESP-IDF] ESP32のビルド環境を整える(macOS Mojave version 10.14.3)
-Arudino IDEでも開発環境として使えるようだが、今回はBLE CTFのREADMEにESP-IDFのBluetoothのサンプルプログラムと同様にと書いてあった為、EPS32の公式開発フレームワークであるESP-IDFを使用する。
-Espressif IoT Development Framework : https://github....</p>
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2019-02-21 20:33:47 &#43;0000 UTC&#39;&gt;February 21, 2019&lt;/span&gt;&amp;nbsp;·&amp;nbsp;7 min</footer>
+  <footer class="entry-footer"><span title='2019-02-21 20:33:47 +0000 UTC'>February 21, 2019</span>&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to BLE CTF WriteUp" href="https://socketo.github.io/posts/2019/02/21/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>SECCON 2018 Online CTF Forensics問題 Write-up
+    <h2 class="entry-hint-parent">SECCON 2018 Online CTF Forensics問題 Write-up
     </h2>
   </header>
   <div class="entry-content">
@@ -175,15 +168,17 @@ UnzipとHistory
 Unzip 問題文 $ Unzip flag.zip. Write-up ファイル名:unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183fのZIPファイルが落ちてくる．
 $ file unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f: Zip archive data, at least v1.0 to extract 普通にzipファイルなのでunzipする
 $ unzip -d unzip unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f Archive: unzip.zip_26c0cb5b40e9f78641ae44229cda45529418183f extracting: unzip/flag.zip inflating: unzip/makefile.sh unzipするとflag.zipとmakefile.shが出てくる flag.zipは暗号化されたZIPファイル
-$ ls -la .rw-r--r--@ 225 socketo 27 10 0:10 flag.zip .rwx---r-x@ 99 socketo 27 10 0:10 makefile.sh makefile.shの中身を見ると，zipパスワードにperl -e &#34;print time()&#34;で出力されたunixtimeが設定されていることがわかる...</p>
+$ ls -la .rw-r--r--@ 225 socketo 27 10 0:10 flag.zip .rwx---r-x@ 99 socketo 27 10 0:10 makefile.sh makefile.shの中身を見ると，zipパスワードにperl -e &#34;print time()&#34;で出力されたunixtimeが設定されていることがわかる
+echo &#39;SECCON{&#39;`cat key`&#39;}&#39; &gt; flag.txt zip -e --password=`perl -e &#34;print time()&#34;` flag.zip flag.txt このzipファイルが作成された時の時間を調べる為にexiftoolで調べる
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2018-10-28 15:41:22 &#43;0000 UTC&#39;&gt;October 28, 2018&lt;/span&gt;&amp;nbsp;·&amp;nbsp;2 min</footer>
+  <footer class="entry-footer"><span title='2018-10-28 15:41:22 +0000 UTC'>October 28, 2018</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to SECCON 2018 Online CTF Forensics問題 Write-up" href="https://socketo.github.io/posts/2018/10/28/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
+    <h2 class="entry-hint-parent">CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -208,15 +203,16 @@ CTF for ビギナーズ2015 博多(Attack &amp; Defense) 終了しました。�
 つらい．@Ranats_rifleの攻撃がわりといいところまで行っていたそうで，完全にまたもや自分は眺めていただけで終了した．つらい．
 攻防戦が初めてだとはいえ，ここまで手足が出せない状態なのは非常にキツかったが，あまりできない体験はできた．
 攻防戦型の大会は次にSECCONの九州大会で開催するそうなのでそれまでにマッチョになってリベンジしたいと思う．
-おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった</p>
+おまけ 本場の博多ラーメン美味しかった．（一緒に行った@Ranats_rifleが替え玉合わせて4玉食べててすごかった
+</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-06-13 20:34:08 &#43;0000 UTC&#39;&gt;June 13, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to CTF for ビギナーズ2015 博多（Attack &amp; Defense）に参加した話" href="https://socketo.github.io/posts/2015/06/13/03/"></a>
+  <footer class="entry-footer"><span title='2015-06-13 20:34:08 +0000 UTC'>June 13, 2015</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to CTF for ビギナーズ2015 博多（Attack & Defense）に参加した話" href="https://socketo.github.io/posts/2015/06/13/03/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>TDU CTF 2014 Satellite in ConoHaに参加した話
+    <h2 class="entry-hint-parent">TDU CTF 2014 Satellite in ConoHaに参加した話
     </h2>
   </header>
   <div class="entry-content">
@@ -242,17 +238,16 @@ Trip Picture
 読めない文字1
 文末に&#34;==“がつく文字列が与えられていたので、とりあえずBase64でデコード。そしたらまた文末に”==“がついた文字列が出てきたのでもう一回デコードしたらFlagが出た。
 network 柚子胡椒 Vol.1
-Bluetoothの通信をキャプチャしたっぽいpcapが与えられたのでWiresharkで開いて内容を見てたらFlagがあったのでそれをsubmitした
-crypt 我が同胞に告ぐ
-文字列&#34;avia hhlam li as li ii llaem xiwe hhiso lllasom&#34;が与えられ、最初はシーザー暗号かと思いPythonで一文字ずつズラして表示したりしたけどそれっぽいものにはならくて諦めかけていたが、問題の作成者のnomukenさんが「この問題は宗教的な戦争が～…」との発言をしていたので、Vim/Emacsの宗教戦争かとのことでVimを起動してその文字列をスペースがあたる部分をEscで入力すると...</p>
+...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2015-03-31 00:26:42 &#43;0000 UTC&#39;&gt;March 31, 2015&lt;/span&gt;&amp;nbsp;·&amp;nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2015-03-31 00:26:42 +0000 UTC'>March 31, 2015</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to TDU CTF 2014 Satellite in ConoHaに参加した話" href="https://socketo.github.io/posts/2015/03/31/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://socketo.github.io/">socketo.github.io</a></span>
+        <span>&copy; 2025 <a href="https://socketo.github.io/">socketo.github.io</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

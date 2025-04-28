@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IPA on socketo.github.io</title>
+    <link>https://socketo.github.io/tags/ipa/</link>
+    <description>Recent content in IPA on socketo.github.io</description>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 28 Apr 2025 19:14:19 +0900</lastBuildDate>
+    <atom:link href="https://socketo.github.io/tags/ipa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10年ぶりくらいに基本情報技術者試験(FE)を受験して合格した</title>
+      <link>https://socketo.github.io/posts/2025/04/28/</link>
+      <pubDate>Mon, 28 Apr 2025 19:14:19 +0900</pubDate>
+      <guid>https://socketo.github.io/posts/2025/04/28/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;10年ぶりくらいに基本情報技術者試験を受けて合格した。&lt;/p&gt;
+&lt;p&gt;約10年前に受験した際は、春秋の年2回開催だったが今回はCBT形式でいつでも受験が可能だったため気軽に受けることができた。&lt;/p&gt;
+&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;今年2025年は自分のコンプレックスを解消していこう！というスローガンを掲げて、過去に辞めてしまった習慣や不合格だった試験などをやり直している。&lt;/p&gt;
+&lt;p&gt;多分大学生の2014年頃に基本情報を受験して普通に数点足らずに落ちてからずっとIPAの試験から遠ざかっていた。&lt;/p&gt;
+&lt;p&gt;そんな中YouTubeを見ていたら、以下の基本情報をRTAして合格する動画を発見した。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/8Frg8QTJJ5o?si=bv8F4eQQaSmb1jeD&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;こういった参考にならない勉強方法めちゃくちゃ好きで真似はしないけどもモチベーションになる。&lt;/p&gt;
+&lt;h2 id=&#34;勉強方法&#34;&gt;勉強方法&lt;/h2&gt;
+&lt;p&gt;至って普通の勉強方法で、&lt;a href=&#34;https://amzn.asia/d/0W3nqmS&#34;&gt;イメージ＆クレバー方式でよくわかる かやのき先生の基本情報技術者教室&lt;/a&gt; を買って一通り読んだのち、過去問をひたすらに実施した。&lt;/p&gt;
+&lt;p&gt;過去問は&lt;a href=&#34;https://www.fe-siken.com/&#34;&gt;基本情報試験ドットコム&lt;/a&gt;の最近のものを選択して、間違えた問題をAnkiに登録して周回した。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2025/04/28/images/image01.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;まとめと感想&#34;&gt;まとめと感想&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://socketo.github.io/posts/2025/04/28/images/image02.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A試験、B試験とも時間に結構余裕がある状態で終えて合格。&lt;/p&gt;
+&lt;p&gt;合格できて良かった。&lt;/p&gt;
+&lt;p&gt;今年の秋は応用情報技術者試験(AP)を受験したい。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
