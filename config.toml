@@ -1,44 +1,32 @@
 baseURL = 'https://socketo.github.io'
 title = "socketo's blog"
 languageCode = 'ja'
-theme = 'PaperMod'
+theme = 'hugo-theme-m10c'
 author = 'socketo'
 
 enableRobotsTXT = true
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomyTerm = ["HTML"]
-  taxonomy = ["HTML"]
-  page = ["HTML"]
+[pagination]
+  pagerSize = 10
 
 [params]
-env = "production"
-description = "デジタルフォレンジクスとセキュリティエンジニアリングに関する技術ブログ"
-images = ["images/ogp.png"]
-ShowReadingTime = true
-ShowShareButtons = true
-ShowToc = true
-TocOpen = true
+author = "socketo"
+description = "Digital Forensics Analyst | Security Engineer"
+avatar = "images/hello_hugo.png"
 
-[params.homeInfoParams]
-title = "Hi, I'm socketo"
-Content = 'Digital Forensics Analyst | Security Engineer'
-
-[params.assets]
-favicon = "images/favicon.ico"
-
-[[params.socialIcons]]
-name = "github"
+[[params.social]]
+icon = "brand-github"
+name = "GitHub"
 url = "https://github.com/socketo"
 
-[[params.socialIcons]]
-name = "twitter"
+[[params.social]]
+icon = "brand-x"
+name = "X (Twitter)"
 url = "https://twitter.com/sys_socket"
 
-[[params.socialIcons]]
-name = "linkedin"
+[[params.social]]
+icon = "brand-linkedin"
+name = "LinkedIn"
 url = "https://jp.linkedin.com/in/shigefumi-sakata-8a3978299"
 
 [taxonomies]
@@ -46,25 +34,13 @@ url = "https://jp.linkedin.com/in/shigefumi-sakata-8a3978299"
   category = "categories"
 
 [[menu.main]]
-    name = "Archives"
-    weight = 10
-    identifier = "archives"
-    url = "/archives"
-
-[[menu.main]]
     name = "Tags"
-    weight = 20
+    weight = 10
     identifier = "tags"
     url = "/tags"
 
 [[menu.main]]
     name = "About"
-    weight = 30
+    weight = 20
     identifier = "about"
     url = "/about"
-
-[[menu.main]]
-    name = "Search"
-    weight = 40
-    identifier = "search"
-    url = "/search"
