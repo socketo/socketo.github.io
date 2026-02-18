@@ -12,7 +12,7 @@ enableRobotsTXT = true
 [params]
 author = "socketo"
 description = "Digital Forensics Analyst | Security Engineer"
-avatar = "images/hello_hugo.png"
+avatar = "images/avatar.png"
 
 [[params.social]]
 icon = "brand-github"
