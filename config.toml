@@ -1,64 +1,70 @@
 baseURL = 'https://socketo.github.io'
-title = 'socketo.github.io'
+title = "socketo's blog"
 languageCode = 'ja'
 theme = 'PaperMod'
 author = 'socketo'
 
-# Sitemap configuration
 enableRobotsTXT = true
-[outputFormats.RobotsTXT]
-  baseName = "robots"
 
 [outputs]
-  home = ["HTML", "RSS", "RobotsTXT"]
+  home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
   taxonomy = ["HTML"]
   page = ["HTML"]
-  [outputs.RSS]
-    section = "blog"
-    output = true
 
 [params]
 env = "production"
+description = "デジタルフォレンジクスとセキュリティエンジニアリングに関する技術ブログ"
+images = ["images/ogp.png"]
 ShowReadingTime = true
 ShowShareButtons = true
 ShowToc = true
 TocOpen = true
 
 [params.homeInfoParams]
-enabled = true
 title = "Hi, I'm socketo"
-Content = 'Digital Forensics Analyst | Security Engineer;'
+Content = 'Digital Forensics Analyst | Security Engineer'
 
 [params.assets]
 favicon = "images/favicon.ico"
 
-[params.social]
-github = "https://github.com/socketo"
-twitter = "https://twitter.com/sys_socket"
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/socketo"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/sys_socket"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://jp.linkedin.com/in/shigefumi-sakata-8a3978299"
 
 [taxonomies]
   tag = "tags"
   category = "categories"
 
 [[menu.main]]
-    name = "archives"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = -150
+    name = "Archives"
+    weight = 10
     identifier = "archives"
     url = "/archives"
 
 [[menu.main]]
-    name = "tags"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = -130
+    name = "Tags"
+    weight = 20
     identifier = "tags"
     url = "/tags"
 
 [[menu.main]]
-    name = "about"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = -100
+    name = "About"
+    weight = 30
     identifier = "about"
     url = "/about"
+
+[[menu.main]]
+    name = "Search"
+    weight = 40
+    identifier = "search"
+    url = "/search"
