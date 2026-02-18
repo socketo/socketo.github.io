@@ -14,6 +14,13 @@ author = "socketo"
 description = "Digital Forensics Analyst | Security Engineer"
 avatar = "images/avatar.png"
 
+[params.style]
+  darkestColor = "#0c1b30"
+  darkColor = "#1a2f4a"
+  lightColor = "#8eb0cc"
+  lightestColor = "#e0f0ff"
+  primaryColor = "#5bc8f5"
+
 [[params.social]]
 icon = "brand-github"
 name = "GitHub"
