@@ -13,6 +13,7 @@ enableRobotsTXT = true
 author = "socketo"
 description = "Digital Forensics Analyst | Security Engineer"
 avatar = "images/avatar.png"
+favicon = "/favicon.ico"
 
 [params.style]
   darkestColor = "#0c1b30"
