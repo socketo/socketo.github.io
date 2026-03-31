@@ -1,0 +1,9 @@
+{{ $asin := .Get "asin" }}
+{{ $title := .Get "title" | default "" }}
+<a href="https://www.amazon.co.jp/dp/{{ $asin }}" target="_blank" rel="noreferrer noopener" class="amazon-card">
+  <img src="https://m.media-amazon.com/images/P/{{ $asin }}.01._SCLZZZZZZZ_.jpg" alt="{{ $title }}" class="amazon-card-img" />
+  <div class="amazon-card-body">
+    {{ with $title }}<span class="amazon-card-title">{{ . }}</span>{{ end }}
+    <span class="amazon-card-link">Amazon で見る</span>
+  </div>
+</a>

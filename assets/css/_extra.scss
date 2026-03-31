@@ -1,0 +1,44 @@
+.amazon-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: $darkest-color;
+  border: 1px solid rgba($light-color, 0.2);
+  border-radius: 6px;
+  color: $light-color;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+
+  &:hover {
+    border-color: $primary-color;
+    background: rgba($primary-color, 0.05);
+    color: $light-color;
+  }
+
+  .amazon-card-img {
+    width: 70px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .amazon-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .amazon-card-title {
+    color: $lightest-color;
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  .amazon-card-link {
+    font-size: 0.8rem;
+    color: $primary-color;
+  }
+}
