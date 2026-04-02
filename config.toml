@@ -6,6 +6,16 @@ author = 'socketo'
 
 enableRobotsTXT = true
 
+[outputFormats]
+  [outputFormats.llmstxt]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "llmstxt"]
+
 [pagination]
   pagerSize = 10
 

@@ -1,0 +1,56 @@
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ .Site.Title | jsonify | safeJS }},
+  "url": {{ .Site.BaseURL | jsonify | safeJS }},
+  "description": {{ .Site.Params.description | jsonify | safeJS }},
+  "inLanguage": {{ .Site.LanguageCode | jsonify | safeJS }},
+  "author": {
+    "@type": "Person",
+    "name": "Shigefumi Sakata",
+    "alternateName": "socketo",
+    "url": {{ (print .Site.BaseURL "about/") | jsonify | safeJS }},
+    "jobTitle": "Digital Forensics Analyst",
+    "knowsAbout": ["Digital Forensics", "Incident Response", "Malware Analysis", "Reverse Engineering", "CTF"],
+    "hasCredential": ["GREM", "GCFA", "PCI QSA", "PCI PFI"],
+    "sameAs": [
+      "https://github.com/socketo",
+      "https://twitter.com/sys_socket",
+      "https://jp.linkedin.com/in/shigefumi-sakata-8a3978299"
+    ]
+  }
+}
+</script>
+{{- else if eq .Type "posts" -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "url": {{ .Permalink | jsonify | safeJS }},
+  "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+  "description": {{ (cond (ne .Description "") .Description (.Summary | plainify)) | jsonify | safeJS }},
+  "keywords": {{ (.Params.tags | default slice) | jsonify | safeJS }},
+  "inLanguage": {{ .Site.LanguageCode | jsonify | safeJS }},
+  "author": {
+    "@type": "Person",
+    "name": "Shigefumi Sakata",
+    "alternateName": "socketo",
+    "url": {{ (print .Site.BaseURL "about/") | jsonify | safeJS }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Shigefumi Sakata",
+    "url": {{ .Site.BaseURL | jsonify | safeJS }}
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": {{ .Site.Title | jsonify | safeJS }},
+    "url": {{ .Site.BaseURL | jsonify | safeJS }}
+  }
+}
+</script>
+{{- end -}}

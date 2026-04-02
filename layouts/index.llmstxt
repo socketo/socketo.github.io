@@ -1,0 +1,17 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}. Digital Forensics Analyst and Security Engineer based in Tokyo, Japan. Specializes in malware analysis, incident response, digital forensics, and CTF competitions. Holds GREM, GCFA, PCI QSA, and PCI PFI certifications.
+
+## About
+
+- [About]({{ .Site.BaseURL }}about/): Profile, career history, certifications, and experience of Shigefumi Sakata (socketo)
+
+## Blog Posts
+{{ range (where .Site.RegularPages "Type" "posts").ByDate.Reverse }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | truncate 120 }}
+{{- end }}
+
+## Tags
+{{ range .Site.Taxonomies.tags.ByCount }}
+- [{{ .Page.Title }}]({{ .Page.Permalink }}): {{ .Count }} posts
+{{- end }}
