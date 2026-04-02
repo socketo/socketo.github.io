@@ -5,6 +5,10 @@ draft: false
 tags: ["malware analysis", "SANS", "GIAC", "GREM", "certification"]
 ---
 
+**English version is here → [Passing GREM with 96%: A Complete Guide to the GIAC Reverse Engineering Malware Exam](/posts/2023/11/03/)**
+
+---
+
 ## TL;DR
 
 [GREM(GIAC Reverse Engineering Malware)](https://www.giac.org/certifications/reverse-engineering-malware-grem/) に96%のスコアで合格した。高得点だったため、GIAC Advisory Board(諮問委員会)とSANSインストラクター育成プログラムへの招待も受けた。
