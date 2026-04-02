@@ -1,5 +1,5 @@
 ---
-title: "はてなブログからブログを移行しました"
+title: "はてなブログからHugo + GitHub Pagesへブログ移行した記録"
 date: 2023-08-09T15:58:43+09:00
 draft: false
 tags: [ others ]

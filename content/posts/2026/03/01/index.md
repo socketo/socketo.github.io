@@ -1,5 +1,5 @@
 ---
-title: "ノーコードツールMake.comを使ってInoreaderの記事をNotionデータベースへ登録する"
+title: "Inoreader × Make.com × Notion連携 — 「あとで読む」記事をWebhookでNotionに自動登録する"
 date: 2026-03-01T14:40:25+09:00
 draft: false
 tags: ["Notion", "ノーコードツール", "Inoreader", "自動化"]

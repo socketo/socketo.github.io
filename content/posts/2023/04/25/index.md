@@ -1,5 +1,5 @@
 ---
-title: "Hello Hugo"
+title: "Hugo + GitHub PagesでPaperModテーマを使って技術ブログをゼロから構築する"
 date: 2023-04-25T22:00:26+09:00
 tags: [ others ]
 draft: false

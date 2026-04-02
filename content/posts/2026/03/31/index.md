@@ -1,5 +1,5 @@
 ---
-title: "2026年1月〜3月に読んだ技術書まとめ"
+title: "2026年Q1読書まとめ — モダンLinux・Claude Code・MCP・セキュリティ技術書4冊読書感想文"
 date: 2026-03-31T12:00:00+09:00
 draft: false
 tags: ["読書", "技術書", "Linux", "Claude Code", "MCP", "セキュリティ"]

@@ -1,7 +1,7 @@
 ---
 date: 2019-11-11T00:49:57.0000000
 draft: false
-title: "GCFA(GIAC Certified Forensic Analyst)合格した"
+title: "GCFA合格記 — GIAC Certified Forensic Analyst 受験レポート"
 tags: [ "Forensics", "SANS", "GIAC" ]
 eyecatch: 
 ---
