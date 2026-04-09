@@ -43,6 +43,11 @@ name = "X (Twitter)"
 url = "https://twitter.com/sys_socket"
 
 [[params.social]]
+icon = "brand-bluesky"
+name = "Bluesky"
+url = "https://bsky.app/profile/socketo.bsky.social"
+
+[[params.social]]
 icon = "brand-linkedin"
 name = "LinkedIn"
 url = "https://jp.linkedin.com/in/shigefumi-sakata-8a3978299"

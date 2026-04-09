@@ -90,6 +90,7 @@ draft: false
 ## Links
 - GitHub: [socketo](https://github.com/socketo)
 - X(旧Twitter): [@sys_socket](https://twitter.com/sys_socket)
+- Bluesky: [@socketo.bsky.social](https://bsky.app/profile/socketo.bsky.social)
 - LinkedIn: [Shigefumi Sakata](https://jp.linkedin.com/in/shigefumi-sakata-8a3978299)
 - SpeakerDeck: [socketo](https://speakerdeck.com/socketo)
 - 旧ブログ (Hatena): ~~https://socketo.hatenablog.jp/~~
